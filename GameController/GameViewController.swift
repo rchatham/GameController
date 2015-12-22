@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
         
         guard let peerController = (navigationController as? PeerConnectionController) else { return }
         
+        
         peerController.connectionManager?
             .listenOn(devicesChanged: {
                 [weak self] (peer, names) -> Void in
@@ -37,13 +38,15 @@ class GameViewController: UIViewController {
                     prefix: "Connected users:",
                     array: names,
                     postfix: nil)
-            }).start()
+            })//.start()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        (navigationController as? PeerConnectionController)?.connectionManager?.removeListeners()
+        guard let peerController = (navigationController as? PeerConnectionController) else { return }
+        peerController.connectionManager?.stop()
+
     }
     
     override func didReceiveMemoryWarning() {

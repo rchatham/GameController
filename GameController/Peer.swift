@@ -41,18 +41,27 @@ func ==(lhs: Peer, rhs: Peer) -> Bool {
     switch (lhs, rhs) {
     case (.CurrentUser(let pid1), .CurrentUser(let pid2)):
         return pid1 == pid2
-    case (.Connected(let pid1), .Connected(let pid2)):
-        return pid1 == pid2
-    case (.Connecting(let pid1), .Connecting(let pid2)):
-        return pid1 == pid2
-    case (.Disconnected(let pid1), .Disconnected(let pid2)):
-        return pid1 == pid2
-    default: return false
+    case (let lhs, let rhs):
+        return lhs.peerID == rhs.peerID
+    default: break
     }
 }
+//func ==(lhs: Peer, rhs: Peer) -> Bool {
+//    switch (lhs, rhs) {
+//    case (.CurrentUser(let pid1), .CurrentUser(let pid2)):
+//        return pid1 == pid2
+//    case (.Connected(let pid1), .Connected(let pid2)):
+//        return pid1 == pid2
+//    case (.Connecting(let pid1), .Connecting(let pid2)):
+//        return pid1 == pid2
+//    case (.Disconnected(let pid1), .Disconnected(let pid2)):
+//        return pid1 == pid2
+//    default: return false
+//    }
+//}
 
 extension Peer : Hashable {
     var hashValue : Int {
-        return self.peerID.hashValue
+        return peerID.hashValue
     }
 }

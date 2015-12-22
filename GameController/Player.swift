@@ -11,7 +11,6 @@ import Foundation
 struct Player {
     
     let peer : Peer
-    
     var score : Int = 0
     
     var playerName: String { return peer.displayName }

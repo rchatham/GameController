@@ -52,13 +52,17 @@ class PeerConnectionManager : NSObject {
     private var listeners : [Listener] = []
     
 //    private let peerID : MCPeerID
+    let serviceType : String
+    
     private let session : MCSession
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
-    private let advertiserAssistant : MCAdvertiserAssistant
     private let serviceBrowser : MCNearbyServiceBrowser
     
+//    private let timeStarted = NSDate()
     
     init(serviceType: String, peer: Peer, eventListener listener: (MPCEvent->Void)? = nil) {
+        
+        self.serviceType = serviceType
         
         self.peer = peer
 //        peerID = self.peer.peerID
@@ -70,10 +74,6 @@ class PeerConnectionManager : NSObject {
             peer: self.peer.peerID,
             discoveryInfo: nil,
             serviceType: serviceType)
-        advertiserAssistant = MCAdvertiserAssistant(
-            serviceType: serviceType,
-            discoveryInfo: nil,
-            session: session)
         serviceBrowser = MCNearbyServiceBrowser(
             peer: self.peer.peerID,
             serviceType: serviceType)
@@ -136,7 +136,7 @@ class PeerConnectionManager : NSObject {
     
     func removeListeners() {
         listeners = []
-        mpcEventObserver.observers = nil
+        mpcEventObserver.observers = []
     }
     
     // Session
@@ -150,8 +150,8 @@ class PeerConnectionManager : NSObject {
         session.delegate = nil
     }
     
-    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [MCPeerID]?) {
-        let peers = (peers ?? session.connectedPeers)
+    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [Peer]?) {
+        let peers = (peers != nil) ? (peers!.map { $0.peerID }) : session.connectedPeers
         guard !peers.isEmpty else { return }
         var rootObject: [String: AnyObject] = ["event": event]
         
@@ -198,8 +198,10 @@ class PeerConnectionManager : NSObject {
     
     // Browser Assisstant
     func browserViewController() -> MCBrowserViewController {
-//        stopBrowsingForPeers()
-        return MCBrowserViewController(browser: serviceBrowser, session: session)
+        session.delegate = self
+        return MCBrowserViewController(
+            browser: serviceBrowser,
+            session: session)
     }
     
     // Advestising
@@ -215,13 +217,12 @@ class PeerConnectionManager : NSObject {
     }
     
     // Advertising Assisstant
-    private func startAdvertisingAssisstant() {
-        NSLog("%@", "start advertising assisstant")
-        advertiserAssistant.start()
-    }
-    private func stopAdvertisingAssisstant() {
-        NSLog("%@", "stop advertising assisstant")
-        advertiserAssistant.stop()
+    func advertisingAssisstant() -> MCAdvertiserAssistant {
+        session.delegate = self
+        return MCAdvertiserAssistant(
+            serviceType: serviceType,
+            discoveryInfo: nil,
+            session: session)
     }
     
 }
@@ -243,43 +244,46 @@ extension PeerConnectionManager {
     typealias ErrorListener = (error: MPCError)->Void
     
     
-    func listenOn(ready ready: ReadyListener? = nil,
-        started: StartListener? = nil,
-        devicesChanged: DevicesChangedListener? = nil,
-        dataRecieved: DataListener? = nil,
-        streamRecieved: StreamListener? = nil,
-        recievingResourceStarted: StartedRecievingResourceListener? = nil,
-        recievingResourceFinished: FinishedRecievingResourceListener? = nil,
-        certificateRecieved: CertificateRecievedListener? = nil,
-        ended: SessionEndedListener? = nil,
-        error: ErrorListener? = nil) -> PeerConnectionManager {
+    func listenOn(ready ready: ReadyListener = { _ in },
+        started: StartListener = { _ in },
+        devicesChanged: DevicesChangedListener = { _ in },
+        dataRecieved: DataListener = { _ in },
+        streamRecieved: StreamListener = { _ in },
+        recievingResourceStarted: StartedRecievingResourceListener = { _ in },
+        recievingResourceFinished: FinishedRecievingResourceListener = { _ in },
+        certificateRecieved: CertificateRecievedListener = { _ in },
+        ended: SessionEndedListener = { _ in },
+        error: ErrorListener = { _ in }
+        ) -> PeerConnectionManager {
         
         addListener { event in
             switch event {
                 
-            case .Ready: ready?()
-            case .Started: started?()
+            case .Ready: ready()
+            case .Started: started()
                 
             case .DevicesChanged(peer: let peer, displayNames: let names):
-                devicesChanged?(peer: peer, displayNames: names)
+                devicesChanged(peer: peer, displayNames: names)
                 
             case .RecievedData(peer: let peer, data: let data):
-                dataRecieved?(peer: peer, data: data)
+                dataRecieved(peer: peer, data: data)
                 
             case .RecievedStream(peer: let peer, stream: let stream, name: let name):
-                streamRecieved?(peer: peer, stream: stream, name: name)
+                streamRecieved(peer: peer, stream: stream, name: name)
                 
             case .StartedRecievingResource(peer: let peer, name: let name, progress: let progress):
-                recievingResourceStarted?(peer: peer, name: name, progress: progress)
+                recievingResourceStarted(peer: peer, name: name, progress: progress)
                 
             case .FinishedRecievingResource(peer: let peer, name: let name, url: let url, error: let error):
-                recievingResourceFinished?(peer: peer, name: name, url: url, error: error)
+                recievingResourceFinished(peer: peer, name: name, url: url, error: error)
                 
             case .RecievedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
-                certificateRecieved?(peer: peer, certificate: certificate, handler: handler)
+                certificateRecieved(peer: peer, certificate: certificate, handler: handler)
                 
-            case .Ended: ended?()
-            case .Error(let e): error?(error: e)
+            case .Ended: ended()
+            case .Error(let e): error(error: e)
+                
+//            default: break
             }
         }
         return self
@@ -363,12 +367,9 @@ extension PeerConnectionManager : MCSessionDelegate {
         
         certificateHandler(true)
         
-//        let trust = self.session.myPeerID.hashValue < peerID.hashValue
-//        certificateHandler(trust)
-        
-        let peer = peerForPeerID(peerID)
-        let event = MPCEvent.RecievedCertificate(peer: peer, certificate: certificate, handler: certificateHandler)
-        Async.main { self.mpcEventObserver.value = event }
+//        let peer = peerForPeerID(peerID)
+//        let event = MPCEvent.RecievedCertificate(peer: peer, certificate: certificate, handler: certificateHandler)
+//        Async.main { self.mpcEventObserver.value = event }
     }
     
     private func peerForPeerID(peerID: MCPeerID) -> Peer {
@@ -422,14 +423,41 @@ extension PeerConnectionManager : MCNearbyServiceBrowserDelegate {
     }
 }
 
-extension PeerConnectionManager : MCAdvertiserAssistantDelegate {
-    
-    func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-        NSLog("%@", "advertiser will present invitation")
-        
-    }
-    
-    func advertiserAssistantDidDismissInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-        NSLog("%@", "advertiser did dismiss invitation")
-    }
-}
+//extension PeerConnectionManager : MCAdvertiserAssistantDelegate {
+//    
+//    func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant) {
+//        NSLog("%@", "advertiser will present invitation")
+//        
+//    }
+//    
+//    func advertiserAssistantDidDismissInvitation(advertiserAssistant: MCAdvertiserAssistant) {
+//        NSLog("%@", "advertiser did dismiss invitation")
+//    }
+//}
+//
+//extension PeerConnectionManager : MCBrowserViewControllerDelegate {
+//    
+//    func browserViewController(browserViewController: MCBrowserViewController, shouldPresentNearbyPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Bool {
+//        NSLog("%2", "browserViewController shouldPresentNearbyPeer: \(peerID) withDiscoveryInfo: \(info)")
+//        
+//        
+//        //        mpcBrowserObserver.value = .ShouldPresentNearbyPeer(peer: <#T##Peer#>, withDiscoveryInfo: <#T##[String : String]?#>)
+//        return true
+//    }
+//    
+//    func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
+//        NSLog("%@", "browserViewControllerDidFinish")
+//        browserViewController.dismissViewControllerAnimated(true, completion: nil)
+//        
+//        let event : MPCBrowserEvent = .BrowserDidFinish
+//        Async.main { self.mpcBrowserObserver.value = event }
+//    }
+//    
+//    func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
+//        NSLog("%@", "browserViewControllerWasCancelled")
+//        browserViewController.dismissViewControllerAnimated(true, completion: nil)
+//        
+//        let event : MPCBrowserEvent = .BrowserWasCancelled
+//        Async.main { self.mpcBrowserObserver.value = event }
+//    }
+//}

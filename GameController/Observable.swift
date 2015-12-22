@@ -10,16 +10,16 @@ import Foundation
 
 class Observable<T> {
     typealias Observer = T -> Void
-    var observers: [Observer]?
+    var observers: [Observer] = []
   
     func addObserver(observer: Observer) {
         observer(value)
-        self.observers?.append(observer)
+        self.observers.append(observer)
     }
   
     var value: T {
         didSet {
-            observers?.forEach { observer in
+            observers.forEach { observer in
                 observer(value)
             }
         }
