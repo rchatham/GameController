@@ -21,7 +21,7 @@ class PeerConnectionController: UINavigationController {
     var peer : Peer? {
         didSet {
             guard let peer = peer else { return }
-//            guard connectionManager == nil else { return }
+            guard connectionManager == nil else { return }
             connectionManager = PeerConnectionManager(
                 serviceType: serviceType ?? defaultService,
                 peer: peer)
@@ -47,9 +47,10 @@ class PeerConnectionController: UINavigationController {
     
     
     
-    var connectionStyle : MPCConnectionStyle = .Assisstant
     
-    private var advertiserAssistant : MCAdvertiserAssistant?
+    let connectionStyle : MPCConnectionStyle = .Assisstant
+    
+    
     
     
     private let mpcAssisstantObserver = Observable<MPCAssisstantEvent>(.None)
@@ -76,7 +77,7 @@ class PeerConnectionController: UINavigationController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.navigationBarHidden = false
+        self.navigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,21 +85,7 @@ class PeerConnectionController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    func presentAssisstant() {
-        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "Host a session", style: .Default, handler: startHosting))
-        ac.addAction(UIAlertAction(title: "Join a session", style: .Default, handler: joinSession))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        topViewController?.presentViewController(ac, animated: true, completion: nil)
-    }
-    func startHosting(action: UIAlertAction!) {
-        startAdvertisingAssisstant()
-    }
-    func joinSession(action: UIAlertAction!) {
-        browseForPeers()
-    }
-    
-    func presentAssisstant(hostingHandler: Void->Void, joinHandler: Void->Void) {
+    func presentAssisstant(hostinghandler hostingHandler: Void->Void, joinHandler: Void->Void) {
         let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "Host a session", style: .Default) { [weak self] action in
             self?.startAdvertisingAssisstant()
@@ -116,16 +103,9 @@ class PeerConnectionController: UINavigationController {
     private func startAdvertisingAssisstant() {
         NSLog("%@", "start advertisingAssisstant")
         guard let connectionManager = connectionManager else { return }
-        advertiserAssistant = connectionManager.advertisingAssisstant()
-//        advertiserAssistant?.delegate = self
-        advertiserAssistant?.start()
+        connectionManager.startAdvertisingAssisstant()
     }
-    private func stopAdvertisingAssisstant() {
-        NSLog("%@", "stop advertisingAssisstant")
-        advertiserAssistant?.stop()
-        advertiserAssistant?.delegate = nil
-        advertiserAssistant = nil
-    }
+    
     
     func browseForPeers() {
         guard let connectionManager = connectionManager else { return }
@@ -137,8 +117,8 @@ class PeerConnectionController: UINavigationController {
     func browseForPeersWithListener(listener: MPCAssisstantListener) {
         guard let connectionManager = connectionManager else { return }
         let browserVC = connectionManager.browserViewController()
-        addListener(listener)
         browserVC.delegate = self
+        addListener(listener)
         topViewController?.presentViewController(browserVC, animated: true, completion: nil)
     }
 //    func browseForPeersWithListener(listener: MPCBrowserEventListener) {
@@ -187,15 +167,19 @@ class PeerConnectionController: UINavigationController {
 //        advertiserListeners = []
 //        mpcAdvertiserObserver.observers = nil
 //    }
+    
+    func endConnection() {
+        connectionManager = nil
+    }
 }
 
 enum MPCAssisstantEvent {
     case None
-//    case WillPresentInvitation
-//    case DidDismissInvitation
-    case ShouldPresentNearbyPeer(peer: Peer, withDiscoveryInfo: [String : String]?)
+//    case ShouldPresentNearbyPeer(peer: Peer, withDiscoveryInfo: [String : String]?)
     case BrowserDidFinish
     case BrowserWasCancelled
+    //    case WillPresentInvitation
+    //    case DidDismissInvitation
 }
 //
 //enum MPCAdvertiserEvent {
@@ -236,15 +220,14 @@ extension PeerConnectionController : MCBrowserViewControllerDelegate {
     func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
         NSLog("%@", "browserViewControllerDidFinish")
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
-//        let event : MPCBrowserEvent = .BrowserDidFinish
 //        mpcBrowserObserver.value = .BrowserDidFinish
-        mpcAssisstantObserver.value = .BrowserDidFinish
+        Async.main { self.mpcAssisstantObserver.value = .BrowserDidFinish }
     }
     
     func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
         NSLog("%@", "browserViewControllerWasCancelled")
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
 //        mpcBrowserObserver.value = .BrowserWasCancelled
-        mpcAssisstantObserver.value = .BrowserWasCancelled
+        Async.main { self.mpcAssisstantObserver.value = .BrowserWasCancelled }
     }
 }

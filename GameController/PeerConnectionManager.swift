@@ -15,6 +15,7 @@ enum MPCError : ErrorType {
     case DidNotStartBrowsingForPeers(NSError)
 }
 
+// Event representations of all of the possible delegate calls for MCSession, MCNearbyServiceBrowser, and MCNearbyServiceAdvertiser
 enum MPCEvent {
     case Ready
     case Started
@@ -28,6 +29,7 @@ enum MPCEvent {
     case Ended
 }
 
+// Will be used for making data serializable for transfer
 protocol MPCSerializable {
     var mpcSerialized: NSData { get }
     init(mpcSerialized: NSData)
@@ -57,6 +59,8 @@ class PeerConnectionManager : NSObject {
     private let session : MCSession
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
+    
+    private var isStarted = false
     
 //    private let timeStarted = NSDate()
     
@@ -96,6 +100,7 @@ class PeerConnectionManager : NSObject {
         startAdvertisingPeer()
         startBrowsingForPeers()
         mpcEventObserver.value = .Started
+        isStarted = true
     }
     
     func startWithListener(listener: Listener) {
@@ -104,6 +109,7 @@ class PeerConnectionManager : NSObject {
         startBrowsingForPeers()
         addListener(listener)
         mpcEventObserver.value = .Started
+        isStarted = true
     }
     
     func startWithListeners(listeners: [Listener]) {
@@ -112,12 +118,14 @@ class PeerConnectionManager : NSObject {
         startBrowsingForPeers()
         addListeners(listeners)
         mpcEventObserver.value = .Started
+        isStarted = true
     }
     
     func stop() {
         stopSession()
         stopAdvertisingPeer()
         stopBrowsingForPeers()
+        stopAdvertisingAssisstant()
         mpcEventObserver.value = .Ended
         removeListeners()
     }
@@ -141,64 +149,67 @@ class PeerConnectionManager : NSObject {
     
     // Session
     private func startSession() {
-        NSLog("%@", "start session")
+        NSLog("%@", "startSession")
         session.delegate = self
     }
     private func stopSession() {
-        NSLog("%@", "stop session")
+        NSLog("%@", "stopSession")
         session.disconnect()
         session.delegate = nil
     }
     
-    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [Peer]?) {
-        let peers = (peers != nil) ? (peers!.map { $0.peerID }) : session.connectedPeers
-        guard !peers.isEmpty else { return }
-        var rootObject: [String: AnyObject] = ["event": event]
-        
-        if let object = object {
-            rootObject["object"] = object
-        }
-        
-        let data = NSKeyedArchiver.archivedDataWithRootObject(rootObject)
-        
-        do {
-            try session.sendData(data, toPeers: peers, withMode: .Reliable)
-        } catch let error {
-            NSLog("%@", "Error sending data: \(error)")
-        }
-    }
+    //
+    // I plan to fully rewrite sendEvent, sendResourceAtURL, and startStreamWithName. These are basically taken directly from PeeKit.
+    //
     
-    func sendResourceAtURL(resourceURL: NSURL, withName resourceName: String, toPeers peers: [Peer]?, withCompletionHandler completionHandler: ((NSError?) -> Void)?) -> [NSProgress?]? {
-            
-        return (peers?.map { $0.peerID } ?? session.connectedPeers) .map { peerID in
-            return session.sendResourceAtURL(resourceURL, withName: resourceName, toPeer: peerID, withCompletionHandler: completionHandler)
-        }
-    }
-    
-    func startStreamWithName(streamName: String, toPeer peer: Peer) {
-        
-        do {
-            try session.startStreamWithName(streamName, toPeer: peer.peerID)
-        } catch let error {
-            NSLog("%@", "Error starting stream with data: \(error)")
-        }
-    }
+//    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [Peer]?) {
+//        let peers = (peers != nil) ? (peers!.map { $0.peerID }) : session.connectedPeers
+//        guard !peers.isEmpty else { return }
+//        var rootObject: [String: AnyObject] = ["event": event]
+//        
+//        if let object = object {
+//            rootObject["object"] = object
+//        }
+//        
+//        let data = NSKeyedArchiver.archivedDataWithRootObject(rootObject)
+//        
+//        do {
+//            try session.sendData(data, toPeers: peers, withMode: .Reliable)
+//        } catch let error {
+//            NSLog("%@", "Error sending data: \(error)")
+//        }
+//    }
+//    
+//    func sendResourceAtURL(resourceURL: NSURL, withName resourceName: String, toPeers peers: [Peer]?, withCompletionHandler completionHandler: ((NSError?) -> Void)?) -> [NSProgress?]? {
+//            
+//        return (peers?.map { $0.peerID } ?? session.connectedPeers) .map { peerID in
+//            return session.sendResourceAtURL(resourceURL, withName: resourceName, toPeer: peerID, withCompletionHandler: completionHandler)
+//        }
+//    }
+//    
+//    func startStreamWithName(streamName: String, toPeer peer: Peer) {
+//        
+//        do {
+//            try session.startStreamWithName(streamName, toPeer: peer.peerID)
+//        } catch let error {
+//            NSLog("%@", "Error starting stream with data: \(error)")
+//        }
+//    }
     
     // Browsing
     private func startBrowsingForPeers() {
-        NSLog("%@", "start browsing for peers")
+        NSLog("%@", "startBrowsingForPeers")
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
     }
     private func stopBrowsingForPeers() {
-        NSLog("%@", "stop browsing for peers")
+        NSLog("%@", "stopBrowsingForPeers")
         serviceBrowser.stopBrowsingForPeers()
         serviceBrowser.delegate = nil
     }
     
     // Browser Assisstant
     func browserViewController() -> MCBrowserViewController {
-        session.delegate = self
         return MCBrowserViewController(
             browser: serviceBrowser,
             session: session)
@@ -206,23 +217,33 @@ class PeerConnectionManager : NSObject {
     
     // Advestising
     private func startAdvertisingPeer() {
-        NSLog("%@", "start advertising peer")
+        NSLog("%@", "startAdvertisingPeer")
         serviceAdvertiser.delegate = self
         serviceAdvertiser.startAdvertisingPeer()
     }
     private func stopAdvertisingPeer() {
-        NSLog("%@", "stop advertising peer")
+        NSLog("%@", "stopAdvertisingPeer")
         serviceAdvertiser.stopAdvertisingPeer()
         serviceAdvertiser.delegate = nil
     }
     
+    private var advertiserAssistant : MCAdvertiserAssistant?
+    
     // Advertising Assisstant
-    func advertisingAssisstant() -> MCAdvertiserAssistant {
+    func startAdvertisingAssisstant() {
+        NSLog("%@", "startAdvertisingAssisstant")
         session.delegate = self
-        return MCAdvertiserAssistant(
+        advertiserAssistant = MCAdvertiserAssistant(
             serviceType: serviceType,
             discoveryInfo: nil,
             session: session)
+        advertiserAssistant?.start()
+    }
+    private func stopAdvertisingAssisstant() {
+        NSLog("%@", "stopAdvertisingAssisstant")
+        advertiserAssistant?.stop()
+        advertiserAssistant?.delegate = nil
+        advertiserAssistant = nil
     }
     
 }
@@ -242,7 +263,6 @@ extension PeerConnectionManager {
     typealias CertificateRecievedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
     
     typealias ErrorListener = (error: MPCError)->Void
-    
     
     func listenOn(ready ready: ReadyListener = { _ in },
         started: StartListener = { _ in },

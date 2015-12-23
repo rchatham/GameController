@@ -44,15 +44,16 @@ class GameViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        guard let peerController = (navigationController as? PeerConnectionController) else { return }
-        peerController.connectionManager?.stop()
-
+//        guard let peerController = (navigationController as? PeerConnectionController) else { return }
+//        peerController.endConnection()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     func outputStringForArray(prefix prefix: String? = nil, array: [String], postfix: String? = nil) -> String {
         var output = ""

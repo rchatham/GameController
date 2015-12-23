@@ -24,17 +24,20 @@ class PickPlayerViewController: UIViewController {
         
         switch peerController.connectionStyle {
         case .Assisstant: //break
-            peerController.presentAssisstant({ [weak self] in
-                peerController.browseForPeersWithListener { (event: MPCAssisstantEvent) in
-                    switch event {
-                    case .BrowserDidFinish: self?.performSegueWithIdentifier("JoinGameSession", sender: self!)
-                    default: break
+            peerController.presentAssisstant(
+                hostinghandler: { [weak self] in
+                    peerController.browseForPeersWithListener { (event: MPCAssisstantEvent) in
+                        switch event {
+                        case .BrowserDidFinish: self?.performSegueWithIdentifier("JoinGameSession", sender: self!)
+                        case .BrowserWasCancelled:
+                            peerController.endConnection()
+                        default: break
+                        }
                     }
-                }
-//                self?.performSegueWithIdentifier("JoinGameSession", sender: self)
-                }) { [weak self] in
-                self?.performSegueWithIdentifier("JoinGameSession", sender: self)
-            }
+                },
+                joinHandler: { [weak self] in
+                    self?.performSegueWithIdentifier("JoinGameSession", sender: self)
+                })
         case .Automatic: break
             peerController.connectionManager?.start()
         }
@@ -59,6 +62,11 @@ enum PickPlayerSegues : String {
 
 extension PickPlayerViewController {
     // MARK: - Navigation
+    
+    @IBAction func prepareForUnwindSegue(segue: UIStoryboardSegue) {
+        guard let peerController = (navigationController as? PeerConnectionController) else { return }
+        peerController.endConnection()
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
