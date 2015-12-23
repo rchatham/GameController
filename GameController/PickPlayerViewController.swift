@@ -26,20 +26,21 @@ class PickPlayerViewController: UIViewController {
         case .Assisstant: //break
             peerController.presentAssisstant(
                 hostinghandler: { [weak self] in
-                    peerController.browseForPeersWithListener { (event: MPCAssisstantEvent) in
+                    peerController.browseForPeers(withListener: { (event: MPCAssisstantEvent) in
                         switch event {
                         case .BrowserDidFinish: self?.performSegueWithIdentifier("JoinGameSession", sender: self!)
                         case .BrowserWasCancelled:
                             peerController.endConnection()
                         default: break
                         }
-                    }
+                    })
                 },
                 joinHandler: { [weak self] in
                     self?.performSegueWithIdentifier("JoinGameSession", sender: self)
                 })
         case .Automatic: break
-            peerController.connectionManager?.start()
+//            peerController.connectionManager?.start()
+//            performSegueWithIdentifier("JoinGameSession", sender: self)
         }
     }
 

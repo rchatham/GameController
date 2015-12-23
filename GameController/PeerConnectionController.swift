@@ -14,6 +14,12 @@ enum MPCConnectionStyle {
     case Assisstant
 }
 
+enum MPCAssisstantEvent {
+    case None
+    case BrowserDidFinish
+    case BrowserWasCancelled
+}
+
 class PeerConnectionController: UINavigationController {
     
     typealias ServiceType = String //Not more than 15 characters!!!!!
@@ -33,24 +39,22 @@ class PeerConnectionController: UINavigationController {
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     var serviceType : ServiceType {
         get {
-            return connectionManager?.serviceType ?? defaultService
+            return connectionManager?.serviceType ?? (service ?? defaultService)
         }
         set(serviceType) {
+            self.service = serviceType.characters.count <= 15 ? serviceType : defaultService
             guard let peer = peer else { return }
-            let service = serviceType.characters.count <= 15 ? serviceType : defaultService
+            let service = self.serviceType
             connectionManager = PeerConnectionManager(
                 serviceType: service,
                 peer: peer)
         }
     }
+    private var service : ServiceType?
     private let defaultService : ServiceType = "default-service"
     
     
-    
-    
     let connectionStyle : MPCConnectionStyle = .Assisstant
-    
-    
     
     
     private let mpcAssisstantObserver = Observable<MPCAssisstantEvent>(.None)
@@ -59,18 +63,6 @@ class PeerConnectionController: UINavigationController {
     private var listeners : [MPCAssisstantListener] = []
 
     
-    
-//    private let mpcBrowserObserver = Observable<MPCBrowserEvent>(.None)
-//    
-//    typealias MPCBrowserEventListener = MPCBrowserEvent->Void
-//    private var browserListeners : [MPCBrowserEventListener] = []
-    
-    
-    
-//    private let mpcAdvertiserObserver = Observable<MPCAdvertiserEvent>(.None)
-//    
-//    typealias MPCAdvertiserEventListener = MPCAdvertiserEvent->Void
-//    private var advertiserListeners : [MPCAdvertiserEventListener] = []
     
     // LIFE CYCLE
     override func viewDidLoad() {
@@ -99,135 +91,54 @@ class PeerConnectionController: UINavigationController {
         topViewController?.presentViewController(ac, animated: true, completion: nil)
     }
     
-    // Advertising Advertiser
+    // Advertising Assisstant
     private func startAdvertisingAssisstant() {
         NSLog("%@", "start advertisingAssisstant")
         guard let connectionManager = connectionManager else { return }
         connectionManager.startAdvertisingAssisstant()
     }
     
-    
-    func browseForPeers() {
+    // Browsing Assisstant
+    func browseForPeers(withListener listener: MPCAssisstantListener? = nil) {
         guard let connectionManager = connectionManager else { return }
         let browserVC = connectionManager.browserViewController()
         browserVC.delegate = self
+        if let listener = listener { addListener(listener) }
         topViewController?.presentViewController(browserVC, animated: true, completion: nil)
     }
-    
-    func browseForPeersWithListener(listener: MPCAssisstantListener) {
-        guard let connectionManager = connectionManager else { return }
-        let browserVC = connectionManager.browserViewController()
-        browserVC.delegate = self
-        addListener(listener)
-        topViewController?.presentViewController(browserVC, animated: true, completion: nil)
-    }
-//    func browseForPeersWithListener(listener: MPCBrowserEventListener) {
-//        guard let connectionManager = connectionManager else { return }
-//        let browserVC = connectionManager.browserViewController()
-//        addListener(listener)
-//        browserVC.delegate = self
-//        topViewController?.presentViewController(browserVC, animated: true, completion: nil)
-//    }
     
     func addListener(listener: MPCAssisstantListener) {
         listeners.append(listener)
         mpcAssisstantObserver.addObserver(listener)
     }
-//    func addListener(listener: MPCBrowserEventListener) {
-//        browserListeners.append(listener)
-//        mpcBrowserObserver.addObserver(listener)
-//    }
-//    func addListener(listener: MPCAdvertiserEventListener) {
-//        advertiserListeners.append(listener)
-//        mpcAdvertiserObserver.addObserver(listener)
-//    }
     
     func addListeners(listeners: [MPCAssisstantListener]) {
         listeners.forEach { addListener($0) }
     }
-//    func addlisteners(listeners: [MPCBrowserEventListener]) {
-//        listeners.forEach { addListener($0) }
-//    }
-//    func addListeners(listeners: [MPCAdvertiserEventListener]) {
-//        listeners.forEach { addListener($0) }
-//    }
 
     func removeListeners() {
         listeners = []
         mpcAssisstantObserver.observers = []
-        
-//        removebrowserListeners()
-//        removeAdvertiserListeners()
     }
-//    func removebrowserListeners() {
-//        browserListeners = []
-//        mpcBrowserObserver.observers = nil
-//    }
-//    func removeAdvertiserListeners() {
-//        advertiserListeners = []
-//        mpcAdvertiserObserver.observers = nil
-//    }
     
     func endConnection() {
         connectionManager = nil
     }
 }
 
-enum MPCAssisstantEvent {
-    case None
-//    case ShouldPresentNearbyPeer(peer: Peer, withDiscoveryInfo: [String : String]?)
-    case BrowserDidFinish
-    case BrowserWasCancelled
-    //    case WillPresentInvitation
-    //    case DidDismissInvitation
-}
-//
-//enum MPCAdvertiserEvent {
-//    case None
-//    case WillPresentInvitation
-//    case DidDismissInvitation
-//}
-
-//enum MPCBrowserEvent {
-//    case None
-//    case ShouldPresentNearbyPeer(peer: Peer, withDiscoveryInfo: [String : String]?)
-//    case BrowserDidFinish
-//    case BrowserWasCancelled
-//}
-
-extension PeerConnectionController : MCAdvertiserAssistantDelegate {
-    
-    func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-        NSLog("%@", "advertiser will present invitation")
-        
-    }
-    
-    func advertiserAssistantDidDismissInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-        NSLog("%@", "advertiser did dismiss invitation")
-    }
-}
-
 extension PeerConnectionController : MCBrowserViewControllerDelegate {
-    
-//    func browserViewController(browserViewController: MCBrowserViewController, shouldPresentNearbyPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Bool {
-//        NSLog("%2", "browserViewController shouldPresentNearbyPeer: \(peerID) withDiscoveryInfo: \(info)")
-//        
-//        
-////        mpcBrowserObserver.value = .ShouldPresentNearbyPeer(peer: <#T##Peer#>, withDiscoveryInfo: <#T##[String : String]?#>)
-//        return true
-//    }
     
     func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
         NSLog("%@", "browserViewControllerDidFinish")
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
-//        mpcBrowserObserver.value = .BrowserDidFinish
+        
         Async.main { self.mpcAssisstantObserver.value = .BrowserDidFinish }
     }
     
     func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
         NSLog("%@", "browserViewControllerWasCancelled")
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
-//        mpcBrowserObserver.value = .BrowserWasCancelled
+        
         Async.main { self.mpcAssisstantObserver.value = .BrowserWasCancelled }
     }
 }

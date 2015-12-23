@@ -53,8 +53,6 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
     func outputStringForArray(prefix prefix: String? = nil, array: [String], postfix: String? = nil) -> String {
         var output = ""
         switch prefix {

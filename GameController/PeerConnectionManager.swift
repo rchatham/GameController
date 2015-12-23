@@ -24,7 +24,7 @@ enum MPCEvent {
     case RecievedStream(peer: Peer, stream: NSStream, name: String)
     case StartedRecievingResource(peer: Peer, name: String, progress: NSProgress)
     case FinishedRecievingResource(peer: Peer, name: String, url: NSURL, error: NSError?)
-    case RecievedCertificate(peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)
+//    case RecievedCertificate(peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)
     case Error(MPCError)
     case Ended
 }
@@ -53,7 +53,7 @@ class PeerConnectionManager : NSObject {
     typealias Listener = MPCEvent->Void
     private var listeners : [Listener] = []
     
-//    private let peerID : MCPeerID
+    
     let serviceType : String
     
     private let session : MCSession
@@ -62,14 +62,12 @@ class PeerConnectionManager : NSObject {
     
     private var isStarted = false
     
-//    private let timeStarted = NSDate()
     
     init(serviceType: String, peer: Peer, eventListener listener: (MPCEvent->Void)? = nil) {
         
         self.serviceType = serviceType
         
         self.peer = peer
-//        peerID = self.peer.peerID
         session = MCSession(
             peer: self.peer.peerID,
             securityIdentity: nil,
@@ -271,7 +269,7 @@ extension PeerConnectionManager {
         streamRecieved: StreamListener = { _ in },
         recievingResourceStarted: StartedRecievingResourceListener = { _ in },
         recievingResourceFinished: FinishedRecievingResourceListener = { _ in },
-        certificateRecieved: CertificateRecievedListener = { _ in },
+//        certificateRecieved: CertificateRecievedListener = { _ in },
         ended: SessionEndedListener = { _ in },
         error: ErrorListener = { _ in }
         ) -> PeerConnectionManager {
@@ -297,8 +295,8 @@ extension PeerConnectionManager {
             case .FinishedRecievingResource(peer: let peer, name: let name, url: let url, error: let error):
                 recievingResourceFinished(peer: peer, name: name, url: url, error: error)
                 
-            case .RecievedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
-                certificateRecieved(peer: peer, certificate: certificate, handler: handler)
+//            case .RecievedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
+//                certificateRecieved(peer: peer, certificate: certificate, handler: handler)
                 
             case .Ended: ended()
             case .Error(let e): error(error: e)
@@ -442,42 +440,3 @@ extension PeerConnectionManager : MCNearbyServiceBrowserDelegate {
         NSLog("%@", "lostPeer: \(peerID)")
     }
 }
-
-//extension PeerConnectionManager : MCAdvertiserAssistantDelegate {
-//    
-//    func advertiserAssistantWillPresentInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-//        NSLog("%@", "advertiser will present invitation")
-//        
-//    }
-//    
-//    func advertiserAssistantDidDismissInvitation(advertiserAssistant: MCAdvertiserAssistant) {
-//        NSLog("%@", "advertiser did dismiss invitation")
-//    }
-//}
-//
-//extension PeerConnectionManager : MCBrowserViewControllerDelegate {
-//    
-//    func browserViewController(browserViewController: MCBrowserViewController, shouldPresentNearbyPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Bool {
-//        NSLog("%2", "browserViewController shouldPresentNearbyPeer: \(peerID) withDiscoveryInfo: \(info)")
-//        
-//        
-//        //        mpcBrowserObserver.value = .ShouldPresentNearbyPeer(peer: <#T##Peer#>, withDiscoveryInfo: <#T##[String : String]?#>)
-//        return true
-//    }
-//    
-//    func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
-//        NSLog("%@", "browserViewControllerDidFinish")
-//        browserViewController.dismissViewControllerAnimated(true, completion: nil)
-//        
-//        let event : MPCBrowserEvent = .BrowserDidFinish
-//        Async.main { self.mpcBrowserObserver.value = event }
-//    }
-//    
-//    func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
-//        NSLog("%@", "browserViewControllerWasCancelled")
-//        browserViewController.dismissViewControllerAnimated(true, completion: nil)
-//        
-//        let event : MPCBrowserEvent = .BrowserWasCancelled
-//        Async.main { self.mpcBrowserObserver.value = event }
-//    }
-//}
