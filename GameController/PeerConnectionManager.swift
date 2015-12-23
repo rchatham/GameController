@@ -160,39 +160,39 @@ class PeerConnectionManager : NSObject {
     // I plan to fully rewrite sendEvent, sendResourceAtURL, and startStreamWithName. These are basically taken directly from PeeKit.
     //
     
-//    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [Peer]?) {
-//        let peers = (peers != nil) ? (peers!.map { $0.peerID }) : session.connectedPeers
-//        guard !peers.isEmpty else { return }
-//        var rootObject: [String: AnyObject] = ["event": event]
-//        
-//        if let object = object {
-//            rootObject["object"] = object
-//        }
-//        
-//        let data = NSKeyedArchiver.archivedDataWithRootObject(rootObject)
-//        
-//        do {
-//            try session.sendData(data, toPeers: peers, withMode: .Reliable)
-//        } catch let error {
-//            NSLog("%@", "Error sending data: \(error)")
-//        }
-//    }
-//    
-//    func sendResourceAtURL(resourceURL: NSURL, withName resourceName: String, toPeers peers: [Peer]?, withCompletionHandler completionHandler: ((NSError?) -> Void)?) -> [NSProgress?]? {
-//            
-//        return (peers?.map { $0.peerID } ?? session.connectedPeers) .map { peerID in
-//            return session.sendResourceAtURL(resourceURL, withName: resourceName, toPeer: peerID, withCompletionHandler: completionHandler)
-//        }
-//    }
-//    
-//    func startStreamWithName(streamName: String, toPeer peer: Peer) {
-//        
-//        do {
-//            try session.startStreamWithName(streamName, toPeer: peer.peerID)
-//        } catch let error {
-//            NSLog("%@", "Error starting stream with data: \(error)")
-//        }
-//    }
+    func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [Peer]?) {
+        let peers = (peers != nil) ? (peers!.map { $0.peerID }) : session.connectedPeers
+        guard !peers.isEmpty else { return }
+        var rootObject: [String: AnyObject] = ["event": event]
+        
+        if let object = object {
+            rootObject["object"] = object
+        }
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(rootObject)
+        
+        do {
+            try session.sendData(data, toPeers: peers, withMode: .Reliable)
+        } catch let error {
+            NSLog("%@", "Error sending data: \(error)")
+        }
+    }
+    
+    func sendResourceAtURL(resourceURL: NSURL, withName resourceName: String, toPeers peers: [Peer]?, withCompletionHandler completionHandler: ((NSError?) -> Void)?) -> [NSProgress?]? {
+            
+        return (peers?.map { $0.peerID } ?? session.connectedPeers) .map { peerID in
+            return session.sendResourceAtURL(resourceURL, withName: resourceName, toPeer: peerID, withCompletionHandler: completionHandler)
+        }
+    }
+    
+    func startStreamWithName(streamName: String, toPeer peer: Peer) {
+        
+        do {
+            try session.startStreamWithName(streamName, toPeer: peer.peerID)
+        } catch let error {
+            NSLog("%@", "Error starting stream with data: \(error)")
+        }
+    }
     
     // Browsing
     private func startBrowsingForPeers() {

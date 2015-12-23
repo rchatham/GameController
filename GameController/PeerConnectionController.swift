@@ -77,15 +77,23 @@ class PeerConnectionController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    func presentAssisstant(hostinghandler hostingHandler: Void->Void, joinHandler: Void->Void) {
+    func presentAssisstant(completionHandler: Void->Void) {
         let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "Host a session", style: .Default) { [weak self] action in
             self?.startAdvertisingAssisstant()
-            hostingHandler()
+            
+            self?.browseForPeers(withListener: { (event: MPCAssisstantEvent) in
+                switch event {
+                case .BrowserDidFinish: completionHandler()
+                case .BrowserWasCancelled:
+                    self?.endConnection()
+                default: break
+                }
+            })
         })
         ac.addAction(UIAlertAction(title: "Join a session", style: .Default) { [weak self] action in
             self?.startAdvertisingAssisstant()
-            joinHandler()
+            completionHandler()
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         topViewController?.presentViewController(ac, animated: true, completion: nil)
