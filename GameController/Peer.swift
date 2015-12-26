@@ -14,6 +14,7 @@ enum Peer {
     case Connected(MCPeerID)
     case Connecting(MCPeerID)
     case Disconnected(MCPeerID)
+    case NotConnected(MCPeerID)
     
     var peerID : MCPeerID {
         switch self {
@@ -21,6 +22,7 @@ enum Peer {
         case .Connected(let pid): return pid
         case .Connecting(let pid): return pid
         case .Disconnected(let pid): return pid
+        case .NotConnected(let pid) : return pid
         }
     }
     

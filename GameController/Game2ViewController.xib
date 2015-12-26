@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Game2ViewController" customModule="GameController" customModuleProvider="target">
+            <connections>
+                <outlet property="outputLabel" destination="aou-W3-oBi" id="yRF-OG-JER"/>
+                <outlet property="view" destination="iN0-l3-epB" id="h3f-dj-2Jy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aou-W3-oBi">
+                    <rect key="frame" x="279" y="289" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uml-nI-4Ky">
+                    <rect key="frame" x="283" y="562" width="34" height="30"/>
+                    <state key="normal" title="Back"/>
+                    <connections>
+                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="4W9-gJ-fa1"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Uml-nI-4Ky" firstAttribute="centerX" secondItem="aou-W3-oBi" secondAttribute="centerX" id="8GT-Oh-qeh"/>
+                <constraint firstItem="aou-W3-oBi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="X9t-nz-xqF"/>
+                <constraint firstItem="Uml-nI-4Ky" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="peQ-cm-VAi"/>
+                <constraint firstItem="aou-W3-oBi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sqG-J6-DZb"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

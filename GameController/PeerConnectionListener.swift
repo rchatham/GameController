@@ -1,0 +1,120 @@
+//
+//  PeerConnectionListener.swift
+//  GameController
+//
+//  Created by Reid Chatham on 12/25/15.
+//  Copyright © 2015 Reid Chatham. All rights reserved.
+//
+
+import Foundation
+
+enum PeerConnectionEvent {
+    case Ready
+    case Started
+    case DevicesChanged(peer: Peer, displayNames: [String])
+    case RecievedData(peer: Peer, data: NSData)
+    case RecievedStream(peer: Peer, stream: NSStream, name: String)
+    case StartedRecievingResource(peer: Peer, name: String, progress: NSProgress)
+    case FinishedRecievingResource(peer: Peer, name: String, url: NSURL, error: NSError?)
+    case RecievedCertificate(peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)
+    case Error(PeerConnectionError)
+    case Ended
+}
+
+enum PeerConnectionError : ErrorType {
+    case Error(NSError)
+    case DidNotStartAdvertisingPeer(NSError)
+    case DidNotStartBrowsingForPeers(NSError)
+}
+
+struct PeerConnectionListener {
+    
+    private let peerEventObserver : Observable<PeerConnectionEvent>
+    
+    typealias Listener = PeerConnectionEvent->Void
+    internal private(set) var listeners : [Listener] = []
+    
+    init(observer: Observable<PeerConnectionEvent>) {
+        peerEventObserver = observer
+    }
+    
+    // Listeners
+    private mutating func addListener(listener: Listener) -> PeerConnectionListener {
+        listeners.append(listener)
+        peerEventObserver.addObserver(listener)
+        return self
+    }
+    
+    private mutating func addListeners(listeners: [Listener]) -> PeerConnectionListener {
+        listeners.forEach { addListener($0) }
+        return self
+    }
+    
+    private mutating func removeListeners() {
+        listeners = []
+        peerEventObserver.observers = []
+    }
+    
+    
+    typealias ReadyListener = Void->Void
+    typealias StartListener = Void->Void
+    typealias SessionEndedListener = Void->Void
+    
+    typealias DevicesChangedListener = (peer: Peer, displayNames: [String])->Void
+    typealias DataListener = (peer: Peer, data: NSData)->Void
+    typealias StreamListener = (peer: Peer, stream: NSStream, name: String)->Void
+    typealias StartedRecievingResourceListener = (peer: Peer, name: String, progress: NSProgress)->Void
+    typealias FinishedRecievingResourceListener = (peer: Peer, name: String, url: NSURL, error: NSError?)->Void
+    typealias CertificateRecievedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
+    
+    typealias ErrorListener = (error: PeerConnectionError)->Void
+    
+    mutating func listenOn(ready ready: ReadyListener = { _ in },
+        started: StartListener = { _ in },
+        devicesChanged: DevicesChangedListener = { _ in },
+        dataRecieved: DataListener = { _ in },
+        streamRecieved: StreamListener = { _ in },
+        recievingResourceStarted: StartedRecievingResourceListener = { _ in },
+        recievingResourceFinished: FinishedRecievingResourceListener = { _ in },
+        certificateRecieved: CertificateRecievedListener = { _ in },
+        ended: SessionEndedListener = { _ in },
+        error: ErrorListener = { _ in }
+        ) -> PeerConnectionListener {
+            
+            addListener { event in
+                switch event {
+                    
+                case .Ready: ready()
+                case .Started: started()
+                    
+                case .DevicesChanged(peer: let peer, displayNames: let names):
+                    devicesChanged(peer: peer, displayNames: names)
+                    
+                case .RecievedData(peer: let peer, data: let data):
+                    dataRecieved(peer: peer, data: data)
+                    
+                case .RecievedStream(peer: let peer, stream: let stream, name: let name):
+                    streamRecieved(peer: peer, stream: stream, name: name)
+                    
+                case .StartedRecievingResource(peer: let peer, name: let name, progress: let progress):
+                    recievingResourceStarted(peer: peer, name: name, progress: progress)
+                    
+                case .FinishedRecievingResource(peer: let peer, name: let name, url: let url, error: let error):
+                    recievingResourceFinished(peer: peer, name: name, url: url, error: error)
+                    
+                case .RecievedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
+                    certificateRecieved(peer: peer, certificate: certificate, handler: handler)
+                    
+                case .Ended: ended()
+                case .Error(let e): error(error: e)
+                    
+//                default: break
+                }
+            }
+            return self
+    }
+    
+    mutating func stopListening() {
+        removeListeners()
+    }
+}

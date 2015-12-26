@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        let joinMatchVM = JoinMatchViewModel()
+        let joinMatchVC = JoinMatchViewController(viewModel: joinMatchVM)
+        window?.rootViewController = joinMatchVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
