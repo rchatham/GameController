@@ -19,7 +19,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aou-W3-oBi">
                     <rect key="frame" x="279" y="289" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uml-nI-4Ky">
@@ -29,9 +29,18 @@
                         <action selector="goBack:" destination="-1" eventType="touchUpInside" id="4W9-gJ-fa1"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-E1-4GO">
+                    <rect key="frame" x="281" y="318" width="39" height="30"/>
+                    <state key="normal" title="Start!"/>
+                    <connections>
+                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="b8a-Ks-5gx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Gmm-E1-4GO" firstAttribute="centerX" secondItem="aou-W3-oBi" secondAttribute="centerX" id="25P-dm-9rP"/>
+                <constraint firstItem="Gmm-E1-4GO" firstAttribute="top" secondItem="aou-W3-oBi" secondAttribute="bottom" constant="8" id="3aB-x4-hOn"/>
                 <constraint firstItem="Uml-nI-4Ky" firstAttribute="centerX" secondItem="aou-W3-oBi" secondAttribute="centerX" id="8GT-Oh-qeh"/>
                 <constraint firstItem="aou-W3-oBi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="X9t-nz-xqF"/>
                 <constraint firstItem="Uml-nI-4Ky" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="peQ-cm-VAi"/>

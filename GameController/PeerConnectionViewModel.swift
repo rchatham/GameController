@@ -344,7 +344,7 @@ extension PeerConnectionViewModel : MCSessionDelegate {
             case .None: connectedPeers.append(peer)
             }
         case .NotConnected:
-            peer = Peer.Disconnected(peerID)
+            peer = Peer.NotConnected(peerID)
             connectedPeers = connectedPeers.filter { $0.peerID != peerID }
         }
         

@@ -43,4 +43,16 @@ struct PeerSession {
         }
     }
     
+    func sendDataStream(streamName: String, toPeer peer: Peer) {
+        do {
+            try session.startStreamWithName(streamName, toPeer: peer.peerID)
+        } catch let error {
+            NSLog("%@", "Error starting stream to \(peer.displayName): \(error)")
+        }
+    }
+    
+//    func sendResourceAtURL() {
+//        session.sendResourceAtURL(<#T##resourceURL: NSURL##NSURL#>, withName: <#T##String#>, toPeer: <#T##MCPeerID#>, withCompletionHandler: <#T##((NSError?) -> Void)?##((NSError?) -> Void)?##(NSError?) -> Void#>)
+//    }
+    
 }

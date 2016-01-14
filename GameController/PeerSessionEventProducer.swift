@@ -52,7 +52,7 @@ extension PeerSessionEventProducer: MCSessionDelegate {
         case .Connecting:
             peer = Peer.Connecting(peerID)
         case .NotConnected:
-            peer = Peer.Disconnected(peerID)
+            peer = Peer.NotConnected(peerID)
         }
         
         let event: PeerSessionEvent = .DevicesChanged(peer: peer)
@@ -93,8 +93,6 @@ extension PeerSessionEventProducer: MCSessionDelegate {
     
     func session(session: MCSession, didReceiveCertificate certificate: [AnyObject]?, fromPeer peerID: MCPeerID, certificateHandler: (Bool) -> Void) {
         NSLog("%@", "didReceiveCertificate")
-        
-        certificateHandler(true)
         
         let peer = Peer.Connected(peerID)
         let event: PeerSessionEvent = .DidReceiveCertificate(peer: peer, certificate: certificate, handler: certificateHandler)

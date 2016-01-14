@@ -13,7 +13,7 @@ struct Player {
     let peer : Peer
     var score : Int = 0
     
-    var playerName: String { return peer.displayName }
+    var name: String { return peer.displayName }
     
     
     init(playerName: String) {

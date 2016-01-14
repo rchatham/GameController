@@ -10,7 +10,11 @@ import UIKit
 
 class JoinMatchViewController: UIViewController {
     
-    @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var displayNameTextField: UITextField! {
+        didSet {
+            displayNameTextField.delegate = self
+        }
+    }
     @IBOutlet weak var connectionStyleSwitcher: UISegmentedControl! {
         didSet {
             connectionStyleSwitcher.selectedSegmentIndex = 0
@@ -64,13 +68,14 @@ extension JoinMatchViewController {
     
     func connectionTypeForInt(int: Int) -> PeerConnectionType {
         return connectionTypeForInt2(int) { [weak self] browserAssisstant in
+            
             self?.presentViewController(browserAssisstant.peerBrowserViewController(), animated: true, completion: nil)
         }
     }
     
     func connectionTypeForInt2(int: Int, completion: PeerBrowserAssisstant->Void) -> PeerConnectionType {
         switch int {
-        case 1: return PeerConnectionType.InviteOnly2(completion)
+        case 1: return PeerConnectionType.InviteOnly(completion)
         default: return .Automatic
         }
     }
@@ -80,12 +85,13 @@ extension JoinMatchViewController {
         self.presentViewController(gameVC, animated: true, completion: nil)
     }
     
-    func startGame(connectionManager connectionManager: PeerConnectionManager, player: Player) {
+    func startGame(var connectionManager connectionManager: PeerConnectionManager, player: Player) {
         connectionManager.start { [weak self] in
             guard let gameVM = self?.viewModel.gameViewModel(player, connectionManager: connectionManager) else { return }
             self?.presentGameController(gameVM)
         }
     }
+    
 }
 
 extension JoinMatchViewController {
@@ -102,6 +108,13 @@ extension JoinMatchViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension JoinMatchViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
 }
 
 extension JoinMatchViewController {

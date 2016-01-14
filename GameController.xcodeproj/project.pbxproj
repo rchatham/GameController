@@ -9,7 +9,29 @@
 /* Begin PBXBuildFile section */
 		300B00591C27015B00848CB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B00581C27015B00848CB1 /* Observable.swift */; };
 		300B005B1C27320E00848CB1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B005A1C27320E00848CB1 /* Async.swift */; };
+		303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */; };
+		303EA73B1C385AB300B49854 /* CoverTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */; };
+		303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */; };
+		303EA73D1C385AB300B49854 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7381C385AB300B49854 /* DotView.swift */; };
+		303EA73E1C385AB300B49854 /* GameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7391C385AB300B49854 /* GameRound.swift */; };
+		303EA7401C385AC600B49854 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA73F1C385AC600B49854 /* MotionKit.swift */; };
+		303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7411C385AD700B49854 /* BlockBehavior.swift */; };
+		303EA7441C385C3700B49854 /* MiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7431C385C3700B49854 /* MiniGame.swift */; };
+		303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7451C38679900B49854 /* CoverTheDot.swift */; };
 		304D86FA1C25E73400E1BE36 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D86F91C25E73400E1BE36 /* Peer.swift */; };
+		306ABB3A1C40059500982669 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB351C40059500982669 /* bird.atlas */; };
+		306ABB3B1C40059500982669 /* FlappyBirdGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB361C40059500982669 /* FlappyBirdGameScene.sks */; };
+		306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB371C40059500982669 /* FlappyBirdGameScene.swift */; };
+		306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB381C40059500982669 /* FlappyBirdGameViewController.swift */; };
+		306ABB3E1C40059500982669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB391C40059500982669 /* Images.xcassets */; };
+		306ABB401C4010EB00982669 /* FlappyBirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB3F1C4010EB00982669 /* FlappyBirdViewModel.swift */; };
+		306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB411C4010FC00982669 /* FlappyBird.swift */; };
+		306ABB441C40469400982669 /* FlappyBirdGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB431C40469400982669 /* FlappyBirdGameViewController.xib */; };
+		3086FFD91C415CA500EF7EC7 /* TapTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFD81C415CA500EF7EC7 /* TapTheDot.swift */; };
+		3086FFDC1C415D0F00EF7EC7 /* TapTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFDA1C415D0F00EF7EC7 /* TapTheDotViewController.swift */; };
+		3086FFDD1C415D0F00EF7EC7 /* TapTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086FFDB1C415D0F00EF7EC7 /* TapTheDotViewController.xib */; };
+		3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */; };
+		3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFE01C4167A200EF7EC7 /* Extensions.swift */; };
 		308BE15F1C2B07C2009AA272 /* PeerAdvertiserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE15E1C2B07C1009AA272 /* PeerAdvertiserEventProducer.swift */; };
 		308BE1611C2B0851009AA272 /* PeerBrowserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1601C2B0851009AA272 /* PeerBrowserEventProducer.swift */; };
 		308BE1631C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */; };
@@ -58,7 +80,29 @@
 		300B00551C26341000848CB1 /* PeerConnectionPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PeerConnectionPlayground.playground; sourceTree = "<group>"; };
 		300B00581C27015B00848CB1 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		300B005A1C27320E00848CB1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewController.swift; sourceTree = "<group>"; };
+		303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverTheDotViewController.xib; sourceTree = "<group>"; };
+		303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewModel.swift; sourceTree = "<group>"; };
+		303EA7381C385AB300B49854 /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		303EA7391C385AB300B49854 /* GameRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRound.swift; sourceTree = "<group>"; };
+		303EA73F1C385AC600B49854 /* MotionKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionKit.swift; sourceTree = "<group>"; };
+		303EA7411C385AD700B49854 /* BlockBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockBehavior.swift; sourceTree = "<group>"; };
+		303EA7431C385C3700B49854 /* MiniGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGame.swift; sourceTree = "<group>"; };
+		303EA7451C38679900B49854 /* CoverTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDot.swift; sourceTree = "<group>"; };
 		304D86F91C25E73400E1BE36 /* Peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		306ABB351C40059500982669 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
+		306ABB361C40059500982669 /* FlappyBirdGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FlappyBirdGameScene.sks; sourceTree = "<group>"; };
+		306ABB371C40059500982669 /* FlappyBirdGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBirdGameScene.swift; sourceTree = "<group>"; };
+		306ABB381C40059500982669 /* FlappyBirdGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBirdGameViewController.swift; sourceTree = "<group>"; };
+		306ABB391C40059500982669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		306ABB3F1C4010EB00982669 /* FlappyBirdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBirdViewModel.swift; sourceTree = "<group>"; };
+		306ABB411C4010FC00982669 /* FlappyBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBird.swift; sourceTree = "<group>"; };
+		306ABB431C40469400982669 /* FlappyBirdGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlappyBirdGameViewController.xib; sourceTree = "<group>"; };
+		3086FFD81C415CA500EF7EC7 /* TapTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapTheDot.swift; sourceTree = "<group>"; };
+		3086FFDA1C415D0F00EF7EC7 /* TapTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapTheDotViewController.swift; sourceTree = "<group>"; };
+		3086FFDB1C415D0F00EF7EC7 /* TapTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapTheDotViewController.xib; sourceTree = "<group>"; };
+		3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapTheDotViewModel.swift; sourceTree = "<group>"; };
+		3086FFE01C4167A200EF7EC7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		308BE15E1C2B07C1009AA272 /* PeerAdvertiserEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiserEventProducer.swift; sourceTree = "<group>"; };
 		308BE1601C2B0851009AA272 /* PeerBrowserEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerBrowserEventProducer.swift; sourceTree = "<group>"; };
 		308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiserAssisstantEventProducer.swift; sourceTree = "<group>"; };
@@ -120,6 +164,8 @@
 		300B00541C260F1100848CB1 /* PeerConnection */ = {
 			isa = PBXGroup;
 			children = (
+				300B00581C27015B00848CB1 /* Observable.swift */,
+				300B005A1C27320E00848CB1 /* Async.swift */,
 				300B00551C26341000848CB1 /* PeerConnectionPlayground.playground */,
 				308BE1681C2B0BEA009AA272 /* PeerSessionEventProducer.swift */,
 				308BE1751C2B3E07009AA272 /* PeerSession.swift */,
@@ -136,6 +182,63 @@
 				304D86F91C25E73400E1BE36 /* Peer.swift */,
 			);
 			name = PeerConnection;
+			sourceTree = "<group>";
+		};
+		303EA7231C2F019C00B49854 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				308F444D1BE71D7E006AC354 /* Player.swift */,
+				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
+				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
+				308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */,
+				308BE1811C2B85AA009AA272 /* Game2ViewController.swift */,
+				308BE1891C2DA30E009AA272 /* Game2ViewController.xib */,
+				308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */,
+				303EA7431C385C3700B49854 /* MiniGame.swift */,
+				303EA7391C385AB300B49854 /* GameRound.swift */,
+				3086FFE01C4167A200EF7EC7 /* Extensions.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		303EA7341C385A8500B49854 /* CoverTheDot */ = {
+			isa = PBXGroup;
+			children = (
+				303EA7451C38679900B49854 /* CoverTheDot.swift */,
+				303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */,
+				303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */,
+				303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */,
+				303EA7381C385AB300B49854 /* DotView.swift */,
+				303EA7411C385AD700B49854 /* BlockBehavior.swift */,
+				303EA73F1C385AC600B49854 /* MotionKit.swift */,
+			);
+			name = CoverTheDot;
+			sourceTree = "<group>";
+		};
+		306ABB341C4004A000982669 /* FlappyBird */ = {
+			isa = PBXGroup;
+			children = (
+				306ABB351C40059500982669 /* bird.atlas */,
+				306ABB361C40059500982669 /* FlappyBirdGameScene.sks */,
+				306ABB371C40059500982669 /* FlappyBirdGameScene.swift */,
+				306ABB381C40059500982669 /* FlappyBirdGameViewController.swift */,
+				306ABB431C40469400982669 /* FlappyBirdGameViewController.xib */,
+				306ABB3F1C4010EB00982669 /* FlappyBirdViewModel.swift */,
+				306ABB411C4010FC00982669 /* FlappyBird.swift */,
+				306ABB391C40059500982669 /* Images.xcassets */,
+			);
+			name = FlappyBird;
+			sourceTree = "<group>";
+		};
+		3086FFD71C415C6600EF7EC7 /* TapTheDot */ = {
+			isa = PBXGroup;
+			children = (
+				3086FFD81C415CA500EF7EC7 /* TapTheDot.swift */,
+				3086FFDA1C415D0F00EF7EC7 /* TapTheDotViewController.swift */,
+				3086FFDB1C415D0F00EF7EC7 /* TapTheDotViewController.xib */,
+				3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */,
+			);
+			name = TapTheDot;
 			sourceTree = "<group>";
 		};
 		308F44111BE42AFA006AC354 = {
@@ -162,16 +265,11 @@
 			isa = PBXGroup;
 			children = (
 				308F441D1BE42AFB006AC354 /* AppDelegate.swift */,
-				300B00581C27015B00848CB1 /* Observable.swift */,
-				300B005A1C27320E00848CB1 /* Async.swift */,
 				300B00541C260F1100848CB1 /* PeerConnection */,
-				308F444D1BE71D7E006AC354 /* Player.swift */,
-				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
-				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
-				308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */,
-				308BE1811C2B85AA009AA272 /* Game2ViewController.swift */,
-				308BE1891C2DA30E009AA272 /* Game2ViewController.xib */,
-				308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */,
+				303EA7231C2F019C00B49854 /* Game */,
+				306ABB341C4004A000982669 /* FlappyBird */,
+				303EA7341C385A8500B49854 /* CoverTheDot */,
+				3086FFD71C415C6600EF7EC7 /* TapTheDot */,
 				308F44241BE42AFB006AC354 /* Assets.xcassets */,
 				30B6B6FD1C2ED7F300E5A742 /* PeerConnectionViewModel.swift */,
 				308F44261BE42AFB006AC354 /* LaunchScreen.storyboard */,
@@ -265,6 +363,7 @@
 				TargetAttributes = {
 					308F44191BE42AFB006AC354 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NT7FFBVKUP;
 					};
 					308F442D1BE42AFB006AC354 = {
 						CreatedOnToolsVersion = 7.0;
@@ -301,9 +400,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3086FFDD1C415D0F00EF7EC7 /* TapTheDotViewController.xib in Resources */,
+				306ABB3A1C40059500982669 /* bird.atlas in Resources */,
+				306ABB3E1C40059500982669 /* Images.xcassets in Resources */,
 				308BE18A1C2DA30E009AA272 /* Game2ViewController.xib in Resources */,
 				308F44281BE42AFB006AC354 /* LaunchScreen.storyboard in Resources */,
+				306ABB441C40469400982669 /* FlappyBirdGameViewController.xib in Resources */,
 				308F44251BE42AFB006AC354 /* Assets.xcassets in Resources */,
+				306ABB3B1C40059500982669 /* FlappyBirdGameScene.sks in Resources */,
+				303EA73B1C385AB300B49854 /* CoverTheDotViewController.xib in Resources */,
 				308BE1861C2B87DD009AA272 /* JoinMatchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,18 +437,34 @@
 				308F444E1BE71D7E006AC354 /* Player.swift in Sources */,
 				308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */,
 				30B6B6FE1C2ED7F300E5A742 /* PeerConnectionViewModel.swift in Sources */,
+				303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */,
 				308BE15F1C2B07C2009AA272 /* PeerAdvertiserEventProducer.swift in Sources */,
 				308BE1691C2B0BEA009AA272 /* PeerSessionEventProducer.swift in Sources */,
+				306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */,
+				306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */,
+				303EA73E1C385AB300B49854 /* GameRound.swift in Sources */,
 				308BE1721C2B32A4009AA272 /* PeerConnectionManager.swift in Sources */,
 				308BE1761C2B3E07009AA272 /* PeerSession.swift in Sources */,
 				304D86FA1C25E73400E1BE36 /* Peer.swift in Sources */,
+				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
 				300B005B1C27320E00848CB1 /* Async.swift in Sources */,
 				308BE1611C2B0851009AA272 /* PeerBrowserEventProducer.swift in Sources */,
+				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,
+				303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */,
 				308BE18C1C2DBEC7009AA272 /* PeerConnectionListener.swift in Sources */,
 				308BE1741C2B3D6A009AA272 /* PeerBrowser.swift in Sources */,
 				308BE1781C2B4002009AA272 /* PeerAdvertiser.swift in Sources */,
+				3086FFDC1C415D0F00EF7EC7 /* TapTheDotViewController.swift in Sources */,
+				303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */,
 				308BE1671C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift in Sources */,
+				303EA7401C385AC600B49854 /* MotionKit.swift in Sources */,
+				303EA7441C385C3700B49854 /* MiniGame.swift in Sources */,
 				308BE17C1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift in Sources */,
+				3086FFD91C415CA500EF7EC7 /* TapTheDot.swift in Sources */,
+				306ABB401C4010EB00982669 /* FlappyBirdViewModel.swift in Sources */,
+				3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */,
+				306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */,
+				303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */,
 				308F441E1BE42AFB006AC354 /* AppDelegate.swift in Sources */,
 				300B00591C27015B00848CB1 /* Observable.swift in Sources */,
 				308BE1881C2BB975009AA272 /* PeerBrowserAssisstant.swift in Sources */,
@@ -484,6 +605,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -492,6 +615,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -499,6 +623,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -507,6 +633,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

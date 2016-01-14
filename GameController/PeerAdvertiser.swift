@@ -32,10 +32,10 @@ struct PeerAdvertiser {
         advertiser.delegate = nil
     }
     
-    func peerAdvertiserAssistant(serviceType: ServiceType, eventProducer: PeerAdvertiserAssisstantEventProducer? = nil) -> MCAdvertiserAssistant {
-        let assisstant = MCAdvertiserAssistant(serviceType: serviceType, discoveryInfo: nil, session: session.session)
-        if let eventProducer = eventProducer { assisstant.delegate = eventProducer }
-        return assisstant
-    }
+//    func peerAdvertiserAssistant(serviceType: ServiceType, eventProducer: PeerAdvertiserAssisstantEventProducer? = nil) -> MCAdvertiserAssistant {
+//        let assisstant = MCAdvertiserAssistant(serviceType: serviceType, discoveryInfo: nil, session: session.session)
+//        if let eventProducer = eventProducer { assisstant.delegate = eventProducer }
+//        return assisstant
+//    }
     
 }

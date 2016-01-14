@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Observable<T> { // rename to MultiObservable?
+class Observable<T> {
     typealias Observer = T -> Void
     var observers: [Observer] = []
   

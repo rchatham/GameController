@@ -10,9 +10,13 @@ import UIKit
 
 class Game2ViewController: UIViewController {
     
-    @IBOutlet weak var outputLabel: UILabel!
+    @IBOutlet weak var outputLabel: UILabel! {
+        didSet {
+            self.outputLabel.text = viewModel.initialOutput()
+        }
+    }
     
-    private var viewModel : Game2ViewModel
+    var viewModel : Game2ViewModel
     
     init(viewModel: Game2ViewModel) {
         self.viewModel = viewModel
@@ -26,10 +30,34 @@ class Game2ViewController: UIViewController {
     }
 
     func bindViewModel() {
-        let labelLinker: String->Void = { output in
-            self.outputLabel.text = output
+        viewModel.labelCallback = { [weak self] output in
+            guard self?.outputLabel != nil else { return }
+            self?.outputLabel.text = output
         }
-        viewModel.labelCallback = labelLinker
+        
+        viewModel.gameStartCallback = { [weak self] in
+            self?.presentGame()
+        }
+    }
+    
+    
+//    let detailTransitioningDelegate: ESPresentationManager = ESPresentationManager.sharedInstance
+    
+    @IBAction func startGame(sender: AnyObject) {
+        
+        viewModel.initiateGame()
+        viewModel.sendStartGameData()
+        presentGame()
+    }
+    
+    func presentGame() {
+        
+        guard let firstGame = viewModel.getNextGame() else { return }
+        
+        let firstGameVC = firstGame.viewController()
+        let navCtrl = UINavigationController(rootViewController: firstGameVC)
+        navCtrl.setNavigationBarHidden(true, animated: true)
+        presentViewController(navCtrl, animated: true, completion: nil)
     }
 }
 
@@ -52,6 +80,12 @@ extension Game2ViewController {
         outputLabel.text = viewModel.initialOutput()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        outputLabel.text = viewModel.initialOutput()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,6 +95,10 @@ extension Game2ViewController {
 }
 
 extension Game2ViewController {
+    
+//    func startGame() {
+//        
+//    }
 
     /*
     // MARK: - Navigation

@@ -12,11 +12,11 @@ enum PeerConnectionEvent {
     case Ready
     case Started
     case DevicesChanged(peer: Peer, displayNames: [String])
-    case RecievedData(peer: Peer, data: NSData)
-    case RecievedStream(peer: Peer, stream: NSStream, name: String)
-    case StartedRecievingResource(peer: Peer, name: String, progress: NSProgress)
-    case FinishedRecievingResource(peer: Peer, name: String, url: NSURL, error: NSError?)
-    case RecievedCertificate(peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)
+    case ReceivedData(peer: Peer, data: NSData)
+    case ReceivedStream(peer: Peer, stream: NSStream, name: String)
+    case StartedReceivingResource(peer: Peer, name: String, progress: NSProgress)
+    case FinishedReceivingResource(peer: Peer, name: String, url: NSURL, error: NSError?)
+    case ReceivedCertificate(peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)
     case Error(PeerConnectionError)
     case Ended
 }
@@ -63,20 +63,20 @@ struct PeerConnectionListener {
     typealias DevicesChangedListener = (peer: Peer, displayNames: [String])->Void
     typealias DataListener = (peer: Peer, data: NSData)->Void
     typealias StreamListener = (peer: Peer, stream: NSStream, name: String)->Void
-    typealias StartedRecievingResourceListener = (peer: Peer, name: String, progress: NSProgress)->Void
-    typealias FinishedRecievingResourceListener = (peer: Peer, name: String, url: NSURL, error: NSError?)->Void
-    typealias CertificateRecievedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
+    typealias StartedReceivingResourceListener = (peer: Peer, name: String, progress: NSProgress)->Void
+    typealias FinishedReceivingResourceListener = (peer: Peer, name: String, url: NSURL, error: NSError?)->Void
+    typealias CertificateReceivedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
     
     typealias ErrorListener = (error: PeerConnectionError)->Void
     
     mutating func listenOn(ready ready: ReadyListener = { _ in },
         started: StartListener = { _ in },
         devicesChanged: DevicesChangedListener = { _ in },
-        dataRecieved: DataListener = { _ in },
-        streamRecieved: StreamListener = { _ in },
-        recievingResourceStarted: StartedRecievingResourceListener = { _ in },
-        recievingResourceFinished: FinishedRecievingResourceListener = { _ in },
-        certificateRecieved: CertificateRecievedListener = { _ in },
+        dataReceived: DataListener = { _ in },
+        streamReceived: StreamListener = { _ in },
+        receivingResourceStarted: StartedReceivingResourceListener = { _ in },
+        receivingResourceFinished: FinishedReceivingResourceListener = { _ in },
+        certificateReceived: CertificateReceivedListener = { _ in },
         ended: SessionEndedListener = { _ in },
         error: ErrorListener = { _ in }
         ) -> PeerConnectionListener {
@@ -90,20 +90,20 @@ struct PeerConnectionListener {
                 case .DevicesChanged(peer: let peer, displayNames: let names):
                     devicesChanged(peer: peer, displayNames: names)
                     
-                case .RecievedData(peer: let peer, data: let data):
-                    dataRecieved(peer: peer, data: data)
+                case .ReceivedData(peer: let peer, data: let data):
+                    dataReceived(peer: peer, data: data)
                     
-                case .RecievedStream(peer: let peer, stream: let stream, name: let name):
-                    streamRecieved(peer: peer, stream: stream, name: name)
+                case .ReceivedStream(peer: let peer, stream: let stream, name: let name):
+                    streamReceived(peer: peer, stream: stream, name: name)
                     
-                case .StartedRecievingResource(peer: let peer, name: let name, progress: let progress):
-                    recievingResourceStarted(peer: peer, name: name, progress: progress)
+                case .StartedReceivingResource(peer: let peer, name: let name, progress: let progress):
+                    receivingResourceStarted(peer: peer, name: name, progress: progress)
                     
-                case .FinishedRecievingResource(peer: let peer, name: let name, url: let url, error: let error):
-                    recievingResourceFinished(peer: peer, name: name, url: url, error: error)
+                case .FinishedReceivingResource(peer: let peer, name: let name, url: let url, error: let error):
+                    receivingResourceFinished(peer: peer, name: name, url: url, error: error)
                     
-                case .RecievedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
-                    certificateRecieved(peer: peer, certificate: certificate, handler: handler)
+                case .ReceivedCertificate(peer: let peer, certificate: let certificate, handler: let handler):
+                    certificateReceived(peer: peer, certificate: certificate, handler: handler)
                     
                 case .Ended: ended()
                 case .Error(let e): error(error: e)

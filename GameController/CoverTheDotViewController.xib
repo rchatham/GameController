@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoverTheDotViewController" customModule="GameController" customModuleProvider="target">
+            <connections>
+                <outlet property="gameUpdateLabel" destination="hNd-Io-2N0" id="W5n-cn-63O"/>
+                <outlet property="gameView" destination="bZu-xV-gY2" id="R1L-Mg-fz3"/>
+                <outlet property="view" destination="rTK-LY-6Su" id="SfU-ZO-gYi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rTK-LY-6Su">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GO!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoP-5M-Cqk">
+                    <rect key="frame" x="191" y="229" width="217.5" height="141"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="118"/>
+                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining: 60 Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNd-Io-2N0">
+                    <rect key="frame" x="189" y="571.5" width="220.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZu-xV-gY2">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <gestureRecognizers/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bZu-xV-gY2" secondAttribute="bottom" id="0QU-Ot-co9"/>
+                <constraint firstAttribute="trailing" secondItem="bZu-xV-gY2" secondAttribute="trailing" id="0yo-Ce-ozf"/>
+                <constraint firstItem="bZu-xV-gY2" firstAttribute="leading" secondItem="rTK-LY-6Su" secondAttribute="leading" id="33u-5w-uv0"/>
+                <constraint firstItem="bZu-xV-gY2" firstAttribute="top" secondItem="rTK-LY-6Su" secondAttribute="top" id="BbL-2U-XPJ"/>
+                <constraint firstItem="hNd-Io-2N0" firstAttribute="centerX" secondItem="rTK-LY-6Su" secondAttribute="centerX" id="KFF-Ld-N6F"/>
+                <constraint firstItem="hoP-5M-Cqk" firstAttribute="centerX" secondItem="rTK-LY-6Su" secondAttribute="centerX" id="LsP-XT-55s"/>
+                <constraint firstAttribute="bottom" secondItem="hNd-Io-2N0" secondAttribute="bottom" constant="8" id="YXE-M7-zSA"/>
+                <constraint firstItem="hoP-5M-Cqk" firstAttribute="centerY" secondItem="rTK-LY-6Su" secondAttribute="centerY" id="jcZ-nV-nmG"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
