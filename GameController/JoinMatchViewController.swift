@@ -15,11 +15,13 @@ class JoinMatchViewController: UIViewController {
             displayNameTextField.delegate = self
         }
     }
+    
     @IBOutlet weak var connectionStyleSwitcher: UISegmentedControl! {
         didSet {
             connectionStyleSwitcher.selectedSegmentIndex = 0
         }
     }
+    
     @IBOutlet weak var serviceTypeTextField: UITextField!
     
     

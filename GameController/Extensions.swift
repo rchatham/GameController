@@ -6,7 +6,7 @@
 //  Copyright © 2016 Reid Chatham. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 extension CollectionType {
@@ -41,3 +41,29 @@ extension MutableCollectionType where Index == Int {
 //var numbers = [1, 2, 3, 4]
 //numbers.shuffleInPlace()
 // [3, 2, 1, 4]
+
+
+extension Int {
+    static func random(max: Int) -> Int {
+        return Int(arc4random() % UInt32(max))
+    }
+}
+
+extension CGFloat {
+    static func random(max: Int) -> CGFloat {
+        return CGFloat(arc4random() % UInt32(max))
+    }
+}
+
+extension UIColor {
+    class var random: UIColor {
+        switch arc4random()%5 {
+        case 0: return UIColor.greenColor()
+        case 1: return UIColor.blueColor()
+        case 2: return UIColor.redColor()
+        case 3: return UIColor.yellowColor()
+        case 4: return UIColor.magentaColor()
+        default: return UIColor.blackColor()
+        }
+    }
+}

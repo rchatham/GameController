@@ -71,9 +71,12 @@ extension DotView {
     
     func resizeCircleView(frame frame: CGRect, duration: Double) {
         
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-            [unowned self] in
-            self.frame = frame
+        UIView.animateWithDuration(duration, delay: 0.0,
+            usingSpringWithDamping: 0.5, initialSpringVelocity: 0,
+            options: UIViewAnimationOptions.BeginFromCurrentState,
+            animations: {
+                [unowned self] in
+                self.frame = frame
             }, completion: nil)
         
         let cornerRadius = frame.size.width/2
@@ -83,30 +86,5 @@ extension DotView {
         animation.duration = duration
         self.layer.cornerRadius = cornerRadius
         self.layer.addAnimation(animation, forKey: "cornerRadius")
-    }
-}
-
-private extension Int {
-    static func random(max: Int) -> Int {
-        return Int(arc4random() % UInt32(max))
-    }
-}
-
-private extension CGFloat {
-    static func random(max: Int) -> CGFloat {
-        return CGFloat(arc4random() % UInt32(max))
-    }
-}
-
-private extension UIColor {
-    class var random: UIColor {
-        switch arc4random()%5 {
-        case 0: return UIColor.greenColor()
-        case 1: return UIColor.blueColor()
-        case 2: return UIColor.redColor()
-        case 3: return UIColor.yellowColor()
-        case 4: return UIColor.magentaColor()
-        default: return UIColor.blackColor()
-        }
     }
 }

@@ -44,13 +44,13 @@ class Game2ViewModel {
         self.connectionManager = connectionManager
         
         self.connectionManager
-            .listenOn(devicesChanged: { (peer: Peer, displayNames: [String]) -> Void in
+            .listenOn(devicesChanged: { [weak self] (peer: Peer, displayNames: [String]) -> Void in
                 switch peer {
                 case .Connected(_):
-                    self.connectedPlayers += [Player(peer: peer)]
+                    self?.connectedPlayers += [Player(peer: peer)]
                 case .NotConnected(_):
-                    guard let index = self.connectedPlayers.indexOf(Player(peer: peer)) else { return }
-                    self.connectedPlayers.removeAtIndex(index)
+                    guard let index = self?.connectedPlayers.indexOf(Player(peer: peer)) else { return }
+                    self?.connectedPlayers.removeAtIndex(index)
                 default: break
                 }
             

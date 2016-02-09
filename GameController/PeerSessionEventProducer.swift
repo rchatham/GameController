@@ -29,7 +29,16 @@ class PeerSessionEventProducer: NSObject {
 }
 
 extension MCSessionState {
-    func stringValue() -> String {
+//    func stringValue() -> String {
+//        switch(self) {
+//        case .NotConnected: return "NotConnected"
+//        case .Connecting: return "Connecting"
+//        case .Connected: return "Connected"
+//            //        default: return "Unknown"
+//        }
+//    }
+    
+    var stringValue : String {
         switch(self) {
         case .NotConnected: return "NotConnected"
         case .Connecting: return "Connecting"
@@ -42,7 +51,7 @@ extension MCSessionState {
 extension PeerSessionEventProducer: MCSessionDelegate {
 
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
-        NSLog("%@", "peer \(peerID) didChangeState: \(state.stringValue())")
+        NSLog("%@", "peer \(peerID) didChangeState: \(state.stringValue)")
         
         var peer : Peer
         

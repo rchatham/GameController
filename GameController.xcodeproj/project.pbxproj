@@ -56,7 +56,8 @@
 		308F44331BE42AFB006AC354 /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F44321BE42AFB006AC354 /* GameControllerTests.swift */; };
 		308F443E1BE42AFB006AC354 /* GameControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */; };
 		308F444E1BE71D7E006AC354 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F444D1BE71D7E006AC354 /* Player.swift */; };
-		30B6B6FE1C2ED7F300E5A742 /* PeerConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6B6FD1C2ED7F300E5A742 /* PeerConnectionViewModel.swift */; };
+		30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A717C31C5068BA00FB8D5B /* GameRound2.swift */; };
+		30F59BA61C4DB63C009F042C /* MultiObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F59BA51C4DB63C009F042C /* MultiObservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		300B00551C26341000848CB1 /* PeerConnectionPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PeerConnectionPlayground.playground; sourceTree = "<group>"; };
 		300B00581C27015B00848CB1 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		300B005A1C27320E00848CB1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,8 @@
 		308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerUITests.swift; sourceTree = "<group>"; };
 		308F443F1BE42AFC006AC354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308F444D1BE71D7E006AC354 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		30B6B6FD1C2ED7F300E5A742 /* PeerConnectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerConnectionViewModel.swift; sourceTree = "<group>"; };
+		30A717C31C5068BA00FB8D5B /* GameRound2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRound2.swift; sourceTree = "<group>"; };
+		30F59BA51C4DB63C009F042C /* MultiObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiObservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				300B00581C27015B00848CB1 /* Observable.swift */,
+				30F59BA51C4DB63C009F042C /* MultiObservable.swift */,
 				300B005A1C27320E00848CB1 /* Async.swift */,
-				300B00551C26341000848CB1 /* PeerConnectionPlayground.playground */,
 				308BE1681C2B0BEA009AA272 /* PeerSessionEventProducer.swift */,
 				308BE1751C2B3E07009AA272 /* PeerSession.swift */,
 				308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */,
@@ -196,7 +197,7 @@
 				308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */,
 				303EA7431C385C3700B49854 /* MiniGame.swift */,
 				303EA7391C385AB300B49854 /* GameRound.swift */,
-				3086FFE01C4167A200EF7EC7 /* Extensions.swift */,
+				30A717C31C5068BA00FB8D5B /* GameRound2.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -265,13 +266,13 @@
 			isa = PBXGroup;
 			children = (
 				308F441D1BE42AFB006AC354 /* AppDelegate.swift */,
+				3086FFE01C4167A200EF7EC7 /* Extensions.swift */,
 				300B00541C260F1100848CB1 /* PeerConnection */,
 				303EA7231C2F019C00B49854 /* Game */,
 				306ABB341C4004A000982669 /* FlappyBird */,
 				303EA7341C385A8500B49854 /* CoverTheDot */,
 				3086FFD71C415C6600EF7EC7 /* TapTheDot */,
 				308F44241BE42AFB006AC354 /* Assets.xcassets */,
-				30B6B6FD1C2ED7F300E5A742 /* PeerConnectionViewModel.swift */,
 				308F44261BE42AFB006AC354 /* LaunchScreen.storyboard */,
 				308F44291BE42AFB006AC354 /* Info.plist */,
 			);
@@ -436,7 +437,6 @@
 			files = (
 				308F444E1BE71D7E006AC354 /* Player.swift in Sources */,
 				308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */,
-				30B6B6FE1C2ED7F300E5A742 /* PeerConnectionViewModel.swift in Sources */,
 				303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */,
 				308BE15F1C2B07C2009AA272 /* PeerAdvertiserEventProducer.swift in Sources */,
 				308BE1691C2B0BEA009AA272 /* PeerSessionEventProducer.swift in Sources */,
@@ -448,6 +448,7 @@
 				304D86FA1C25E73400E1BE36 /* Peer.swift in Sources */,
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
 				300B005B1C27320E00848CB1 /* Async.swift in Sources */,
+				30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */,
 				308BE1611C2B0851009AA272 /* PeerBrowserEventProducer.swift in Sources */,
 				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,
 				303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */,
@@ -460,6 +461,7 @@
 				303EA7401C385AC600B49854 /* MotionKit.swift in Sources */,
 				303EA7441C385C3700B49854 /* MiniGame.swift in Sources */,
 				308BE17C1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift in Sources */,
+				30F59BA61C4DB63C009F042C /* MultiObservable.swift in Sources */,
 				3086FFD91C415CA500EF7EC7 /* TapTheDot.swift in Sources */,
 				306ABB401C4010EB00982669 /* FlappyBirdViewModel.swift in Sources */,
 				3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */,

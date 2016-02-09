@@ -28,12 +28,6 @@ struct CoverTheDotViewModel {
         return Int.random(10) + 1
     }
     
-//    var sizeRatio : Int {
-//        return Int.random(10) + 3
-//    }
-//    var maxBlocks : Int {
-//        return Int.random(10) + 1
-//    }
     
     init(gameRound: GameRound) {
         self.currentRound = gameRound
@@ -50,8 +44,8 @@ struct CoverTheDotViewModel {
     }
 }
 
-private extension Int {
-    static func random(max: Int) -> Int {
-        return Int(arc4random() % UInt32(max))
-    }
-}
+//private extension Int {
+//    static func random(max: Int) -> Int {
+//        return Int(arc4random() % UInt32(max))
+//    }
+//}

@@ -27,6 +27,20 @@ enum PeerConnectionError : ErrorType {
     case DidNotStartBrowsingForPeers(NSError)
 }
 
+typealias ReadyListener = Void->Void
+typealias StartListener = Void->Void
+typealias SessionEndedListener = Void->Void
+
+typealias DevicesChangedListener = (peer: Peer, displayNames: [String])->Void
+typealias DataListener = (peer: Peer, data: NSData)->Void
+typealias StreamListener = (peer: Peer, stream: NSStream, name: String)->Void
+typealias StartedReceivingResourceListener = (peer: Peer, name: String, progress: NSProgress)->Void
+typealias FinishedReceivingResourceListener = (peer: Peer, name: String, url: NSURL, error: NSError?)->Void
+typealias CertificateReceivedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
+typealias ErrorListener = (error: PeerConnectionError)->Void
+
+
+
 struct PeerConnectionListener {
     
     private let peerEventObserver : Observable<PeerConnectionEvent>
@@ -54,20 +68,6 @@ struct PeerConnectionListener {
         listeners = []
         peerEventObserver.observers = []
     }
-    
-    
-    typealias ReadyListener = Void->Void
-    typealias StartListener = Void->Void
-    typealias SessionEndedListener = Void->Void
-    
-    typealias DevicesChangedListener = (peer: Peer, displayNames: [String])->Void
-    typealias DataListener = (peer: Peer, data: NSData)->Void
-    typealias StreamListener = (peer: Peer, stream: NSStream, name: String)->Void
-    typealias StartedReceivingResourceListener = (peer: Peer, name: String, progress: NSProgress)->Void
-    typealias FinishedReceivingResourceListener = (peer: Peer, name: String, url: NSURL, error: NSError?)->Void
-    typealias CertificateReceivedListener = (peer: Peer, certificate: [AnyObject]?, handler: (Bool) -> Void)->Void
-    
-    typealias ErrorListener = (error: PeerConnectionError)->Void
     
     mutating func listenOn(ready ready: ReadyListener = { _ in },
         started: StartListener = { _ in },

@@ -46,16 +46,6 @@ class CoverTheDotViewController: UIViewController, GameRoundDelegate {
         }
     }
     
-//    @IBOutlet var longPressGesture: UILongPressGestureRecognizer! {
-//        didSet {
-//            longPressGesture.minimumPressDuration = 0.5
-//            longPressGesture.numberOfTapsRequired = 0
-//            longPressGesture.numberOfTouchesRequired = 1
-//            longPressGesture.allowableMovement = 10
-//            longPressGesture.addTarget(self, action: Selector("longPress:"))
-//        }
-//    }
-    
     init(viewModel: CoverTheDotViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -67,13 +57,6 @@ class CoverTheDotViewController: UIViewController, GameRoundDelegate {
     }
     
 }
-
-//extension CoverTheDotViewController: ESModalViewDelegate {
-//    
-//    func modalPresentationSize() -> CGSize {
-//        return UIScreen.mainScreen().bounds.size
-//    }
-//}
 
 extension CoverTheDotViewController {
     // Lifecycle
@@ -169,32 +152,6 @@ extension CoverTheDotViewController {
             dropBlocks(withLocation: location, size: size)
         }
     }
-    
-//    func longPress(sender: UILongPressGestureRecognizer) {
-//        print("Long press")
-//        
-//        switch sender.state {
-//        case .Ended :
-//            if currentRound.isPaused {
-//                currentRound.resumeGame()
-//            } else {
-//                currentRound.pauseGame()
-//                
-//                let pauseView = PauseView(frame: gameView.frame, resumeHandler: {
-//                    [unowned self] in
-//                    self.currentRound.resumeGame()
-//                    })
-//                
-//                gameView.addSubview(pauseView)
-//                
-//            }
-//        case .Began : fallthrough
-//        case .Possible : fallthrough
-//        case .Changed : fallthrough
-//        case .Cancelled : fallthrough
-//        case .Failed : break
-//        }
-//    }
 }
 
 extension CoverTheDotViewController : UIDynamicAnimatorDelegate {
@@ -221,9 +178,9 @@ extension CoverTheDotViewController {
         
         var blockCount = 0
         
-        let subviewsInView = gameView.subviews
-        for view in subviewsInView {
-            if !dotView.isEqual(view) {
+        for view in gameView.subviews {
+            if dotView !== view {
+//            if !dotView.isEqual(view) {
                 if CGRectIntersectsRect(dotView.frame, view.frame) {
                     ++blockCount
                 }
@@ -231,22 +188,6 @@ extension CoverTheDotViewController {
         }
         return blockCount
     }
-    
-//    func sizeRatio() -> Int {
-//        currentSizeRatio = Int.random(10) + 2
-//        return ++currentSizeRatio
-//    }
-//    
-//    func maxBlocks() -> Int {
-//        numberOfBlocks = Int.random(10)
-//        return ++numberOfBlocks
-//    }
-    
-//    func dropBlocks(size: CGSize) {
-//        let x = CGFloat.random(currentSizeRatio) * size.width
-//        let y = CGFloat.random(currentSizeRatio) * size.height
-//        dropBlocks(withLocation: CGPoint(x: x, y: y), size: size)
-//    }
     
     func dropBlocks(withLocation location: CGPoint, size: CGSize) {
         let frame = CGRect(origin: location, size: size)
@@ -265,10 +206,6 @@ extension CoverTheDotViewController {
                 currentBlocks.removeAtIndex(0)
             }
         }
-//        let blockView = UIView(frame: frame)
-//        blockView.backgroundColor = UIColor.random
-//        currentBlocks.append(blockView)
-//        blockBehavior.addBlock(blockView)
     }
     
     func removeBlocks() {
@@ -278,29 +215,3 @@ extension CoverTheDotViewController {
         currentBlocks.removeAll()
     }
 }
-
-private extension Int {
-    static func random(max: Int) -> Int {
-        return Int(arc4random() % UInt32(max))
-    }
-}
-
-private extension CGFloat {
-    static func random(max: Int) -> CGFloat {
-        return CGFloat(arc4random() % UInt32(max))
-    }
-}
-
-private extension UIColor {
-    class var random: UIColor {
-        switch arc4random()%5 {
-        case 0: return UIColor.greenColor()
-        case 1: return UIColor.blueColor()
-        case 2: return UIColor.redColor()
-        case 3: return UIColor.yellowColor()
-        case 4: return UIColor.magentaColor()
-        default: return UIColor.blackColor()
-        }
-    }
-}
-
