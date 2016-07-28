@@ -21,23 +21,21 @@ struct TapTheDotViewModel {
         }
     }
     
-    var delegate : GameRoundDelegate? {
-        set(delegate) {
-            gameRound.delegate = delegate
-        }
-        get {
-            return gameRound.delegate
-        }
-    }
-    
     init(gameRound: GameRound) {
         self.gameRound = gameRound
     }
     
-    mutating func dotTapped() { ++tapCount }
+    mutating func dotTapped() {
+        tapCount += 1
+    }
     
-    func startGame(scoreUpdater updater: (Int->Int), gameOverScenario: (Int->Void)) {
-        
-        gameRound.startTimedGame(scoreUpdater: updater, gameOverScenario: gameOverScenario)
+    func startGame() {
+        gameRound.startTimedGame()
+    }
+    
+    func scoreGame() {
+        gameRound.updateScore { (score) -> Int in
+            return score - 1
+        }
     }
 }

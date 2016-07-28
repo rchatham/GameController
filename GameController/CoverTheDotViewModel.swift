@@ -10,42 +10,48 @@ import Foundation
 
 struct CoverTheDotViewModel {
  
-    private let currentRound : GameRound
+    private let gameRound : GameRound
+    private var scoreUpdater : GameRound.ScoreUpdater?
     
-    var delegate : GameRoundDelegate? {
-        set(delegate) {
-            currentRound.delegate = delegate
-        }
-        get {
-            return currentRound.delegate
+    init(gameRound: GameRound) {
+        self.gameRound = gameRound
+    }
+    
+    mutating func startGame(scoreUpdater updater: GameRound.ScoreUpdater) {
+        scoreUpdater = updater
+        gameRound.startTimedGame()
+        switch gameRound.gameType! {
+        case .Timed(let duration):
+            _ = Timer(timeInterval: 1,
+                      userInfo: nil,
+                      repeats: true,
+                      invalidateAfter: Double(duration),
+                      startOnCreation: true,
+                      callback: {
+                return self.scoreGame()
+            })
+        default: break
         }
     }
     
     func sizeRatio() -> Int {
         return Int.random(10) + 3
     }
+    
     func maxBlocks() -> Int {
         return Int.random(10) + 1
     }
     
-    
-    init(gameRound: GameRound) {
-        self.currentRound = gameRound
-    }
-    
-    func startGame(scoreUpdater updater: (Int->Int), gameOverScenario: (Int->Void)) {
-        
-        currentRound.startTimedGame(scoreUpdater: updater, gameOverScenario: gameOverScenario)
+    func scoreGame() {
+        guard let scoreUpdater = scoreUpdater else { return }
+        gameRound.updateScore(scoreUpdater)
     }
     
     func outputText() -> String {
-        return "Time Remaining: \(currentRound.timeRemaining ?? 0) Score: \(currentRound.score)"
-
+        switch gameRound.gameType! {
+        case .Timed(let duration):
+            return "Time Remaining: \(gameRound.timeRemaining ?? duration) Score: \(gameRound.score)"
+        default: return ""
+        }
     }
 }
-
-//private extension Int {
-//    static func random(max: Int) -> Int {
-//        return Int(arc4random() % UInt32(max))
-//    }
-//}

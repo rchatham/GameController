@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MiniGame {
+public protocol MiniGame {
     
     var gameRound : GameRound { get }
     

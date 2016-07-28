@@ -8,14 +8,13 @@
 
 import UIKit
 
-class TapTheDotViewController: UIViewController, GameRoundDelegate {
+class TapTheDotViewController: UIViewController {
     
     var viewModel: TapTheDotViewModel
     
     init(viewModel: TapTheDotViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,7 +34,7 @@ class TapTheDotViewController: UIViewController, GameRoundDelegate {
         dotView?.layer.cornerRadius = sideLength/2
         dotView?.backgroundColor = UIColor.redColor()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tappedDot:"))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TapTheDotViewController.tappedDot(_:)))
         tapGesture.numberOfTapsRequired = 1
         tapGesture.numberOfTouchesRequired = 1
         
@@ -52,24 +51,7 @@ class TapTheDotViewController: UIViewController, GameRoundDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewModel.startGame(scoreUpdater: {
-//            [weak self]
-            score -> Int in
-            print("Score match")
-            
-            return score - 1
-            
-            }, gameOverScenario: { [weak self] score in
-                
-                guard let pvc = self?.presentingViewController as? Game2ViewController else { return }
-                pvc.viewModel.player.incrementScoreBy(score)
-                
-                if let subviews = self?.view.subviews {
-                    for view in subviews {
-                        view.removeFromSuperview()
-                    }
-                }
-            })
+        viewModel.startGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,15 +63,4 @@ class TapTheDotViewController: UIViewController, GameRoundDelegate {
         print("tappedDot")
         viewModel.dotTapped()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

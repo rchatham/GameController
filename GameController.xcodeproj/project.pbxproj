@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300B00591C27015B00848CB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B00581C27015B00848CB1 /* Observable.swift */; };
-		300B005B1C27320E00848CB1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B005A1C27320E00848CB1 /* Async.swift */; };
+		301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F51D475B730029DBCE /* GameCoordinator.swift */; };
+		301B79F81D476A270029DBCE /* MiniGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */; };
+		301B79FA1D47D1040029DBCE /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F91D47D1040029DBCE /* GameList.swift */; };
 		303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */; };
 		303EA73B1C385AB300B49854 /* CoverTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */; };
 		303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */; };
@@ -18,7 +19,6 @@
 		303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7411C385AD700B49854 /* BlockBehavior.swift */; };
 		303EA7441C385C3700B49854 /* MiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7431C385C3700B49854 /* MiniGame.swift */; };
 		303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7451C38679900B49854 /* CoverTheDot.swift */; };
-		304D86FA1C25E73400E1BE36 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D86F91C25E73400E1BE36 /* Peer.swift */; };
 		306ABB3A1C40059500982669 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB351C40059500982669 /* bird.atlas */; };
 		306ABB3B1C40059500982669 /* FlappyBirdGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB361C40059500982669 /* FlappyBirdGameScene.sks */; };
 		306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB371C40059500982669 /* FlappyBirdGameScene.swift */; };
@@ -32,24 +32,12 @@
 		3086FFDD1C415D0F00EF7EC7 /* TapTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086FFDB1C415D0F00EF7EC7 /* TapTheDotViewController.xib */; };
 		3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */; };
 		3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFE01C4167A200EF7EC7 /* Extensions.swift */; };
-		308BE15F1C2B07C2009AA272 /* PeerAdvertiserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE15E1C2B07C1009AA272 /* PeerAdvertiserEventProducer.swift */; };
-		308BE1611C2B0851009AA272 /* PeerBrowserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1601C2B0851009AA272 /* PeerBrowserEventProducer.swift */; };
-		308BE1631C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */; };
-		308BE1671C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1661C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift */; };
-		308BE1691C2B0BEA009AA272 /* PeerSessionEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1681C2B0BEA009AA272 /* PeerSessionEventProducer.swift */; };
-		308BE1721C2B32A4009AA272 /* PeerConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1711C2B32A4009AA272 /* PeerConnectionManager.swift */; };
-		308BE1741C2B3D6A009AA272 /* PeerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1731C2B3D6A009AA272 /* PeerBrowser.swift */; };
-		308BE1761C2B3E07009AA272 /* PeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1751C2B3E07009AA272 /* PeerSession.swift */; };
-		308BE1781C2B4002009AA272 /* PeerAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1771C2B4002009AA272 /* PeerAdvertiser.swift */; };
-		308BE17C1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE17B1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift */; };
 		308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */; };
 		308BE1801C2B7FCC009AA272 /* JoinMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */; };
-		308BE1821C2B85AA009AA272 /* Game2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1811C2B85AA009AA272 /* Game2ViewController.swift */; };
-		308BE1841C2B85B9009AA272 /* Game2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */; };
+		308BE1821C2B85AA009AA272 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1811C2B85AA009AA272 /* GameViewController.swift */; };
+		308BE1841C2B85B9009AA272 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1831C2B85B9009AA272 /* GameViewModel.swift */; };
 		308BE1861C2B87DD009AA272 /* JoinMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */; };
-		308BE1881C2BB975009AA272 /* PeerBrowserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1871C2BB975009AA272 /* PeerBrowserAssisstant.swift */; };
-		308BE18A1C2DA30E009AA272 /* Game2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308BE1891C2DA30E009AA272 /* Game2ViewController.xib */; };
-		308BE18C1C2DBEC7009AA272 /* PeerConnectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE18B1C2DBEC7009AA272 /* PeerConnectionListener.swift */; };
+		308BE18A1C2DA30E009AA272 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308BE1891C2DA30E009AA272 /* GameViewController.xib */; };
 		308F441E1BE42AFB006AC354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F441D1BE42AFB006AC354 /* AppDelegate.swift */; };
 		308F44251BE42AFB006AC354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 308F44241BE42AFB006AC354 /* Assets.xcassets */; };
 		308F44281BE42AFB006AC354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 308F44261BE42AFB006AC354 /* LaunchScreen.storyboard */; };
@@ -57,7 +45,9 @@
 		308F443E1BE42AFB006AC354 /* GameControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */; };
 		308F444E1BE71D7E006AC354 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F444D1BE71D7E006AC354 /* Player.swift */; };
 		30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A717C31C5068BA00FB8D5B /* GameRound2.swift */; };
-		30F59BA61C4DB63C009F042C /* MultiObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F59BA51C4DB63C009F042C /* MultiObservable.swift */; };
+		30B6EAC21D4831920057463A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EAC11D4831920057463A /* Timer.swift */; };
+		30B6EAC31D492D320057463A /* PeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; };
+		30B6EAC41D492D320057463A /* PeerConnectivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,9 +67,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		30B6EAC51D492D320057463A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				30B6EAC41D492D320057463A /* PeerConnectivity.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		300B00581C27015B00848CB1 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		300B005A1C27320E00848CB1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		301B79F31D473F570029DBCE /* PeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PeerConnectivity.framework; path = Carthage/Build/iOS/PeerConnectivity.framework; sourceTree = "<group>"; };
+		301B79F51D475B730029DBCE /* GameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameCoordinator.swift; sourceTree = "<group>"; };
+		301B79F91D47D1040029DBCE /* GameList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 		303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewController.swift; sourceTree = "<group>"; };
 		303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverTheDotViewController.xib; sourceTree = "<group>"; };
 		303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewModel.swift; sourceTree = "<group>"; };
@@ -89,7 +95,6 @@
 		303EA7411C385AD700B49854 /* BlockBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockBehavior.swift; sourceTree = "<group>"; };
 		303EA7431C385C3700B49854 /* MiniGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGame.swift; sourceTree = "<group>"; };
 		303EA7451C38679900B49854 /* CoverTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDot.swift; sourceTree = "<group>"; };
-		304D86F91C25E73400E1BE36 /* Peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
 		306ABB351C40059500982669 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		306ABB361C40059500982669 /* FlappyBirdGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FlappyBirdGameScene.sks; sourceTree = "<group>"; };
 		306ABB371C40059500982669 /* FlappyBirdGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBirdGameScene.swift; sourceTree = "<group>"; };
@@ -103,24 +108,12 @@
 		3086FFDB1C415D0F00EF7EC7 /* TapTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapTheDotViewController.xib; sourceTree = "<group>"; };
 		3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapTheDotViewModel.swift; sourceTree = "<group>"; };
 		3086FFE01C4167A200EF7EC7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		308BE15E1C2B07C1009AA272 /* PeerAdvertiserEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiserEventProducer.swift; sourceTree = "<group>"; };
-		308BE1601C2B0851009AA272 /* PeerBrowserEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerBrowserEventProducer.swift; sourceTree = "<group>"; };
-		308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiserAssisstantEventProducer.swift; sourceTree = "<group>"; };
-		308BE1661C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerBrowserViewControllerEventProducer.swift; sourceTree = "<group>"; };
-		308BE1681C2B0BEA009AA272 /* PeerSessionEventProducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionEventProducer.swift; sourceTree = "<group>"; };
-		308BE1711C2B32A4009AA272 /* PeerConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerConnectionManager.swift; sourceTree = "<group>"; };
-		308BE1731C2B3D6A009AA272 /* PeerBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerBrowser.swift; sourceTree = "<group>"; };
-		308BE1751C2B3E07009AA272 /* PeerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSession.swift; sourceTree = "<group>"; };
-		308BE1771C2B4002009AA272 /* PeerAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiser.swift; sourceTree = "<group>"; };
-		308BE17B1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerAdvertiserAssisstant.swift; sourceTree = "<group>"; };
 		308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchViewController.swift; sourceTree = "<group>"; };
 		308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchViewModel.swift; sourceTree = "<group>"; };
-		308BE1811C2B85AA009AA272 /* Game2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game2ViewController.swift; sourceTree = "<group>"; };
-		308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game2ViewModel.swift; sourceTree = "<group>"; };
+		308BE1811C2B85AA009AA272 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		308BE1831C2B85B9009AA272 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinMatchViewController.xib; sourceTree = "<group>"; };
-		308BE1871C2BB975009AA272 /* PeerBrowserAssisstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerBrowserAssisstant.swift; sourceTree = "<group>"; };
-		308BE1891C2DA30E009AA272 /* Game2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Game2ViewController.xib; sourceTree = "<group>"; };
-		308BE18B1C2DBEC7009AA272 /* PeerConnectionListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerConnectionListener.swift; sourceTree = "<group>"; };
+		308BE1891C2DA30E009AA272 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		308F441A1BE42AFB006AC354 /* GameController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		308F441D1BE42AFB006AC354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		308F44241BE42AFB006AC354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,7 +127,7 @@
 		308F443F1BE42AFC006AC354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308F444D1BE71D7E006AC354 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		30A717C31C5068BA00FB8D5B /* GameRound2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRound2.swift; sourceTree = "<group>"; };
-		30F59BA51C4DB63C009F042C /* MultiObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiObservable.swift; sourceTree = "<group>"; };
+		30B6EAC11D4831920057463A /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B6EAC31D492D320057463A /* PeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,29 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		300B00541C260F1100848CB1 /* PeerConnection */ = {
-			isa = PBXGroup;
-			children = (
-				300B00581C27015B00848CB1 /* Observable.swift */,
-				30F59BA51C4DB63C009F042C /* MultiObservable.swift */,
-				300B005A1C27320E00848CB1 /* Async.swift */,
-				308BE1681C2B0BEA009AA272 /* PeerSessionEventProducer.swift */,
-				308BE1751C2B3E07009AA272 /* PeerSession.swift */,
-				308BE1621C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift */,
-				308BE17B1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift */,
-				308BE15E1C2B07C1009AA272 /* PeerAdvertiserEventProducer.swift */,
-				308BE1771C2B4002009AA272 /* PeerAdvertiser.swift */,
-				308BE1601C2B0851009AA272 /* PeerBrowserEventProducer.swift */,
-				308BE1731C2B3D6A009AA272 /* PeerBrowser.swift */,
-				308BE1661C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift */,
-				308BE1871C2BB975009AA272 /* PeerBrowserAssisstant.swift */,
-				308BE1711C2B32A4009AA272 /* PeerConnectionManager.swift */,
-				308BE18B1C2DBEC7009AA272 /* PeerConnectionListener.swift */,
-				304D86F91C25E73400E1BE36 /* Peer.swift */,
-			);
-			name = PeerConnection;
-			sourceTree = "<group>";
-		};
 		303EA7231C2F019C00B49854 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,12 +163,16 @@
 				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
 				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
 				308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */,
-				308BE1811C2B85AA009AA272 /* Game2ViewController.swift */,
-				308BE1891C2DA30E009AA272 /* Game2ViewController.xib */,
-				308BE1831C2B85B9009AA272 /* Game2ViewModel.swift */,
+				301B79F51D475B730029DBCE /* GameCoordinator.swift */,
+				308BE1811C2B85AA009AA272 /* GameViewController.swift */,
+				308BE1891C2DA30E009AA272 /* GameViewController.xib */,
+				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
+				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
 				303EA7431C385C3700B49854 /* MiniGame.swift */,
+				301B79F91D47D1040029DBCE /* GameList.swift */,
 				303EA7391C385AB300B49854 /* GameRound.swift */,
 				30A717C31C5068BA00FB8D5B /* GameRound2.swift */,
+				30B6EAC11D4831920057463A /* Timer.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -245,6 +220,7 @@
 		308F44111BE42AFA006AC354 = {
 			isa = PBXGroup;
 			children = (
+				301B79F31D473F570029DBCE /* PeerConnectivity.framework */,
 				308F441C1BE42AFB006AC354 /* GameController */,
 				308F44311BE42AFB006AC354 /* GameControllerTests */,
 				308F443C1BE42AFB006AC354 /* GameControllerUITests */,
@@ -267,7 +243,6 @@
 			children = (
 				308F441D1BE42AFB006AC354 /* AppDelegate.swift */,
 				3086FFE01C4167A200EF7EC7 /* Extensions.swift */,
-				300B00541C260F1100848CB1 /* PeerConnection */,
 				303EA7231C2F019C00B49854 /* Game */,
 				306ABB341C4004A000982669 /* FlappyBird */,
 				303EA7341C385A8500B49854 /* CoverTheDot */,
@@ -307,6 +282,7 @@
 				308F44161BE42AFB006AC354 /* Sources */,
 				308F44171BE42AFB006AC354 /* Frameworks */,
 				308F44181BE42AFB006AC354 /* Resources */,
+				30B6EAC51D492D320057463A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,7 +380,7 @@
 				3086FFDD1C415D0F00EF7EC7 /* TapTheDotViewController.xib in Resources */,
 				306ABB3A1C40059500982669 /* bird.atlas in Resources */,
 				306ABB3E1C40059500982669 /* Images.xcassets in Resources */,
-				308BE18A1C2DA30E009AA272 /* Game2ViewController.xib in Resources */,
+				308BE18A1C2DA30E009AA272 /* GameViewController.xib in Resources */,
 				308F44281BE42AFB006AC354 /* LaunchScreen.storyboard in Resources */,
 				306ABB441C40469400982669 /* FlappyBirdGameViewController.xib in Resources */,
 				308F44251BE42AFB006AC354 /* Assets.xcassets in Resources */,
@@ -437,43 +413,31 @@
 			files = (
 				308F444E1BE71D7E006AC354 /* Player.swift in Sources */,
 				308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */,
+				301B79F81D476A270029DBCE /* MiniGameCoordinator.swift in Sources */,
 				303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */,
-				308BE15F1C2B07C2009AA272 /* PeerAdvertiserEventProducer.swift in Sources */,
-				308BE1691C2B0BEA009AA272 /* PeerSessionEventProducer.swift in Sources */,
 				306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */,
 				306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */,
 				303EA73E1C385AB300B49854 /* GameRound.swift in Sources */,
-				308BE1721C2B32A4009AA272 /* PeerConnectionManager.swift in Sources */,
-				308BE1761C2B3E07009AA272 /* PeerSession.swift in Sources */,
-				304D86FA1C25E73400E1BE36 /* Peer.swift in Sources */,
+				301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */,
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
-				300B005B1C27320E00848CB1 /* Async.swift in Sources */,
 				30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */,
-				308BE1611C2B0851009AA272 /* PeerBrowserEventProducer.swift in Sources */,
 				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,
+				301B79FA1D47D1040029DBCE /* GameList.swift in Sources */,
 				303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */,
-				308BE18C1C2DBEC7009AA272 /* PeerConnectionListener.swift in Sources */,
-				308BE1741C2B3D6A009AA272 /* PeerBrowser.swift in Sources */,
-				308BE1781C2B4002009AA272 /* PeerAdvertiser.swift in Sources */,
 				3086FFDC1C415D0F00EF7EC7 /* TapTheDotViewController.swift in Sources */,
 				303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */,
-				308BE1671C2B0A38009AA272 /* PeerBrowserViewControllerEventProducer.swift in Sources */,
+				30B6EAC21D4831920057463A /* Timer.swift in Sources */,
 				303EA7401C385AC600B49854 /* MotionKit.swift in Sources */,
 				303EA7441C385C3700B49854 /* MiniGame.swift in Sources */,
-				308BE17C1C2B46D7009AA272 /* PeerAdvertiserAssisstant.swift in Sources */,
-				30F59BA61C4DB63C009F042C /* MultiObservable.swift in Sources */,
 				3086FFD91C415CA500EF7EC7 /* TapTheDot.swift in Sources */,
 				306ABB401C4010EB00982669 /* FlappyBirdViewModel.swift in Sources */,
 				3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */,
 				306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */,
 				303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */,
 				308F441E1BE42AFB006AC354 /* AppDelegate.swift in Sources */,
-				300B00591C27015B00848CB1 /* Observable.swift in Sources */,
-				308BE1881C2BB975009AA272 /* PeerBrowserAssisstant.swift in Sources */,
 				308BE1801C2B7FCC009AA272 /* JoinMatchViewModel.swift in Sources */,
-				308BE1631C2B08E2009AA272 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */,
-				308BE1841C2B85B9009AA272 /* Game2ViewModel.swift in Sources */,
-				308BE1821C2B85AA009AA272 /* Game2ViewController.swift in Sources */,
+				308BE1841C2B85B9009AA272 /* GameViewModel.swift in Sources */,
+				308BE1821C2B85AA009AA272 /* GameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +576,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GameController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -630,6 +595,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GameController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

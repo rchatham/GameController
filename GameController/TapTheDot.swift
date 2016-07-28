@@ -14,11 +14,7 @@ struct TapTheDot : MiniGame {
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
-        self.gameRound.score = 100
-        self.gameRound.scoreUpdater = { score -> Int in
-            return score - 1
-        }
-        
+        self.gameRound.updateScore{_ in 100}
     }
     
     func viewModel() -> TapTheDotViewModel {

@@ -12,15 +12,6 @@ struct FlappyBirdViewModel {
     
     private var currentRound: GameRound
     
-    var delegate : GameRoundDelegate? {
-        set(delegate) {
-            currentRound.delegate = delegate
-        }
-        get {
-            return currentRound.delegate
-        }
-    }
-    
     init(gameRound: GameRound) {
         currentRound = gameRound
     }

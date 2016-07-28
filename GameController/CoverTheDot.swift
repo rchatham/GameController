@@ -8,19 +8,16 @@
 
 import UIKit
 
-struct CoverTheDot : MiniGame {
+struct CoverTheDot: MiniGame {
     
-    let gameRound : GameRound
+    let gameRound: GameRound
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
     }
     
-    func viewModel() -> CoverTheDotViewModel {
-        return CoverTheDotViewModel(gameRound: gameRound)
-    }
-    
     func viewController() -> UIViewController {
-        return CoverTheDotViewController(viewModel: viewModel())
+        let vm = CoverTheDotViewModel(gameRound: gameRound)
+        return CoverTheDotViewController(viewModel: vm)
     }
 }

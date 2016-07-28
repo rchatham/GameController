@@ -8,164 +8,129 @@
 
 import UIKit
 
-protocol GameRoundDelegate : class {
-    
-    func roundOver(gameRound: GameRound) -> (Void->Void)
+protocol GameRoundDelegate {
+    func gameRoundDidPause(gameRound: GameRound)
+    func gameRoundDidResume(gameRound: GameRound)
+    func gameRound(gameRound: GameRound, endedGameWithScore score: Int)
 }
 
-extension GameRoundDelegate where Self : UIViewController {
-    func roundOver(gameRound: GameRound) -> (Void -> Void) {
-        return { [weak self] _ in
-            
-            guard self != nil else { return }
-            guard let pvc = (self!.presentingViewController as? Game2ViewController) else {
-                self?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-                return
-            }
-            
-            guard let nextGame = pvc.viewModel.getNextGame() else {
-                self?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-                return
-            }
-            let nextGameVC = nextGame.viewController()
-            
-            self!.navigationController?.pushViewController(nextGameVC, animated: true)
-        }
-    }
-}
-
-class GameRound : NSObject {
+public final class GameRound : NSObject {
     
-    enum Type {
+    public typealias ScoreUpdater = Int->Int
+    
+    public enum Type {
         case Timed(duration: Int)
         case Objective
         case TimedObjective(duration: Int)
     }
     
-    weak var delegate : GameRoundDelegate?
+    public private(set) var gameType : Type?
     
-    let gameType : Type
-    
-    
-    var gameTimer : NSTimer!
-    var scoreTimer : NSTimer!
-    var timeRemaining : Int?
-    
-    //Set this if you need to automatically check for updates to the score
-    var scoreUpdater : (Int->Int) = { $0 }
-    var shouldEndGame : Int->Void = {_ in}
-    
-    private(set) var isPaused = false
-    
-    var score = 0 {
-        didSet {
-            
+    public var timeRemaining : Int? {
+        switch gameTimer {
+        case .Some(let timer):
+            return Int(timer.fireDate.timeIntervalSinceNow)
+        case .None:
             switch gameType {
-            case .Timed(duration: _):
-                guard timeRemaining > 0 else { scoreTimer.invalidate(); return }
-            default: break
+            case .Some(let type):
+                switch type {
+                case .Timed(let duration):
+                    return duration
+                case .TimedObjective(let duration):
+                    return duration
+                default: return nil
+                }
+            default: return nil
+            }
+        }
+    }
+    private(set) var isPaused = false {
+        didSet {
+            if isPaused {
+                delegate?.gameRoundDidPause(self)
+            } else {
+                delegate?.gameRoundDidResume(self)
             }
         }
     }
     
-    init(gameType: Type) {
-        self.gameType = gameType
-        switch gameType {
-        case .Timed(duration: let duration):
-            timeRemaining = duration
-        case .Objective: break
-        case .TimedObjective(duration: let duration):
-            timeRemaining = duration
+    public private(set) var score = 0
+    
+    private var delegate : GameRoundDelegate?
+    
+    private var gameTimer : NSTimer!
+    
+    internal func setGameDelegate(delegate: GameRoundDelegate) {
+        if self.delegate == nil {
+            self.delegate = delegate
         }
-        
-        super.init()
     }
     
-    func startTimedGame(scoreUpdater updater: (Int->Int) = { $0 }, gameOverScenario: Int->Void) {
+    public func setGameType(gameType: Type) {
+        if self.gameType == nil {
+            self.gameType = gameType
+        }
+    }
+    
+    public func startTimedGame() {
+        switch gameType! {
+        case .TimedObjective(duration: let duration):
             
-        scoreUpdater = updater
-        shouldEndGame = gameOverScenario
-        
-        switch gameType {
-        case .TimedObjective(duration: let gameDuration):
-            
-            gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(gameDuration),
-                target: self, selector: Selector("gameOver:"),
+            gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(duration),
+                target: self, selector: #selector(GameRound.gameOver(_:)),
                 userInfo: nil, repeats: false)
-            scoreTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                target: self, selector: Selector("scoreGame:"),
-                userInfo: nil, repeats: true)
             
-        case .Timed(duration: let gameDuration):
+        case .Timed(duration: let duration):
             
-            gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(gameDuration),
-                target: self, selector: Selector("gameOver:"),
+            gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(duration),
+                target: self, selector: #selector(GameRound.gameOver(_:)),
                 userInfo: nil, repeats: false)
-            scoreTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                target: self, selector: Selector("scoreGame:"),
-                userInfo: nil, repeats: true)
             
-        case .Objective: break
         default: break
         }
     }
     
-    func updateScore(updater: (Int->Int)) { //Use when you want to manually update the score
+    public func updateScore(updater: ScoreUpdater) {
         score = updater(score)
     }
     
-    func scoreGame(timer: NSTimer) {
-        print("Score game")
-        timeRemaining? -= 1
-        score = scoreUpdater(score)
-    }
-    
-    func pauseGame() {
-        isPaused = true
-        
-        switch gameType {
-        case .TimedObjective(duration: _):
-            let gameTimerRemaining = gameTimer.fireDate.timeIntervalSinceNow
-            if gameTimerRemaining > 0 {
-                gameTimer.invalidate()
-                scoreTimer.invalidate()
-                timeRemaining = Int(gameTimerRemaining)
+    public func pauseGame() {
+        if isPaused == false {
+            
+            switch gameType! {
+            case .TimedObjective(duration: _):
+                let gameTimerRemaining = gameTimer.fireDate.timeIntervalSinceNow
+                if gameTimerRemaining > 0 {
+                    gameTimer.invalidate()
+                }
+                
+            case .Timed(duration: _):
+                let gameTimerRemaining = gameTimer.fireDate.timeIntervalSinceNow
+                if gameTimerRemaining > 0 {
+                    gameTimer.invalidate()
+                }
+                
+            default: break
             }
             
-        case .Timed(duration: _):
-            let gameTimerRemaining = gameTimer.fireDate.timeIntervalSinceNow
-            if gameTimerRemaining > 0 {
-                gameTimer.invalidate()
-                scoreTimer.invalidate()
-                timeRemaining = Int(gameTimerRemaining)
-            }
-        
-        case .Objective: break
-        default: break
+            isPaused = true
         }
     }
     
-    func resumeGame() {
+    public func resumeGame() {
         if isPaused {
             
-            switch gameType {
+            switch gameType! {
             case .TimedObjective(duration: _):
                 gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(timeRemaining!),
-                    target: self, selector: Selector("gameOver:"),
+                    target: self, selector: #selector(GameRound.gameOver(_:)),
                     userInfo: nil, repeats: false)
-                scoreTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                    target: self, selector: Selector("scoreGame:"),
-                    userInfo: nil, repeats: true)
                 
             case .Timed(duration: _):
                 gameTimer = NSTimer.scheduledTimerWithTimeInterval(Double(timeRemaining!),
-                    target: self, selector: Selector("gameOver:"),
+                    target: self, selector: #selector(GameRound.gameOver(_:)),
                     userInfo: nil, repeats: false)
-                scoreTimer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                    target: self, selector: Selector("scoreGame:"),
-                    userInfo: nil, repeats: true)
                 
-            case .Objective: break
             default: break
             }
             
@@ -173,23 +138,22 @@ class GameRound : NSObject {
         }
     }
     
-    func endGame() {
-        scoreTimer?.invalidate()
+    public func endGame() {
         gameTimer?.invalidate()
-        shouldEndGame(score)
-        delegate?.roundOver(self)()
+        delegate!.gameRound(self, endedGameWithScore: score)
     }
     
-    func gameOver(sender: NSTimer) {
-        scoreTimer.invalidate()
-        shouldEndGame(score)
-        delegate?.roundOver(self)()
+    internal func gameOver(sender: NSTimer) {
+        sender.invalidate()
+        delegate!.gameRound(self, endedGameWithScore: score)
     }
 }
 
 extension GameRound : NSCopying {
-    
-    func copyWithZone(zone: NSZone) -> AnyObject {
-        return GameRound(gameType: gameType)
+    public func copyWithZone(zone: NSZone) -> AnyObject {
+        let gameRound = GameRound()
+        gameRound.delegate = delegate
+        gameRound.gameType = gameType
+        return gameRound
     }
 }

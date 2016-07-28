@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PeerConnectivity
 
 struct Player {
     

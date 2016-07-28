@@ -8,23 +8,23 @@
 
 import UIKit
 
-class CoverTheDotViewController: UIViewController, GameRoundDelegate {
+class CoverTheDotViewController: UIViewController {
     
     private var viewModel : CoverTheDotViewModel
     
-    lazy var animator: UIDynamicAnimator = {
+    private lazy var animator: UIDynamicAnimator = {
         let lazyAnimator = UIDynamicAnimator(referenceView: self.gameView)
         lazyAnimator.delegate = self
         return lazyAnimator
     }()
     
-    var dotView: DotView!
+    private var dotView: DotView!
     
-    let blockBehavior = BlockBehavior()
+    private let blockBehavior = BlockBehavior()
     
-    var currentBlocks = [UIView]()
+    private var currentBlocks = [UIView]()
     
-    var blockSize: CGSize {
+    private var blockSize: CGSize {
         let size = gameView.bounds.size.width / CGFloat(viewModel.sizeRatio())
         return CGSize(width: size, height: size)
     }
@@ -35,7 +35,7 @@ class CoverTheDotViewController: UIViewController, GameRoundDelegate {
             let tapGesture = UITapGestureRecognizer()
             tapGesture.numberOfTouchesRequired = 1
             tapGesture.numberOfTapsRequired = 1
-            tapGesture.addTarget(self, action: Selector("tap:"))
+            tapGesture.addTarget(self, action: #selector(CoverTheDotViewController.tap(_:)))
             gameView.addGestureRecognizer(tapGesture)
         }
     }
@@ -49,17 +49,11 @@ class CoverTheDotViewController: UIViewController, GameRoundDelegate {
     init(viewModel: CoverTheDotViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-}
-
-extension CoverTheDotViewController {
-    // Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,17 +76,6 @@ extension CoverTheDotViewController {
             self?.gameUpdateLabel.text = outputText
             
             return score + newPts
-            
-            }, gameOverScenario: { [weak self] score in
-                
-                guard let pvc = self?.presentingViewController as? Game2ViewController else { return }
-                pvc.viewModel.player.incrementScoreBy(score)
-                
-                if let subviews = self?.view.subviews {
-                    for view in subviews {
-                        view.removeFromSuperview()
-                    }
-                }
         })
     }
     
@@ -120,6 +103,8 @@ extension CoverTheDotViewController {
         super.viewWillDisappear(animated)
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+        dotView.removeFromSuperview()
     }
     
     override func viewDidLayoutSubviews() {
@@ -135,10 +120,6 @@ extension CoverTheDotViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-extension CoverTheDotViewController {
-    // MARK: Gesture functions
     
     func tap(sender: UITapGestureRecognizer) {
         if sender.state == .Ended {
@@ -151,6 +132,47 @@ extension CoverTheDotViewController {
             let location = CGPoint(x: x, y: y)
             dropBlocks(withLocation: location, size: size)
         }
+    }
+    
+    private func blocksCoveringDot(dotView: DotView) -> Int {
+        
+        var blockCount = 0
+        
+        for view in gameView.subviews {
+            if dotView !== view {
+                //            if !dotView.isEqual(view) {
+                if CGRectIntersectsRect(dotView.frame, view.frame) {
+                    blockCount += 1
+                }
+            }
+        }
+        return blockCount
+    }
+    
+    private func dropBlocks(withLocation location: CGPoint, size: CGSize) {
+        let frame = CGRect(origin: location, size: size)
+        
+        let blockCount = viewModel.maxBlocks()
+        for _ in 0..<Int.random(blockCount) {
+            let blockView = UIView(frame:frame)
+            blockView.backgroundColor = UIColor.random
+            currentBlocks.append(blockView)
+            blockBehavior.addBlock(blockView)
+        }
+        
+        if currentBlocks.count > blockCount {
+            for _ in blockCount..<currentBlocks.count {
+                blockBehavior.removeBlock(currentBlocks[0])
+                currentBlocks.removeAtIndex(0)
+            }
+        }
+    }
+    
+    private func removeBlocks() {
+        for block in currentBlocks {
+            blockBehavior.removeBlock(block)
+        }
+        currentBlocks.removeAll()
     }
 }
 
@@ -172,46 +194,3 @@ extension CoverTheDotViewController : UIDynamicAnimatorDelegate {
     
 }
 
-extension CoverTheDotViewController {
-    
-    func blocksCoveringDot(dotView: DotView) -> Int {
-        
-        var blockCount = 0
-        
-        for view in gameView.subviews {
-            if dotView !== view {
-//            if !dotView.isEqual(view) {
-                if CGRectIntersectsRect(dotView.frame, view.frame) {
-                    ++blockCount
-                }
-            }
-        }
-        return blockCount
-    }
-    
-    func dropBlocks(withLocation location: CGPoint, size: CGSize) {
-        let frame = CGRect(origin: location, size: size)
-        
-        let blockCount = viewModel.maxBlocks()
-        for _ in 0..<Int.random(blockCount) {
-            let blockView = UIView(frame:frame)
-            blockView.backgroundColor = UIColor.random
-            currentBlocks.append(blockView)
-            blockBehavior.addBlock(blockView)
-        }
-        
-        if currentBlocks.count > blockCount {
-            for _ in blockCount..<currentBlocks.count {
-                blockBehavior.removeBlock(currentBlocks[0])
-                currentBlocks.removeAtIndex(0)
-            }
-        }
-    }
-    
-    func removeBlocks() {
-        for block in currentBlocks {
-            blockBehavior.removeBlock(block)
-        }
-        currentBlocks.removeAll()
-    }
-}
