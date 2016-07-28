@@ -11,14 +11,12 @@ import Foundation
 struct CoverTheDotViewModel {
  
     private let gameRound : GameRound
-    private var scoreUpdater : GameRound.ScoreUpdater?
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
     }
     
     mutating func startGame(scoreUpdater updater: GameRound.ScoreUpdater) {
-        scoreUpdater = updater
         gameRound.startTimedGame()
         switch gameRound.gameType! {
         case .Timed(let duration):
@@ -28,7 +26,7 @@ struct CoverTheDotViewModel {
                       invalidateAfter: Double(duration),
                       startOnCreation: true,
                       callback: {
-                return self.scoreGame()
+                    return self.gameRound.updateScore(updater)
             })
         default: break
         }
@@ -40,11 +38,6 @@ struct CoverTheDotViewModel {
     
     func maxBlocks() -> Int {
         return Int.random(10) + 1
-    }
-    
-    func scoreGame() {
-        guard let scoreUpdater = scoreUpdater else { return }
-        gameRound.updateScore(scoreUpdater)
     }
     
     func outputText() -> String {

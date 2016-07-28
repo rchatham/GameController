@@ -14,6 +14,7 @@ struct FlappyBird : MiniGame {
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
+        self.gameRound.setGameType(.Objective)
     }
     
     func viewModel() -> FlappyBirdViewModel {

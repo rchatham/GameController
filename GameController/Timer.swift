@@ -65,10 +65,10 @@ public class Timer<T>: NSObject {
         }
     }
     
-    internal func performCallback() {
+    internal func performCallback(timer: NSTimer) {
         callback()
         if NSDate() > invalidateAfter {
-            timer?.invalidate()
+            timer.invalidate()
         }
     }
 }

@@ -71,17 +71,25 @@ class JoinMatchViewController: UIViewController {
     
     func startGame(connectionManager connectionManager: PeerConnectionManager) {
         connectionManager.start()
-        thisBreak: if connectionManager.connectionType == .InviteOnly {
-            break thisBreak
-            
-            // TODO: - add browser view controller delegate and callback
-            let browser = connectionManager.browserViewController()!
+        
+        switch connectionManager.connectionType {
+        case .Automatic:
+            let gameCoordinator = GameCoordinator(connectionManager: connectionManager)
+            gameCoordinator.startOnViewController(self)
+        case .InviteOnly:
+            let browser = connectionManager.browserViewController { (event) in
+                switch event {
+                case .DidFinish:
+                    let gameCoordinator = GameCoordinator(connectionManager: connectionManager)
+                    gameCoordinator.startOnViewController(self)
+                default: break
+                }
+            }!
             presentViewController(browser, animated: true, completion: nil)
+        case .Custom: break
+            // TODO: - Determine what this case would look like in use and if this handles the case appropriately
         }
-        let gameCoordinator = GameCoordinator(connectionManager: connectionManager)
-        gameCoordinator.startOnViewController(self)
     }
-    
 }
 
 extension JoinMatchViewController : UITextFieldDelegate {

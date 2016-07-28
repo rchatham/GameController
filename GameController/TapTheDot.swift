@@ -14,6 +14,7 @@ struct TapTheDot : MiniGame {
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
+        self.gameRound.setGameType(.TimedObjective(duration: 15))
         self.gameRound.updateScore{_ in 100}
     }
     

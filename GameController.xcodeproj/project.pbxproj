@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301501481D49DA0A002487BA /* UnrollTheToiletPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301501471D49DA0A002487BA /* UnrollTheToiletPaper.swift */; };
+		3015014B1D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301501491D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift */; };
+		3015014C1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3015014A1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib */; };
+		3015014E1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015014D1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift */; };
 		301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F51D475B730029DBCE /* GameCoordinator.swift */; };
 		301B79F81D476A270029DBCE /* MiniGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */; };
-		301B79FA1D47D1040029DBCE /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B79F91D47D1040029DBCE /* GameList.swift */; };
 		303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */; };
 		303EA73B1C385AB300B49854 /* CoverTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */; };
 		303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */; };
@@ -44,7 +47,6 @@
 		308F44331BE42AFB006AC354 /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F44321BE42AFB006AC354 /* GameControllerTests.swift */; };
 		308F443E1BE42AFB006AC354 /* GameControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */; };
 		308F444E1BE71D7E006AC354 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F444D1BE71D7E006AC354 /* Player.swift */; };
-		30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A717C31C5068BA00FB8D5B /* GameRound2.swift */; };
 		30B6EAC21D4831920057463A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EAC11D4831920057463A /* Timer.swift */; };
 		30B6EAC31D492D320057463A /* PeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; };
 		30B6EAC41D492D320057463A /* PeerConnectivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -82,10 +84,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		301501471D49DA0A002487BA /* UnrollTheToiletPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnrollTheToiletPaper.swift; sourceTree = "<group>"; };
+		301501491D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnrollTheToiletPaperViewController.swift; sourceTree = "<group>"; };
+		3015014A1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnrollTheToiletPaperViewController.xib; sourceTree = "<group>"; };
+		3015014D1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnrollTheToiletPaperViewModel.swift; sourceTree = "<group>"; };
 		301B79F31D473F570029DBCE /* PeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PeerConnectivity.framework; path = Carthage/Build/iOS/PeerConnectivity.framework; sourceTree = "<group>"; };
 		301B79F51D475B730029DBCE /* GameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameCoordinator.swift; sourceTree = "<group>"; };
-		301B79F91D47D1040029DBCE /* GameList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 		303EA7351C385AB300B49854 /* CoverTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewController.swift; sourceTree = "<group>"; };
 		303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverTheDotViewController.xib; sourceTree = "<group>"; };
 		303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewModel.swift; sourceTree = "<group>"; };
@@ -126,7 +131,6 @@
 		308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerUITests.swift; sourceTree = "<group>"; };
 		308F443F1BE42AFC006AC354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308F444D1BE71D7E006AC354 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		30A717C31C5068BA00FB8D5B /* GameRound2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRound2.swift; sourceTree = "<group>"; };
 		30B6EAC11D4831920057463A /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301501461D49D9E9002487BA /* UnrollTheToiletPaper */ = {
+			isa = PBXGroup;
+			children = (
+				301501471D49DA0A002487BA /* UnrollTheToiletPaper.swift */,
+				301501491D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift */,
+				3015014A1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib */,
+				3015014D1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift */,
+			);
+			name = UnrollTheToiletPaper;
+			sourceTree = "<group>";
+		};
 		303EA7231C2F019C00B49854 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,9 +184,7 @@
 				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
 				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
 				303EA7431C385C3700B49854 /* MiniGame.swift */,
-				301B79F91D47D1040029DBCE /* GameList.swift */,
 				303EA7391C385AB300B49854 /* GameRound.swift */,
-				30A717C31C5068BA00FB8D5B /* GameRound2.swift */,
 				30B6EAC11D4831920057463A /* Timer.swift */,
 			);
 			name = Game;
@@ -246,6 +259,7 @@
 				303EA7231C2F019C00B49854 /* Game */,
 				306ABB341C4004A000982669 /* FlappyBird */,
 				303EA7341C385A8500B49854 /* CoverTheDot */,
+				301501461D49D9E9002487BA /* UnrollTheToiletPaper */,
 				3086FFD71C415C6600EF7EC7 /* TapTheDot */,
 				308F44241BE42AFB006AC354 /* Assets.xcassets */,
 				308F44261BE42AFB006AC354 /* LaunchScreen.storyboard */,
@@ -379,6 +393,7 @@
 			files = (
 				3086FFDD1C415D0F00EF7EC7 /* TapTheDotViewController.xib in Resources */,
 				306ABB3A1C40059500982669 /* bird.atlas in Resources */,
+				3015014C1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib in Resources */,
 				306ABB3E1C40059500982669 /* Images.xcassets in Resources */,
 				308BE18A1C2DA30E009AA272 /* GameViewController.xib in Resources */,
 				308F44281BE42AFB006AC354 /* LaunchScreen.storyboard in Resources */,
@@ -416,14 +431,14 @@
 				301B79F81D476A270029DBCE /* MiniGameCoordinator.swift in Sources */,
 				303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */,
 				306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */,
+				301501481D49DA0A002487BA /* UnrollTheToiletPaper.swift in Sources */,
 				306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */,
 				303EA73E1C385AB300B49854 /* GameRound.swift in Sources */,
 				301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */,
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
-				30A717C41C5068BA00FB8D5B /* GameRound2.swift in Sources */,
 				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,
-				301B79FA1D47D1040029DBCE /* GameList.swift in Sources */,
 				303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */,
+				3015014E1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift in Sources */,
 				3086FFDC1C415D0F00EF7EC7 /* TapTheDotViewController.swift in Sources */,
 				303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */,
 				30B6EAC21D4831920057463A /* Timer.swift in Sources */,
@@ -438,6 +453,7 @@
 				308BE1801C2B7FCC009AA272 /* JoinMatchViewModel.swift in Sources */,
 				308BE1841C2B85B9009AA272 /* GameViewModel.swift in Sources */,
 				308BE1821C2B85AA009AA272 /* GameViewController.swift in Sources */,
+				3015014B1D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 import PeerConnectivity
 
-struct GameViewModel {
+class GameViewModel {
     
     var player : Player {
         didSet {
@@ -41,23 +41,23 @@ struct GameViewModel {
         self.connectionManager = connectionManager
         
         self.connectionManager
-            .listenOn(devicesChanged: { /*[weak self]*/ (peer: Peer, displayNames: [Peer]) -> Void in
+            .listenOn(devicesChanged: { [weak self] (peer: Peer, displayNames: [Peer]) -> Void in
                 switch peer {
                 case .Connected(_):
-                    self.connectedPlayers += [Player(peer: peer)]
+                    self?.connectedPlayers += [Player(peer: peer)]
                 case .NotConnected(_):
-                    guard let index = self.connectedPlayers.indexOf(Player(peer: peer)) else { return }
-                    self.connectedPlayers.removeAtIndex(index)
+                    guard let index = self?.connectedPlayers.indexOf(Player(peer: peer)) else { return }
+                    self?.connectedPlayers.removeAtIndex(index)
                 default: break
                 }
             
-            }, dataReceived: { /*[weak self]*/ (peer: Peer, data: NSData) -> Void in
+            }, dataReceived: { [weak self] (peer: Peer, data: NSData) -> Void in
                 
                 guard let dataObject = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String:AnyObject]
                     else { return }
                 
                 if let score = dataObject["score"] as? Int {
-                    self.connectedPlayers = self.connectedPlayers.map { (player) in
+                    self?.connectedPlayers = self!.connectedPlayers.map { (player) in
                         if player.peer == peer {
                             var player = Player(peer: peer)
                             player.score = score
@@ -66,7 +66,7 @@ struct GameViewModel {
                             return player
                         }
                     }
-                    self.labelCallback?(self.initialOutput())
+                    self?.labelCallback?(self!.initialOutput())
                 
                 }
                 if let gamesNames = dataObject["start"] as? [String] {
@@ -76,42 +76,27 @@ struct GameViewModel {
                     for gameName in gamesNames {
                         switch gameName {
                         case "CoverTheDot":
-                            let gameRound = GameRound()
-                            gameRound.setGameType(.Timed(duration: 15))
-                            let ctd = CoverTheDot(gameRound: gameRound)
-                            games.append(ctd)
+                            games.append(CoverTheDot(gameRound: GameRound()))
                         case "TapTheDot":
-                            let gameRound = GameRound()
-                            gameRound.setGameType(.TimedObjective(duration: 15))
-                            let ttd = TapTheDot(gameRound: GameRound())
-                            games.append(ttd)
+                            games.append(TapTheDot(gameRound: GameRound()))
+                        case "FlappyBird":
+                            games.append(FlappyBird(gameRound: GameRound()))
                         default: break
                         }
                     }
-                    self.gameStartCallback(games)
+                    self?.gameStartCallback(games)
                 }
             }, withKey: "GameSetup")
     }
     
     func sendStartGameData() -> [MiniGame] {
         
-        var gamesArray: [MiniGame] = []
-        
-        let timedRound = GameRound()
-        let timedObjectiveRound = GameRound()
-        let objectiveRound = GameRound()
-        
-        timedRound.setGameType(.Timed(duration: 15))
-        timedObjectiveRound.setGameType(.TimedObjective(duration: 15))
-        objectiveRound.setGameType(.Objective)
-        
-        let ctd = CoverTheDot(gameRound: timedRound.copy() as! GameRound)
-        let ttd = TapTheDot(gameRound: timedObjectiveRound.copy() as! GameRound)
-        let flpybrd = FlappyBird(gameRound: objectiveRound.copy() as! GameRound)
-        
-        gamesArray.append(ctd)
-        gamesArray.append(ttd)
-        gamesArray.append(flpybrd)
+        var gamesArray: [MiniGame] = [
+            CoverTheDot(gameRound: GameRound()),
+            TapTheDot(gameRound: GameRound()),
+            FlappyBird(gameRound: GameRound()),
+            UnrollTheToiletPaper(gameRound: GameRound())
+        ]
         
         gamesArray.shuffleInPlace()
         
@@ -123,6 +108,10 @@ struct GameViewModel {
                 gamesNames.append(String(CoverTheDot))
             case _ where (game as? TapTheDot) != nil:
                 gamesNames.append(String(TapTheDot))
+            case _ where (game as? FlappyBird) != nil:
+                gamesNames.append(String(FlappyBird))
+            case _ where (game as? UnrollTheToiletPaper) != nil:
+                gamesNames.append(String(UnrollTheToiletPaper))
             default: break
             }
         }
@@ -171,19 +160,3 @@ enum PlayerChange {
     case NotConnected(player: Player)
     case Scored(player: Player)
 }
-
-//struct GameList {
-//    
-//    static func coverTheDot(duration: Int) -> CoverTheDot {
-//        let gameRound = GameRound(gameType: .Timed(duration: duration))
-//        return CoverTheDot(gameRound: gameRound)
-//    }
-//    static func tapTheDot(taps: Int) -> TapTheDot {
-//        let gameRound = GameRound(gameType: .TimedObjective(duration: 15))
-//        return TapTheDot(gameRound: gameRound)
-//    }
-//}
-
-//typealias GameType = Int->MiniGame
-//enum Games : GameType {
-//}

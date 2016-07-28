@@ -14,6 +14,7 @@ struct CoverTheDot: MiniGame {
     
     init(gameRound: GameRound) {
         self.gameRound = gameRound
+        self.gameRound.setGameType(.Timed(duration: 15))
     }
     
     func viewController() -> UIViewController {
