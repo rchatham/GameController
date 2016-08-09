@@ -11,13 +11,13 @@ import PeerConnectivity
 
 class GameViewModel {
     
-    var player : Player {
+    private(set) var player : Player {
         didSet {
             let scoreObject : [String:AnyObject] = ["score":player.score]
             connectionManager.sendEvent(scoreObject)
         }
     }
-    var connectedPlayers : [Player] = []
+    private(set) var connectedPlayers : [Player] = []
     
     private var connectionManager : PeerConnectionManager
     
@@ -36,14 +36,17 @@ class GameViewModel {
     
     var gameStartCallback : [MiniGame]->Void = {_ in}
     
-    init(player: Player, connectionManager: PeerConnectionManager) {
-        self.player = player
+    init(connectionManager: PeerConnectionManager) {
+        self.player = Player(peer: connectionManager.peer)
         self.connectionManager = connectionManager
         
         self.connectionManager
             .listenOn(devicesChanged: { [weak self] (peer: Peer, displayNames: [Peer]) -> Void in
                 switch peer {
                 case .Connected(_):
+                    guard let players = self?.connectedPlayers
+                        where !players.contains(Player(peer: peer))
+                        else { return }
                     self?.connectedPlayers += [Player(peer: peer)]
                 case .NotConnected(_):
                     guard let index = self?.connectedPlayers.indexOf(Player(peer: peer)) else { return }
@@ -59,9 +62,7 @@ class GameViewModel {
                 if let score = dataObject["score"] as? Int {
                     self?.connectedPlayers = self!.connectedPlayers.map { (player) in
                         if player.peer == peer {
-                            var player = Player(peer: peer)
-                            player.score = score
-                            return player
+                            return Player(peer: peer, score: score)
                         } else {
                             return player
                         }
@@ -76,11 +77,11 @@ class GameViewModel {
                     for gameName in gamesNames {
                         switch gameName {
                         case "CoverTheDot":
-                            games.append(CoverTheDot(gameRound: GameRound()))
+                            games.append(CoverTheDot())
                         case "TapTheDot":
-                            games.append(TapTheDot(gameRound: GameRound()))
+                            games.append(TapTheDot())
                         case "FlappyBird":
-                            games.append(FlappyBird(gameRound: GameRound()))
+                            games.append(FlappyBird())
                         default: break
                         }
                     }
@@ -92,10 +93,10 @@ class GameViewModel {
     func sendStartGameData() -> [MiniGame] {
         
         var gamesArray: [MiniGame] = [
-            CoverTheDot(gameRound: GameRound()),
-            TapTheDot(gameRound: GameRound()),
-            FlappyBird(gameRound: GameRound()),
-            UnrollTheToiletPaper(gameRound: GameRound())
+            CoverTheDot(),
+            TapTheDot(),
+            FlappyBird(),
+            UnrollTheToiletPaper()
         ]
         
         gamesArray.shuffleInPlace()
@@ -137,20 +138,17 @@ class GameViewModel {
         prefix prefix: String? = nil,
         array: [String],
         postfix: String? = nil) -> String {
-            
-        var output = ""
-        switch prefix {
-        case .None: break
-        case.Some(let p): output += (p + "\n")
-        }
-        for player in connectedPlayers {
-            output += "Player: \(player.name), Score: \(player.score)\n"
-        }
-        switch postfix {
-        case .None: break
-        case .Some(let p): output += p
-        }
-            
+        
+        var output = prefix ?? "" + (prefix == nil ? "" : "\n")
+        output += (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
+        output += (postfix ?? "")
+        
+        // Expression is too complex to be solved in a reasonable time!!!!!! LOL... Stupid Swift...
+//        let output = (prefix ?? "")
+//            + (prefix == nil ? "" : "\n")
+//            + (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
+//            + (postfix ?? "")
+        
         return output
     }
 }

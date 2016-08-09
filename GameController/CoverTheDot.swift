@@ -10,15 +10,44 @@ import UIKit
 
 struct CoverTheDot: MiniGame {
     
-    let gameRound: GameRound
+    weak var delegate: MiniGameDelegate?
+    weak var dataSource: MiniGameDataSource?
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
-        self.gameRound.setGameType(.Timed(duration: 15))
+    let gameType: MiniGameType = .Timed(duration: 15)
+    let gameName = String(CoverTheDot)
+    
+    func readyViewController() -> UIViewController? {
+        return nil
     }
     
-    func viewController() -> UIViewController {
-        let vm = CoverTheDotViewModel(gameRound: gameRound)
+    func recapViewController() -> UIViewController? {
+        return nil
+    }
+    
+    func gameViewController() -> UIViewController {
+        let vm = CoverTheDotViewModel(delegate: self, dataSource: self)
         return CoverTheDotViewController(viewModel: vm)
+    }
+}
+
+extension CoverTheDot: CoverTheDotViewModelDelegate {
+    
+    func startGame() {
+         delegate?.startGame(self)
+    }
+    
+    func updateScore(updater: Int -> Int) {
+        delegate?.updateScore(self, scoreUpdater: updater)
+    }
+}
+
+extension CoverTheDot: CoverTheDotViewModelDataSource {
+    
+    func miniGameTimeRemaining() -> Int {
+        return dataSource?.miniGameTimeRemaining() ?? 0
+    }
+    
+    func miniGameScore() -> Int {
+        return dataSource?.miniGameScore() ?? 0
     }
 }

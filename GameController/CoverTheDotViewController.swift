@@ -59,20 +59,19 @@ class CoverTheDotViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         animator.addBehavior(blockBehavior)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.startGame(scoreUpdater: {
-            [weak self]
-            score -> Int in
-            print("Score match")
+            [weak self] score -> Int in
+            // Score match
             
-            guard let dotView = self?.dotView else { return score }
-            guard let newPts = self?.blocksCoveringDot(dotView) else { return score }
-            guard let outputText = self?.viewModel.outputText() else { return score }
+            guard let dotView = self?.dotView,
+                newPts = self?.blocksCoveringDot(dotView),
+                outputText = self?.viewModel.outputText()
+                else { return score }
             self?.gameUpdateLabel.text = outputText
             
             return score + newPts
@@ -88,11 +87,10 @@ class CoverTheDotViewController: UIViewController {
                 object: nil, queue: NSOperationQueue.mainQueue()) {
                     (notification) -> Void in
                 
-                    print("Motionkit starts taking accelerometer updates")
+                    // Motionkit starts taking accelerometer updates.
                     let motionKit = AppDelegate.Motion.Kit
-                    motionKit.getAccelerometerValues(){
-                        [unowned self]
-                        (x: Double, y: Double, z: Double) in
+                    motionKit.getAccelerometerValues() {
+                        [unowned self] (x: Double, y: Double, z: Double) in
                         
                         self.blockBehavior.gravity.gravityDirection = CGVector(dx: x, dy: -y)
                     }
@@ -111,7 +109,7 @@ class CoverTheDotViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         if dotView == nil {
-            dotView = DotView(frame: CGRect(x: gameView.frame.size.width/2 , y: gameView.frame.size.height/2, width: 40, height: 40))
+            dotView = DotView(frame: CGRect(x: gameView.frame.size.width/2, y: gameView.frame.size.height/2, width: 40, height: 40))
             gameView.addSubview(dotView)
         }
     }
@@ -123,6 +121,7 @@ class CoverTheDotViewController: UIViewController {
     
     func tap(sender: UITapGestureRecognizer) {
         if sender.state == .Ended {
+            
             // handling code
             print("Handle tap with ended state")
             let touchPosition = sender.locationInView(gameView)
@@ -140,7 +139,6 @@ class CoverTheDotViewController: UIViewController {
         
         for view in gameView.subviews {
             if dotView !== view {
-                //            if !dotView.isEqual(view) {
                 if CGRectIntersectsRect(dotView.frame, view.frame) {
                     blockCount += 1
                 }

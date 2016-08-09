@@ -12,7 +12,7 @@ import PeerConnectivity
 struct Player {
     
     let peer : Peer
-    var score : Int = 0
+    private(set) var score : Int = 0
     
     var name: String { return peer.displayName }
     
@@ -21,10 +21,14 @@ struct Player {
         self.peer = Peer(displayName: playerName)
     }
     
-    init(peer : Peer) {
+    init(peer: Peer) {
         self.peer = peer
     }
     
+    init(peer: Peer, score: Int) {
+        self.peer = peer
+        self.score = score
+    }
     
     mutating func incrementScoreBy(points: Int) {
         self.score += points

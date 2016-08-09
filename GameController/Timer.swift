@@ -8,41 +8,44 @@
 
 import Foundation
 
-public class Timer<T>: NSObject {
+public class Timer: NSObject {
+    
+    public var timeRemaining: Int {
+        return Int(timer?.fireDate.timeIntervalSinceNow ?? 0)
+    }
     
     private let timeInterval: NSTimeInterval
     private let userInfo: AnyObject?
-    private let callback: Void->T
+    private let callback: Void->Void
     private let repeats: Bool
-    private let invalidateAfter: NSDate
+    private let invalidateAfter: NSDate?
     private var timer: NSTimer?
+    private var timeToResume: NSTimeInterval = 0
     
-    init(timeInterval: NSTimeInterval,
-         userInfo: AnyObject?,
-         repeats: Bool,
-         invalidateAfter: NSTimeInterval,
-         startOnCreation: Bool,
-         callback: Void->T) {
+    public init(timeInterval: NSTimeInterval,
+         userInfo: AnyObject? = nil,
+         repeats: Bool = false,
+         invalidateAfter: NSTimeInterval? = nil,
+         startOnCreation: Bool = true,
+         callback: Void->Void) {
         
         self.timeInterval = timeInterval
         self.userInfo = userInfo
         self.repeats = repeats
-        self.invalidateAfter = NSDate(timeIntervalSinceNow: invalidateAfter)
+        self.invalidateAfter = (invalidateAfter != nil) ? NSDate(timeIntervalSinceNow: invalidateAfter!) : nil
         self.callback = callback
         super.init()
         if startOnCreation {
-            timer = {
-                NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: #selector(Timer<T>.performCallback), userInfo: userInfo, repeats: repeats)
-            }()
+            timer =  NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: #selector(Timer.performCallback), userInfo: userInfo, repeats: repeats)
         }
     }
     
-    init(timeInterval: NSTimeInterval,
+    public init(timeInterval: NSTimeInterval,
          userInfo: AnyObject?,
          repeats: Bool,
          startAfter: NSTimeInterval,
          invalidateAfter: NSTimeInterval,
-         callback: Void->T) {
+         callback: Void->Void) {
         
         self.timeInterval = timeInterval
         self.userInfo = userInfo
@@ -50,13 +53,15 @@ public class Timer<T>: NSObject {
         self.invalidateAfter = NSDate(timeIntervalSinceNow: invalidateAfter)
         self.callback = callback
         super.init()
-        NSTimer.scheduledTimerWithTimeInterval(startAfter, target: self, selector: #selector(Timer<T>.createTimer), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(startAfter, target: self, selector: #selector(Timer.createTimer), userInfo: nil, repeats: false)
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     internal func createTimer() {
-        timer = {
-            NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: #selector(Timer<T>.performCallback), userInfo: userInfo, repeats: repeats)
-        }()
+        timer =  NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: #selector(Timer.performCallback), userInfo: userInfo, repeats: repeats)
     }
     
     public func start() {
@@ -65,14 +70,28 @@ public class Timer<T>: NSObject {
         }
     }
     
+    public func pause() {
+        self.timeToResume = timer?.fireDate.timeIntervalSinceNow ?? 0.0
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    public func resume() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(timeToResume, target: self, selector: #selector(Timer.performCallback), userInfo: userInfo, repeats: repeats)
+    }
+    
+    public func stop() {
+        timer?.invalidate()
+    }
+    
     internal func performCallback(timer: NSTimer) {
         callback()
-        if NSDate() > invalidateAfter {
+        if invalidateAfter != nil && NSDate() > invalidateAfter! {
             timer.invalidate()
         }
     }
 }
 
-func >(lhs: NSDate, rhs: NSDate) -> Bool {
+private func >(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs == lhs.laterDate(rhs)
 }

@@ -29,8 +29,7 @@ extension SKNode {
     }
 }
 
-//class FlappyBirdGameViewController: UIViewController {
-class FlappyBirdGameViewController: UIViewController { //, GameRoundDelegate {
+class FlappyBirdGameViewController: UIViewController {
 
     @IBOutlet weak var sceneView: SKView! {
         didSet {
@@ -43,7 +42,6 @@ class FlappyBirdGameViewController: UIViewController { //, GameRoundDelegate {
     init(viewModel: FlappyBirdViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "FlappyBirdGameViewController", bundle: nil)
-//        self.viewModel.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {

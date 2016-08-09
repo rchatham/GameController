@@ -17,7 +17,7 @@
 		303EA73B1C385AB300B49854 /* CoverTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */; };
 		303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */; };
 		303EA73D1C385AB300B49854 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7381C385AB300B49854 /* DotView.swift */; };
-		303EA73E1C385AB300B49854 /* GameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7391C385AB300B49854 /* GameRound.swift */; };
+		303EA73E1C385AB300B49854 /* MiniGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7391C385AB300B49854 /* MiniGameRound.swift */; };
 		303EA7401C385AC600B49854 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA73F1C385AC600B49854 /* MotionKit.swift */; };
 		303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7411C385AD700B49854 /* BlockBehavior.swift */; };
 		303EA7441C385C3700B49854 /* MiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7431C385C3700B49854 /* MiniGame.swift */; };
@@ -95,7 +95,7 @@
 		303EA7361C385AB300B49854 /* CoverTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverTheDotViewController.xib; sourceTree = "<group>"; };
 		303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDotViewModel.swift; sourceTree = "<group>"; };
 		303EA7381C385AB300B49854 /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
-		303EA7391C385AB300B49854 /* GameRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRound.swift; sourceTree = "<group>"; };
+		303EA7391C385AB300B49854 /* MiniGameRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameRound.swift; sourceTree = "<group>"; };
 		303EA73F1C385AC600B49854 /* MotionKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionKit.swift; sourceTree = "<group>"; };
 		303EA7411C385AD700B49854 /* BlockBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockBehavior.swift; sourceTree = "<group>"; };
 		303EA7431C385C3700B49854 /* MiniGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGame.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
 				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
 				303EA7431C385C3700B49854 /* MiniGame.swift */,
-				303EA7391C385AB300B49854 /* GameRound.swift */,
+				303EA7391C385AB300B49854 /* MiniGameRound.swift */,
 				30B6EAC11D4831920057463A /* Timer.swift */,
 			);
 			name = Game;
@@ -207,13 +207,13 @@
 		306ABB341C4004A000982669 /* FlappyBird */ = {
 			isa = PBXGroup;
 			children = (
-				306ABB351C40059500982669 /* bird.atlas */,
-				306ABB361C40059500982669 /* FlappyBirdGameScene.sks */,
-				306ABB371C40059500982669 /* FlappyBirdGameScene.swift */,
+				306ABB411C4010FC00982669 /* FlappyBird.swift */,
 				306ABB381C40059500982669 /* FlappyBirdGameViewController.swift */,
 				306ABB431C40469400982669 /* FlappyBirdGameViewController.xib */,
 				306ABB3F1C4010EB00982669 /* FlappyBirdViewModel.swift */,
-				306ABB411C4010FC00982669 /* FlappyBird.swift */,
+				306ABB361C40059500982669 /* FlappyBirdGameScene.sks */,
+				306ABB371C40059500982669 /* FlappyBirdGameScene.swift */,
+				306ABB351C40059500982669 /* bird.atlas */,
 				306ABB391C40059500982669 /* Images.xcassets */,
 			);
 			name = FlappyBird;
@@ -433,7 +433,7 @@
 				306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */,
 				301501481D49DA0A002487BA /* UnrollTheToiletPaper.swift in Sources */,
 				306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */,
-				303EA73E1C385AB300B49854 /* GameRound.swift in Sources */,
+				303EA73E1C385AB300B49854 /* MiniGameRound.swift in Sources */,
 				301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */,
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
 				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,

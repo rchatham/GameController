@@ -8,19 +8,24 @@
 
 import Foundation
 
+protocol FlappyBirdViewModelDelegate {
+    func endGame()
+    func updateScore(updater: Int->Int)
+}
+
 struct FlappyBirdViewModel {
     
-    private var currentRound: GameRound
+    private var delegate : FlappyBirdViewModelDelegate
     
-    init(gameRound: GameRound) {
-        currentRound = gameRound
+    init(delegate: FlappyBirdViewModelDelegate) {
+        self.delegate = delegate
     }
     
     func endGame() {
-        currentRound.endGame()
+        delegate.endGame()
     }
     
     func updateScore(updater: Int->Int) {
-        currentRound.updateScore(updater)
+        delegate.updateScore(updater)
     }
 }

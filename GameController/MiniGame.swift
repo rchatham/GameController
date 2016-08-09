@@ -8,11 +8,36 @@
 
 import UIKit
 
+public protocol MiniGameDelegate: class {
+    func startGame(miniGame: MiniGame)
+    func pauseGame(miniGame: MiniGame)
+    func resumeGame(miniGame: MiniGame)
+    func endGame(miniGame: MiniGame)
+    func updateScore(miniGame: MiniGame, scoreUpdater updater: Int->Int)
+}
+
+public protocol MiniGameDataSource: class {
+    func miniGameTimeRemaining() -> Int
+    func miniGameScore() -> Int
+}
+
+///*
+public enum MiniGameType {
+    case Objective
+    case Timed(duration: Int)
+    case TimedObjective(duration: Int)
+}
+//*/
+
 public protocol MiniGame {
     
-    var gameRound : GameRound { get }
+    weak var delegate: MiniGameDelegate? { get set }
+    weak var dataSource: MiniGameDataSource? { get set }
     
-    init(gameRound: GameRound)
+    var gameType: MiniGameType { get }
+    var gameName: String { get }
     
-    func viewController() -> UIViewController
+    func readyViewController()  -> UIViewController?
+    func gameViewController()   -> UIViewController
+    func recapViewController()  -> UIViewController?
 }

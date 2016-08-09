@@ -8,16 +8,21 @@
 
 import Foundation
 
+protocol UnrollTheToiletPaperViewModelDelegate {
+    func updateScore(updater: Int->Int)
+    func endGame()
+}
+
 struct UnrollTheToiletPaperViewModel {
     
-    private let gameRound: GameRound
+    private var delegate: UnrollTheToiletPaperViewModelDelegate
+    
     internal private(set) var toiletPaperRipped = false
     private var runningTotal: Int = 0
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
+    init(delegate: UnrollTheToiletPaperViewModelDelegate) {
+        self.delegate = delegate
     }
-    
     mutating func unroll(lengthOfButtTissue: Float) {
         runningTotal += Int(lengthOfButtTissue)
         print(runningTotal)
@@ -27,8 +32,8 @@ struct UnrollTheToiletPaperViewModel {
         toiletPaperRipped = true
     }
     
-    func endGame() {
-        gameRound.updateScore { _ in return self.runningTotal/1000 }
-        gameRound.endGame()
+    mutating func endGame() {
+        delegate.updateScore { _ in return self.runningTotal/1000 }
+        delegate.endGame()
     }
 }

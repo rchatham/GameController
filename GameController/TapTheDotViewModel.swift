@@ -8,21 +8,26 @@
 
 import Foundation
 
+protocol TapTheDotViewModelDelegate {
+    func startGame()
+    func endGame()
+    func updateScore(updater: Int->Int)
+}
 
 struct TapTheDotViewModel {
     
-    private let gameRound: GameRound
+    private var delegate: TapTheDotViewModelDelegate
     
     private var tapCount = 0 {
         didSet {
             if tapCount >= 50 {
-                gameRound.endGame()
+                delegate.endGame()
             }
         }
     }
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
+    init(delegate: TapTheDotViewModelDelegate) {
+        self.delegate = delegate
     }
     
     mutating func dotTapped() {
@@ -30,11 +35,11 @@ struct TapTheDotViewModel {
     }
     
     func startGame() {
-        gameRound.startTimedGame()
+        delegate.startGame()
     }
     
     func scoreGame() {
-        gameRound.updateScore { (score) -> Int in
+        delegate.updateScore { (score) -> Int in
             return score - 1
         }
     }

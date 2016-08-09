@@ -10,15 +10,34 @@ import UIKit
 
 struct UnrollTheToiletPaper: MiniGame {
     
-    let gameRound: GameRound
+    weak var delegate: MiniGameDelegate?
+    weak var dataSource: MiniGameDataSource?
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
-        self.gameRound.setGameType(.Objective)
+    let gameType: MiniGameType = .Objective
+    let gameName = String(UnrollTheToiletPaper)
+    
+    func readyViewController() -> UIViewController? {
+        return nil
     }
     
-    func viewController() -> UIViewController {
-        let vm = UnrollTheToiletPaperViewModel(gameRound: gameRound)
+    func recapViewController() -> UIViewController? {
+        return nil
+    }
+    
+    func gameViewController() -> UIViewController {
+        let vm = UnrollTheToiletPaperViewModel(delegate: self)
         return UnrollTheToiletPaperViewController(viewModel: vm)
+    }
+}
+
+extension UnrollTheToiletPaper: UnrollTheToiletPaperViewModelDelegate {
+    
+    func endGame() {
+        print("End Game!")
+        delegate?.endGame(self)
+    }
+    
+    func updateScore(updater: Int -> Int) {
+        delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

@@ -10,18 +10,39 @@ import UIKit
 
 struct FlappyBird : MiniGame {
     
-    let gameRound : GameRound
+    weak var delegate: MiniGameDelegate?
+    weak var dataSource: MiniGameDataSource?
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
-        self.gameRound.setGameType(.Objective)
+    let gameType: MiniGameType = .Objective
+    
+    var gameName: String {
+        return String(FlappyBird)
     }
     
-    func viewModel() -> FlappyBirdViewModel {
-        return FlappyBirdViewModel(gameRound: gameRound)
+    func readyViewController() -> UIViewController? {
+        return nil
     }
     
-    func viewController() -> UIViewController {
+    func recapViewController() -> UIViewController? {
+        return nil
+    }
+    
+    func gameViewController() -> UIViewController {
         return FlappyBirdGameViewController(viewModel: viewModel())
+    }
+    
+    private func viewModel() -> FlappyBirdViewModel {
+        return FlappyBirdViewModel(delegate: self)
+    }
+}
+
+extension FlappyBird: FlappyBirdViewModelDelegate {
+    
+    func endGame() {
+        delegate?.endGame(self)
+    }
+    
+    func updateScore(updater: Int->Int) {
+        delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

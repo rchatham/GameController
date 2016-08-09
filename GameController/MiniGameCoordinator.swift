@@ -8,61 +8,69 @@
 
 import UIKit
 
-protocol MiniGameCoordinatorDelegate {
+protocol MiniGameCoordinatorDelegate: class {
     func miniGameCoordinator(miniGameCoordinator: MiniGameCoordinator, playerDidScore score: Int)
     func miniGameCoordinatorDidFinish(miniGameCoordinator: MiniGameCoordinator)
 }
 
 class MiniGameCoordinator {
     
-    var delegate: MiniGameCoordinatorDelegate?
+    weak var delegate: MiniGameCoordinatorDelegate?
     
-    private var games : [MiniGame]
+    private let miniGameRound = MiniGameRound()
+    
+    private var games: [MiniGame] = []
     
     private weak var navigationController : UINavigationController?
     
     init(games: [MiniGame]) {
         self.games = games
-        for game in self.games {
-            game.gameRound.setGameDelegate(self)
-        }
+        miniGameRound.setGameDelegate(self)
     }
     
     func presentFromViewController(viewController: UIViewController) {
-        guard let firstGame = getNextGame() else {
+        guard var firstGame = getNextGame() else {
             navigationController?.dismissViewControllerAnimated(true) {
                 self.delegate?.miniGameCoordinatorDidFinish(self)
             }
             return
         }
-        let nav = UINavigationController(rootViewController: firstGame.viewController())
+        firstGame.delegate = miniGameRound
+        firstGame.dataSource = miniGameRound
+        miniGameRound.setGameType(firstGame.gameType)
+        
+        let nav = UINavigationController(rootViewController: firstGame.gameViewController())
         nav.navigationBar.hidden = true
         viewController.presentViewController(nav, animated: true, completion: nil)
         navigationController = nav
     }
     
-    func getNextGame() -> MiniGame? {
+    private func getNextGame() -> MiniGame? {
         guard games.count > 0 else { return nil }
         return games.removeFirst()
     }
 }
 
-extension MiniGameCoordinator : GameRoundDelegate {
+extension MiniGameCoordinator : MiniGameRoundDelegate {
     
-    func gameRoundDidPause(gameRound: GameRound) {}
+    func gameRoundDidPause(miniGameRound: MiniGameRound) {}
     
-    func gameRoundDidResume(gameRound: GameRound) {}
+    func gameRoundDidResume(miniGameRound: MiniGameRound) {}
     
-    func gameRound(gameRound: GameRound, endedGameWithScore score: Int) {
+    func gameRound(miniGameRound: MiniGameRound, endedGameWithScore score: Int) {
         
         delegate?.miniGameCoordinator(self, playerDidScore: score)
         
-        guard let nextGame = self.getNextGame() else {
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            self.delegate?.miniGameCoordinatorDidFinish(self)
+        guard var nextGame = getNextGame() else {
+            navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            delegate?.miniGameCoordinatorDidFinish(self)
             return
         }
-        let nextGameVC = nextGame.viewController()
-        self.navigationController?.pushViewController(nextGameVC, animated: true)
+        nextGame.delegate = miniGameRound
+        nextGame.dataSource = miniGameRound
+        miniGameRound.setGameType(nextGame.gameType)
+        
+        let nextGameVC = nextGame.gameViewController()
+        navigationController?.pushViewController(nextGameVC, animated: true)
     }
 }

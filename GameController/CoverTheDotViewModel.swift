@@ -8,28 +8,38 @@
 
 import Foundation
 
+protocol CoverTheDotViewModelDelegate {
+    func startGame()
+    func updateScore(updater: Int->Int)
+}
+
+protocol CoverTheDotViewModelDataSource {
+    func miniGameTimeRemaining() -> Int
+    func miniGameScore() -> Int
+}
+
 struct CoverTheDotViewModel {
  
-    private let gameRound : GameRound
+//    private weak var delegate: MiniGameDelegate?
+    private var delegate: CoverTheDotViewModelDelegate
+    private var dataSource: CoverTheDotViewModelDataSource
     
-    init(gameRound: GameRound) {
-        self.gameRound = gameRound
+//    let timer : Timer
+    
+    init(delegate: CoverTheDotViewModelDelegate, dataSource: CoverTheDotViewModelDataSource) {
+        self.delegate = delegate
+        self.dataSource = dataSource
     }
     
-    mutating func startGame(scoreUpdater updater: GameRound.ScoreUpdater) {
-        gameRound.startTimedGame()
-        switch gameRound.gameType! {
-        case .Timed(let duration):
-            _ = Timer(timeInterval: 1,
-                      userInfo: nil,
-                      repeats: true,
-                      invalidateAfter: Double(duration),
-                      startOnCreation: true,
-                      callback: {
-                    return self.gameRound.updateScore(updater)
-            })
-        default: break
-        }
+    mutating func startGame(scoreUpdater updater: MiniGameRound.ScoreUpdater) {
+        delegate.startGame()
+//        switch gameRound.gameType! {
+//        case .Timed(let duration):
+            _ = Timer(timeInterval: 1, repeats: true, invalidateAfter: Double(dataSource.miniGameTimeRemaining())) {
+                    self.delegate.updateScore(updater)
+            }
+//        default: break
+//        }
     }
     
     func sizeRatio() -> Int {
@@ -39,12 +49,8 @@ struct CoverTheDotViewModel {
     func maxBlocks() -> Int {
         return Int.random(10) + 1
     }
-    
+
     func outputText() -> String {
-        switch gameRound.gameType! {
-        case .Timed(let duration):
-            return "Time Remaining: \(gameRound.timeRemaining ?? duration) Score: \(gameRound.score)"
-        default: return ""
-        }
+        return "Time Remaining: \(dataSource.miniGameTimeRemaining()) Score: \(dataSource.miniGameScore())"
     }
 }

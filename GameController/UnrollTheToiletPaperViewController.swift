@@ -39,6 +39,7 @@ class UnrollTheToiletPaperViewController: UIViewController {
         
         guard viewModel.toiletPaperRipped == false
             else {
+                view.removeGestureRecognizer(gesture)
                 return viewModel.endGame()
         }
         

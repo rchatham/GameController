@@ -20,8 +20,7 @@ internal class GameCoordinator {
     }
     
     func startOnViewController(viewController: UIViewController) {
-        let localPlayer = Player(peer: connectionManager.peer)
-        let gameVM = GameViewModel(player: localPlayer, connectionManager: connectionManager)
+        let gameVM = GameViewModel(connectionManager: connectionManager)
         let gameViewController = GameViewController(viewModel: gameVM)
         gameViewController.delegate = self
         viewController.presentViewController(gameViewController, animated: true, completion: nil)
