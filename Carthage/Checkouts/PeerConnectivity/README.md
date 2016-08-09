@@ -20,6 +20,12 @@ PeerConnectivity
 github 'rchatham/PeerConnectivity'
 ```
 
+####Cocoapods
+
+```
+pod 'PeerConnectivity'
+```
+
 
 ### Creating/Stopping/Starting
 
@@ -42,9 +48,7 @@ pcm.stop()
 // The manager can be initialized with a contructed peer representing the local user
 // with a custom displayName
 
-let localPeer = Peer(displayName: "I_AM_KING")
-
-pcm = PeerConnectionManager(serviceType: "local", connectionType: .Automatic, peer: localPeer)
+pcm = PeerConnectionManager(serviceType: "local", connectionType: .Automatic, displayName: "I_AM_KING")
 
 // Start again at any time
 pcm.start() {
@@ -92,7 +96,7 @@ pcm.removeListenerForKey("SomeEvent")
 ```swift
 init(serviceType: ServiceType, 
   connectionType: PeerConnectionType = .Automatic, 
-            peer: Peer = Peer(displayName: UIDevice.currentDevice().name))
+     displayName: String = UIDevice.currentDevice().name)
 ```
 
 ###Properties
@@ -114,7 +118,7 @@ foundPeers: [Peer] { get }
 ```swift
 start(completion: (Void->Void)? = nil)
 
-browserViewController() -> UIViewController?
+browserViewController(callback: PeerBrowserViewControllerEvent->Void) -> UIViewController?
 
 invitePeer(peer: Peer, withContext context: NSData? = nil, timeout: NSTimeInterval = 30)
 

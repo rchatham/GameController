@@ -183,9 +183,9 @@
 				308BE1891C2DA30E009AA272 /* GameViewController.xib */,
 				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
 				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
-				303EA7431C385C3700B49854 /* MiniGame.swift */,
 				303EA7391C385AB300B49854 /* MiniGameRound.swift */,
 				30B6EAC11D4831920057463A /* Timer.swift */,
+				303EA7431C385C3700B49854 /* MiniGame.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";

@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/PeerConnectivity.swiftmodule/arm.swiftmodule</key>
 		<data>
-		QdL3qhC6xKmZNxthEKtno6eDE3s=
+		TA1a0FyaPDr6cBguSqY4BBFAT7o=
 		</data>
 		<key>Modules/PeerConnectivity.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/PeerConnectivity.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		MuCi6uaqR/IH47EX7ME3QPNlxP0=
+		acp/P7ipppZlqA2fjrOi7OA2pEk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QdL3qhC6xKmZNxthEKtno6eDE3s=
+			TA1a0FyaPDr6cBguSqY4BBFAT7o=
 			</data>
 			<key>hash2</key>
 			<data>
-			oT3QhpiLmwdQexWc/TIC8zLxlG8MgPJAkcN04lRzg5w=
+			wYDUAsa7DESQNNsAQxn8oE/QSLjW2b0rruEdHzMgm+8=
 			</data>
 		</dict>
 		<key>Modules/PeerConnectivity.swiftmodule/arm64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MuCi6uaqR/IH47EX7ME3QPNlxP0=
+			acp/P7ipppZlqA2fjrOi7OA2pEk=
 			</data>
 			<key>hash2</key>
 			<data>
-			OWfxDTq6xzzHojLnSAcCOlmM9UqeRPIyCihUr6oXgbs=
+			9yWGQHz7DOv3hKrmaKbJ1vxdp9sR/MkAZKqHOearGqQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

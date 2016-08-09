@@ -14,8 +14,9 @@ struct JoinMatchViewModel {
     func getConnectionManager(displayName: String, connectionType: PeerConnectionType = .Automatic, serviceType: ServiceType = "deafult-service") -> PeerConnectionManager {
         var serviceType = serviceType
         if serviceType.isEmpty { serviceType = "deafult-service" }
-        let peer = Peer(displayName: displayName)
-        let connectionManager = PeerConnectionManager(serviceType: serviceType, connectionType: connectionType, peer: peer)
+//        let peer = Peer(displayName: displayName)
+        let connectionManager = PeerConnectionManager(serviceType: serviceType, connectionType: connectionType, displayName: displayName)
+            //PeerConnectionManager(serviceType: serviceType, connectionType: connectionType, peer: peer)
         return connectionManager
     }
 }

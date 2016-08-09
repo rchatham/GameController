@@ -13,7 +13,7 @@ public protocol MiniGameDelegate: class {
     func pauseGame(miniGame: MiniGame)
     func resumeGame(miniGame: MiniGame)
     func endGame(miniGame: MiniGame)
-    func updateScore(miniGame: MiniGame, scoreUpdater updater: Int->Int)
+    func updateScore(miniGame: MiniGame, scoreUpdater updater: MiniGameScoreUpdater)
 }
 
 public protocol MiniGameDataSource: class {
@@ -21,13 +21,13 @@ public protocol MiniGameDataSource: class {
     func miniGameScore() -> Int
 }
 
-///*
 public enum MiniGameType {
     case Objective
     case Timed(duration: Int)
     case TimedObjective(duration: Int)
 }
-//*/
+
+public typealias MiniGameScoreUpdater = Int->Int
 
 public protocol MiniGame {
     

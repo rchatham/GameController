@@ -20,26 +20,19 @@ protocol CoverTheDotViewModelDataSource {
 
 struct CoverTheDotViewModel {
  
-//    private weak var delegate: MiniGameDelegate?
     private var delegate: CoverTheDotViewModelDelegate
     private var dataSource: CoverTheDotViewModelDataSource
-    
-//    let timer : Timer
     
     init(delegate: CoverTheDotViewModelDelegate, dataSource: CoverTheDotViewModelDataSource) {
         self.delegate = delegate
         self.dataSource = dataSource
     }
     
-    mutating func startGame(scoreUpdater updater: MiniGameRound.ScoreUpdater) {
+    mutating func startGame(scoreUpdater updater: MiniGameScoreUpdater) {
         delegate.startGame()
-//        switch gameRound.gameType! {
-//        case .Timed(let duration):
-            _ = Timer(timeInterval: 1, repeats: true, invalidateAfter: Double(dataSource.miniGameTimeRemaining())) {
-                    self.delegate.updateScore(updater)
-            }
-//        default: break
-//        }
+        _ = Timer(timeInterval: 1, repeats: true, invalidateAfter: Double(dataSource.miniGameTimeRemaining())) {
+                self.delegate.updateScore(updater)
+        }
     }
     
     func sizeRatio() -> Int {

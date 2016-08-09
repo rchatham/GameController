@@ -11,7 +11,7 @@ import PeerConnectivity
 
 class GameViewModel {
     
-    private(set) var player : Player {
+    var player : Player {
         didSet {
             let scoreObject : [String:AnyObject] = ["score":player.score]
             connectionManager.sendEvent(scoreObject)
@@ -26,9 +26,7 @@ class GameViewModel {
         didSet {
             guard let labelCallback = labelCallback else { return }
             connectionManager.listenOn(devicesChanged: { _, peers in
-                let output = self.outputStringForArray(prefix: "Connected gremlins:",
-                    array: peers.map{ $0.displayName },
-                postfix: "My score: \(self.player.score)")
+                let output = self.outputStringForArray()
                 labelCallback(output)
             }, withKey: "LabelCallback")
         }
@@ -42,7 +40,7 @@ class GameViewModel {
         
         self.connectionManager
             .listenOn(devicesChanged: { [weak self] (peer: Peer, displayNames: [Peer]) -> Void in
-                switch peer {
+                switch peer.status {
                 case .Connected(_):
                     guard let players = self?.connectedPlayers
                         where !players.contains(Player(peer: peer))
@@ -67,7 +65,7 @@ class GameViewModel {
                             return player
                         }
                     }
-                    self?.labelCallback?(self!.initialOutput())
+                    self?.labelCallback?(self!.outputStringForArray())
                 
                 }
                 if let gamesNames = dataObject["start"] as? [String] {
@@ -128,20 +126,15 @@ class GameViewModel {
         connectionManager.stop()
     }
     
-    func initialOutput() -> String {
-        return outputStringForArray(prefix: "Connected gremlins:",
-            array: connectionManager.displayNames,
-            postfix: "My score: \(player.score)")
-    }
+//    func initialOutput() -> String {
+//        return outputStringForArray()
+//    }
     
-    private func outputStringForArray(
-        prefix prefix: String? = nil,
-        array: [String],
-        postfix: String? = nil) -> String {
+    private func outputStringForArray() -> String {
         
-        var output = prefix ?? "" + (prefix == nil ? "" : "\n")
+        var output = "Connected gremlins:"
         output += (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
-        output += (postfix ?? "")
+        output += "My score: \(player.score)"
         
         // Expression is too complex to be solved in a reasonable time!!!!!! LOL... Stupid Swift...
 //        let output = (prefix ?? "")
