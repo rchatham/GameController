@@ -9,9 +9,19 @@
 import Foundation
 import PeerConnectivity
 
+enum PlayerChange {
+    case Connected(player: Player)
+    case NotConnected(player: Player)
+    case Scored(player: Player)
+}
+
+protocol GameViewModelDelegate {
+    func receivedPlayerChange(change: PlayerChange)
+}
+
 class GameViewModel {
     
-    var player : Player {
+    private(set) var player : Player {
         didSet {
             let scoreObject : [String:AnyObject] = ["score":player.score]
             connectionManager.sendEvent(scoreObject)
@@ -121,16 +131,15 @@ class GameViewModel {
         return gamesArray
     }
     
+    func incrementScoreBy(points: Int) {
+        player.incrementScoreBy(points)
+    }
     
     func endConnection() {
         connectionManager.stop()
     }
     
-//    func initialOutput() -> String {
-//        return outputStringForArray()
-//    }
-    
-    private func outputStringForArray() -> String {
+    func outputStringForArray() -> String {
         
         var output = "Connected gremlins:"
         output += (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
@@ -144,10 +153,4 @@ class GameViewModel {
         
         return output
     }
-}
-
-enum PlayerChange {
-    case Connected(player: Player)
-    case NotConnected(player: Player)
-    case Scored(player: Player)
 }

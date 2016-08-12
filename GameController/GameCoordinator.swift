@@ -28,6 +28,12 @@ internal class GameCoordinator {
     }
 }
 
+extension GameCoordinator: GameViewModelDelegate {
+    func receivedPlayerChange(change: PlayerChange) {
+        // Do something when a player change occurs?
+    }
+}
+
 extension GameCoordinator: GameViewControllerDelegate {
     
     func didStartGame(gameViewController: GameViewController, withMiniGames games: [MiniGame]) {
@@ -40,7 +46,7 @@ extension GameCoordinator: GameViewControllerDelegate {
 extension GameCoordinator: MiniGameCoordinatorDelegate {
     
     func miniGameCoordinator(miniGameCoordinator: MiniGameCoordinator, playerDidScore score: Int) {
-        gameViewController?.viewModel.player.incrementScoreBy(score)
+        gameViewController?.viewModel.incrementScoreBy(score)
     }
     
     func miniGameCoordinatorDidFinish(miniGameCoordinator: MiniGameCoordinator) {

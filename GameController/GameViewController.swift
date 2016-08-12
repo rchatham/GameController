@@ -54,6 +54,6 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        outputLabel.text = viewModel.initialOutput()
+        outputLabel.text = viewModel.outputStringForArray()
     }
 }
