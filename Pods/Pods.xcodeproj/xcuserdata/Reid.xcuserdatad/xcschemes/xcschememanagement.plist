@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>PeerConnectivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GameController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GameControllerTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GameControllerUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>04EF402B13F28B40ED3D809BBF35E3D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D6A4EF0E99434739DF74F001B090858</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9B159C10A0668748B20AE4DC5972CC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7C790DC81170A80D8281790A68E90D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

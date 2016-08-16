@@ -50,6 +50,9 @@
 		30B6EAC21D4831920057463A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EAC11D4831920057463A /* Timer.swift */; };
 		30B6EAC31D492D320057463A /* PeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; };
 		30B6EAC41D492D320057463A /* PeerConnectivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 301B79F31D473F570029DBCE /* PeerConnectivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C15B742B10B0F1DBDF08BED /* Pods_GameControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B10449E2ED8EBA4A857065 /* Pods_GameControllerTests.framework */; };
+		A1324F1C6891A6933E8D0EB8 /* Pods_GameControllerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127F71D6C46901057FB1D645 /* Pods_GameControllerUITests.framework */; };
+		D332CDBEC536FF5754E94B71 /* Pods_GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E839E9423CE87CB253517DD /* Pods_GameController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09E1496A3F9019DFF1D7F84E /* Pods-GameControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		127F71D6C46901057FB1D645 /* Pods_GameControllerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameControllerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		301501471D49DA0A002487BA /* UnrollTheToiletPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnrollTheToiletPaper.swift; sourceTree = "<group>"; };
 		301501491D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnrollTheToiletPaperViewController.swift; sourceTree = "<group>"; };
 		3015014A1D49DAB4002487BA /* UnrollTheToiletPaperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnrollTheToiletPaperViewController.xib; sourceTree = "<group>"; };
@@ -132,6 +137,13 @@
 		308F443F1BE42AFC006AC354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308F444D1BE71D7E006AC354 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		30B6EAC11D4831920057463A /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		3E839E9423CE87CB253517DD /* Pods_GameController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F94F04617DA325E0D9C4A6F /* Pods-GameControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		712DC98A3E3D6CE50E615713 /* Pods-GameControllerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameControllerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F815D4CC957AEC12F1B0B63 /* Pods-GameController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameController.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameController/Pods-GameController.release.xcconfig"; sourceTree = "<group>"; };
+		B9B7A950D9AA81FA8C69D7EC /* Pods-GameController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameController/Pods-GameController.debug.xcconfig"; sourceTree = "<group>"; };
+		CA4E49F2B11D54822B88AE85 /* Pods-GameControllerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameControllerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E9B10449E2ED8EBA4A857065 /* Pods_GameControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B6EAC31D492D320057463A /* PeerConnectivity.framework in Frameworks */,
+				D332CDBEC536FF5754E94B71 /* Pods_GameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C15B742B10B0F1DBDF08BED /* Pods_GameControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1324F1C6891A6933E8D0EB8 /* Pods_GameControllerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +253,8 @@
 				308F44311BE42AFB006AC354 /* GameControllerTests */,
 				308F443C1BE42AFB006AC354 /* GameControllerUITests */,
 				308F441B1BE42AFB006AC354 /* Products */,
+				E8EB9880F03439F343B807CA /* Pods */,
+				440AF3D615455DA08989FB29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,6 +303,29 @@
 			path = GameControllerUITests;
 			sourceTree = "<group>";
 		};
+		440AF3D615455DA08989FB29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E839E9423CE87CB253517DD /* Pods_GameController.framework */,
+				E9B10449E2ED8EBA4A857065 /* Pods_GameControllerTests.framework */,
+				127F71D6C46901057FB1D645 /* Pods_GameControllerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8EB9880F03439F343B807CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9B7A950D9AA81FA8C69D7EC /* Pods-GameController.debug.xcconfig */,
+				7F815D4CC957AEC12F1B0B63 /* Pods-GameController.release.xcconfig */,
+				5F94F04617DA325E0D9C4A6F /* Pods-GameControllerTests.debug.xcconfig */,
+				09E1496A3F9019DFF1D7F84E /* Pods-GameControllerTests.release.xcconfig */,
+				712DC98A3E3D6CE50E615713 /* Pods-GameControllerUITests.debug.xcconfig */,
+				CA4E49F2B11D54822B88AE85 /* Pods-GameControllerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,10 +333,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44421BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameController" */;
 			buildPhases = (
+				66EB822CB4A0B227B297C1BF /* 📦 Check Pods Manifest.lock */,
 				308F44161BE42AFB006AC354 /* Sources */,
 				308F44171BE42AFB006AC354 /* Frameworks */,
 				308F44181BE42AFB006AC354 /* Resources */,
 				30B6EAC51D492D320057463A /* Embed Frameworks */,
+				D7A42B3110FFE40956A4EA5F /* 📦 Embed Pods Frameworks */,
+				8269003ABD5E62E56E837AAD /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,9 +354,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44451BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameControllerTests" */;
 			buildPhases = (
+				0A83597EB7BFE44510B87888 /* 📦 Check Pods Manifest.lock */,
 				308F442A1BE42AFB006AC354 /* Sources */,
 				308F442B1BE42AFB006AC354 /* Frameworks */,
 				308F442C1BE42AFB006AC354 /* Resources */,
+				31E92D2BF80F115D77E645A3 /* 📦 Embed Pods Frameworks */,
+				6A08EE3202F2F43B3F2D3A9D /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,9 +375,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44481BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameControllerUITests" */;
 			buildPhases = (
+				54A5D2DB25C36FBE07500E74 /* 📦 Check Pods Manifest.lock */,
 				308F44351BE42AFB006AC354 /* Sources */,
 				308F44361BE42AFB006AC354 /* Frameworks */,
 				308F44371BE42AFB006AC354 /* Resources */,
+				464F688D0BD955CD983F0F1B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -420,6 +468,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A83597EB7BFE44510B87888 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		31E92D2BF80F115D77E645A3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		464F688D0BD955CD983F0F1B /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54A5D2DB25C36FBE07500E74 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		66EB822CB4A0B227B297C1BF /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A08EE3202F2F43B3F2D3A9D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8269003ABD5E62E56E837AAD /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameController/Pods-GameController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A42B3110FFE40956A4EA5F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameController/Pods-GameController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		308F44161BE42AFB006AC354 /* Sources */ = {
@@ -585,6 +756,7 @@
 		};
 		308F44431BE42AFC006AC354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B7A950D9AA81FA8C69D7EC /* Pods-GameController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -604,6 +776,7 @@
 		};
 		308F44441BE42AFC006AC354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F815D4CC957AEC12F1B0B63 /* Pods-GameController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -623,6 +796,7 @@
 		};
 		308F44461BE42AFC006AC354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F94F04617DA325E0D9C4A6F /* Pods-GameControllerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GameControllerTests/Info.plist;
@@ -635,6 +809,7 @@
 		};
 		308F44471BE42AFC006AC354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09E1496A3F9019DFF1D7F84E /* Pods-GameControllerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GameControllerTests/Info.plist;
@@ -647,6 +822,7 @@
 		};
 		308F44491BE42AFC006AC354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 712DC98A3E3D6CE50E615713 /* Pods-GameControllerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GameControllerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -659,6 +835,7 @@
 		};
 		308F444A1BE42AFC006AC354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA4E49F2B11D54822B88AE85 /* Pods-GameControllerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GameControllerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

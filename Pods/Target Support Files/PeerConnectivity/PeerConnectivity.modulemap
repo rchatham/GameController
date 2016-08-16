@@ -1,0 +1,6 @@
+framework module PeerConnectivity {
+  umbrella header "PeerConnectivity-umbrella.h"
+
+  export *
+  module * { export * }
+}
