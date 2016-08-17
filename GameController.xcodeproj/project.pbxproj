@@ -186,19 +186,10 @@
 		303EA7231C2F019C00B49854 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				308F444D1BE71D7E006AC354 /* Player.swift */,
-				304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */,
-				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
-				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
-				304723B21D63EC6500AFF672 /* JoinMatchViewModel.swift */,
-				301B79F51D475B730029DBCE /* GameCoordinator.swift */,
-				308BE1811C2B85AA009AA272 /* GameViewController.swift */,
-				308BE1891C2DA30E009AA272 /* GameViewController.xib */,
-				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
-				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
-				303EA7391C385AB300B49854 /* MiniGameRound.swift */,
-				30B6EAC11D4831920057463A /* Timer.swift */,
-				303EA7431C385C3700B49854 /* MiniGame.swift */,
+				304723B41D65273E00AFF672 /* Coordinators */,
+				304723B51D65275900AFF672 /* ViewControllers */,
+				304723B61D65277A00AFF672 /* ViewModels */,
+				304723B71D65279500AFF672 /* Models */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -214,6 +205,47 @@
 				303EA7411C385AD700B49854 /* BlockBehavior.swift */,
 			);
 			name = CoverTheDot;
+			sourceTree = "<group>";
+		};
+		304723B41D65273E00AFF672 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */,
+				301B79F51D475B730029DBCE /* GameCoordinator.swift */,
+				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		304723B51D65275900AFF672 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
+				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
+				308BE1811C2B85AA009AA272 /* GameViewController.swift */,
+				308BE1891C2DA30E009AA272 /* GameViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		304723B61D65277A00AFF672 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				304723B21D63EC6500AFF672 /* JoinMatchViewModel.swift */,
+				308BE1831C2B85B9009AA272 /* GameViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		304723B71D65279500AFF672 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				308F444D1BE71D7E006AC354 /* Player.swift */,
+				303EA7431C385C3700B49854 /* MiniGame.swift */,
+				303EA7391C385AB300B49854 /* MiniGameRound.swift */,
+				30B6EAC11D4831920057463A /* Timer.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		306ABB341C4004A000982669 /* FlappyBird */ = {
