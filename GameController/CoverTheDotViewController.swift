@@ -82,8 +82,7 @@ class CoverTheDotViewController: UIViewController {
                     (notification) -> Void in
                 
                     // Motionkit starts taking accelerometer updates.
-                    let motionKit = AppDelegate.Static.Motion
-                    motionKit.getAccelerometerValues() {
+                    AppDelegate.Static.Motion.getAccelerometerValues() {
                         [unowned self] (x: Double, y: Double, z: Double) in
                         
                         self.blockBehavior.gravity.gravityDirection = CGVector(dx: x, dy: -y)
@@ -95,6 +94,8 @@ class CoverTheDotViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+        AppDelegate.Static.Motion.stopAccelerometerUpdates()
         
         dotView.removeFromSuperview()
     }
@@ -117,7 +118,6 @@ class CoverTheDotViewController: UIViewController {
         if sender.state == .Ended {
             
             // handling code
-            print("Handle tap with ended state")
             let touchPosition = sender.locationInView(gameView)
             let size = blockSize
             let x = touchPosition.x - (size.width/2)
@@ -171,12 +171,11 @@ class CoverTheDotViewController: UIViewController {
 extension CoverTheDotViewController : UIDynamicAnimatorDelegate {
     
     func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
-        
+        AppDelegate.Static.Motion.stopAccelerometerUpdates()
     }
     
     func dynamicAnimatorWillResume(animator: UIDynamicAnimator) {
-        let motionKit = AppDelegate.Static.Motion
-        motionKit.getAccelerometerValues() {
+        AppDelegate.Static.Motion.getAccelerometerValues() {
             [unowned self]
             (x: Double, y: Double, z: Double) in
             

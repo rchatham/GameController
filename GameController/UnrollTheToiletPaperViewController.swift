@@ -43,19 +43,14 @@ class UnrollTheToiletPaperViewController: UIViewController {
                 return viewModel.endGame()
         }
         
-        let velocity = gesture.translationInView(view)
-        let translation = gesture.velocityInView(view)
+        let velocity = gesture.velocityInView(view)
+        let vx = Float(velocity.x)
+        let vy = Float(velocity.y)
+        let translation = gesture.translationInView(view)
+        let tx = Float(translation.x)
+        let ty = Float(translation.y)
         
-        if velocity.y < 0 {
-            print("Swiping the wrong way dummy!")
-        } else if velocity.x > 10 || velocity.x < -10
-            && velocity.y > 45
-            && translation.x > 50 || translation.x < -50 {
-            viewModel.rip()
-            print("Ripped the toilet paper!")
-        } else {
-            viewModel.unroll(Float(translation.y))
-            print("Unrolled \(translation.y) toilet paper")
-        }
+        viewModel.pullToiletPaperWith(velocity: (x: vx, y: vy),
+                                      translation: (x: tx, y: ty))
     }
 }

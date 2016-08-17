@@ -33,7 +33,6 @@ struct UnrollTheToiletPaper: MiniGame {
 extension UnrollTheToiletPaper: UnrollTheToiletPaperViewModelDelegate {
     
     func endGame() {
-        print("End Game!")
         delegate?.endGame(self)
     }
     

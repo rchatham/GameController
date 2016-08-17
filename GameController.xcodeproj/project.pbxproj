@@ -212,7 +212,6 @@
 				303EA7371C385AB300B49854 /* CoverTheDotViewModel.swift */,
 				303EA7381C385AB300B49854 /* DotView.swift */,
 				303EA7411C385AD700B49854 /* BlockBehavior.swift */,
-				303EA73F1C385AC600B49854 /* MotionKit.swift */,
 			);
 			name = CoverTheDot;
 			sourceTree = "<group>";
@@ -270,6 +269,7 @@
 			children = (
 				308F441D1BE42AFB006AC354 /* AppDelegate.swift */,
 				3086FFE01C4167A200EF7EC7 /* Extensions.swift */,
+				303EA73F1C385AC600B49854 /* MotionKit.swift */,
 				303EA7231C2F019C00B49854 /* Game */,
 				306ABB341C4004A000982669 /* FlappyBird */,
 				303EA7341C385A8500B49854 /* CoverTheDot */,

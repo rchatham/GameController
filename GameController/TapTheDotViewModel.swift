@@ -28,9 +28,14 @@ struct TapTheDotViewModel {
     
     init(delegate: TapTheDotViewModelDelegate) {
         self.delegate = delegate
+        
+        _ = Timer(timeInterval: 1) { self.scoreGame() }
     }
     
     mutating func dotTapped() {
+        delegate.updateScore { (score) -> Int in
+            return score + 1
+        }
         tapCount += 1
     }
     
