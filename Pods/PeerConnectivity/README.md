@@ -14,16 +14,16 @@ PeerConnectivity
 
 ### Installation
 
-#####Carthage
-
-```
-github 'rchatham/PeerConnectivity'
-```
-
 ####Cocoapods
 
-```
+```ruby
 pod 'PeerConnectivity'
+```
+
+####Carthage
+
+```ruby
+github "rchatham/PeerConnectivity"
 ```
 
 
