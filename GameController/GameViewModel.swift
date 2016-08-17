@@ -9,29 +9,9 @@
 import Foundation
 import PeerConnectivity
 
-enum PlayerChange {
-    case Connected(player: Player)
-    case NotConnected(player: Player)
-    case Scored(player: Player)
-}
-
-protocol GameViewModelDelegate {
-    func receivedPlayerChange(change: PlayerChange)
-}
-
-class GameViewModel {
+internal final class GameViewModel {
     
-    private(set) var player : Player {
-        didSet {
-            let scoreObject : [String:AnyObject] = ["score":player.score]
-            connectionManager.sendEvent(scoreObject)
-        }
-    }
-    private(set) var connectedPlayers : [Player] = []
-    
-    private var connectionManager : PeerConnectionManager
-    
-    
+    var gameStartCallback : [MiniGame]->Void = {_ in}
     var labelCallback : (String->Void)? {
         didSet {
             guard let labelCallback = labelCallback else { return }
@@ -42,7 +22,14 @@ class GameViewModel {
         }
     }
     
-    var gameStartCallback : [MiniGame]->Void = {_ in}
+    private(set) var player : Player {
+        didSet {
+            let scoreObject : [String:AnyObject] = ["score":player.score]
+            connectionManager.sendEvent(scoreObject)
+        }
+    }
+    private(set) var connectedPlayers : [Player] = []
+    private let connectionManager : PeerConnectionManager
     
     init(connectionManager: PeerConnectionManager) {
         self.player = Player(peer: connectionManager.peer)
@@ -67,17 +54,6 @@ class GameViewModel {
                 guard let dataObject = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String:AnyObject]
                     else { return }
                 
-                if let score = dataObject["score"] as? Int {
-                    self?.connectedPlayers = self!.connectedPlayers.map { (player) in
-                        if player.peer == peer {
-                            return Player(peer: peer, score: score)
-                        } else {
-                            return player
-                        }
-                    }
-                    self?.labelCallback?(self!.outputStringForArray())
-                
-                }
                 if let gamesNames = dataObject["start"] as? [String] {
                     
                     var games: [MiniGame] = []
@@ -94,6 +70,17 @@ class GameViewModel {
                         }
                     }
                     self?.gameStartCallback(games)
+                }
+                else if let score = dataObject["score"] as? Int {
+                    self?.connectedPlayers = self!.connectedPlayers.map { (player) in
+                        if player.peer == peer {
+                            return Player(peer: peer, score: score)
+                        } else {
+                            return player
+                        }
+                    }
+                    self?.labelCallback?(self!.outputStringForArray())
+                
                 }
             }, withKey: "GameSetup")
     }
@@ -141,15 +128,9 @@ class GameViewModel {
     
     func outputStringForArray() -> String {
         
-        var output = "Connected gremlins:"
-        output += (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
-        output += "My score: \(player.score)"
-        
-        // Expression is too complex to be solved in a reasonable time!!!!!! LOL... Stupid Swift...
-//        let output = (prefix ?? "")
-//            + (prefix == nil ? "" : "\n")
-//            + (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
-//            + (postfix ?? "")
+        let output = "Connected gremlins:\n"
+            + (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
+            + "My score: \(player.score)"
         
         return output
     }

@@ -16,11 +16,6 @@ struct Player {
     
     var name: String { return peer.displayName }
     
-    
-//    init(playerName: String) {
-//        self.peer = Peer(displayName: playerName)
-//    }
-    
     init(peer: Peer) {
         self.peer = peer
     }

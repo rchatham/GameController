@@ -19,25 +19,7 @@ internal class MiniGameRound {
     private typealias ScoreUpdater = Int->Int
     
     internal private(set) var gameType : MiniGameType?
-    
-    private var delegate : MiniGameRoundDelegate?
-    
-    private var gameTimer: Timer?
-    
-    internal var timeRemaining : Int? {
-        // Should reuturn the time remaining, the duration, or nil if not a timed game
-        if let timer = gameTimer {
-            return timer.timeRemaining
-        }
-        guard let type = gameType else { return nil }
-        switch type {
-        case .Timed(let duration):
-            return duration
-        case .TimedObjective(let duration):
-            return duration
-        default: return nil
-        }
-    }
+    internal private(set) var score = 0
     private(set) var isPaused = false {
         didSet {
             if oldValue != isPaused {
@@ -50,7 +32,20 @@ internal class MiniGameRound {
         }
     }
     
-    internal private(set) var score = 0
+    internal var timeRemaining : Int? {
+        // Returns the time remaining, the duration, or nil if not a timed game
+        if let timer = gameTimer {
+            return timer.timeRemaining
+        }
+        guard let type = gameType else { return nil }
+        switch type {
+        case .Timed(let duration):
+            return duration
+        case .TimedObjective(let duration):
+            return duration
+        default: return nil
+        }
+    }
     
     internal func setGameDelegate(delegate: MiniGameRoundDelegate) {
         if self.delegate == nil {
@@ -59,12 +54,20 @@ internal class MiniGameRound {
     }
     
     internal func setGameType(gameType: MiniGameType) {
+        score = 0
+        gameTimer?.stop()
+        gameTimer = nil
         self.gameType = gameType
     }
     
+    // MARK: - Private
+    
+    private weak var delegate : MiniGameRoundDelegate?
+    private var gameTimer: Timer?
+    
     private func startTimer() {
         guard let duration = timeRemaining else { return }
-        gameTimer = Timer(timeInterval: Double(duration)) { self.gameOver() }
+        gameTimer = Timer(timeInterval: Double(duration)) { [weak self] in self?.gameOver() }
     }
     
     private func updateScore(updater: ScoreUpdater) {
@@ -96,7 +99,6 @@ internal class MiniGameRound {
 }
 
 extension MiniGameRound: MiniGameDelegate {
-    
     internal func startGame(miniGame: MiniGame) { startTimer() }
     internal func pauseGame(miniGame: MiniGame) { pauseTimer() }
     internal func resumeGame(miniGame: MiniGame) { resumeTimer() }
@@ -105,7 +107,6 @@ extension MiniGameRound: MiniGameDelegate {
 }
 
 extension MiniGameRound: MiniGameDataSource {
-    
     internal func miniGameScore() -> Int { return score }
     internal func miniGameTimeRemaining() -> Int { return timeRemaining ?? 0 }
 }

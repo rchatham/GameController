@@ -13,32 +13,21 @@ protocol MiniGameCoordinatorDelegate: class {
     func miniGameCoordinatorDidFinish(miniGameCoordinator: MiniGameCoordinator)
 }
 
-class MiniGameCoordinator {
-    
-    weak var delegate: MiniGameCoordinatorDelegate?
-    
-    private let miniGameRound = MiniGameRound()
+internal final class MiniGameCoordinator {
     
     private var games: [MiniGame] = []
-    
+    private weak var delegate: MiniGameCoordinatorDelegate?
+    private let miniGameRound = MiniGameRound()
     private weak var navigationController : UINavigationController?
     
-    init(games: [MiniGame]) {
+    init(games: [MiniGame], delegate: MiniGameCoordinatorDelegate) {
         self.games = games
+        self.delegate = delegate
         miniGameRound.setGameDelegate(self)
     }
     
     func presentFromViewController(viewController: UIViewController) {
-        guard var firstGame = getNextGame() else {
-            navigationController?.dismissViewControllerAnimated(true) {
-                self.delegate?.miniGameCoordinatorDidFinish(self)
-            }
-            return
-        }
-        firstGame.delegate = miniGameRound
-        firstGame.dataSource = miniGameRound
-        miniGameRound.setGameType(firstGame.gameType)
-        
+        guard let firstGame = getNextGame() else { return }
         let nav = UINavigationController(rootViewController: firstGame.gameViewController())
         nav.navigationBar.hidden = true
         viewController.presentViewController(nav, animated: true, completion: nil)
@@ -46,8 +35,17 @@ class MiniGameCoordinator {
     }
     
     private func getNextGame() -> MiniGame? {
-        guard games.count > 0 else { return nil }
-        return games.removeFirst()
+        guard games.count > 0 else {
+            navigationController?.dismissViewControllerAnimated(true) {
+                self.delegate?.miniGameCoordinatorDidFinish(self)
+            }
+            return nil
+        }
+        var nextGame = games.removeFirst()
+        nextGame.delegate = miniGameRound
+        nextGame.dataSource = miniGameRound
+        miniGameRound.setGameType(nextGame.gameType)
+        return nextGame
     }
 }
 
@@ -58,18 +56,8 @@ extension MiniGameCoordinator : MiniGameRoundDelegate {
     func gameRoundDidResume(miniGameRound: MiniGameRound) {}
     
     func gameRound(miniGameRound: MiniGameRound, endedGameWithScore score: Int) {
-        
         delegate?.miniGameCoordinator(self, playerDidScore: score)
-        
-        guard var nextGame = getNextGame() else {
-            navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            delegate?.miniGameCoordinatorDidFinish(self)
-            return
-        }
-        nextGame.delegate = miniGameRound
-        nextGame.dataSource = miniGameRound
-        miniGameRound.setGameType(nextGame.gameType)
-        
+        guard let nextGame = getNextGame() else { return }
         let nextGameVC = nextGame.gameViewController()
         navigationController?.pushViewController(nextGameVC, animated: true)
     }

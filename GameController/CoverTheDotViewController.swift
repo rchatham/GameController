@@ -11,25 +11,19 @@ import UIKit
 class CoverTheDotViewController: UIViewController {
     
     private var viewModel : CoverTheDotViewModel
-    
     private lazy var animator: UIDynamicAnimator = {
         let lazyAnimator = UIDynamicAnimator(referenceView: self.gameView)
         lazyAnimator.delegate = self
         return lazyAnimator
     }()
-    
     private var dotView: DotView!
-    
     private let blockBehavior = BlockBehavior()
-    
     private var currentBlocks = [UIView]()
-    
     private var blockSize: CGSize {
         let size = gameView.bounds.size.width / CGFloat(viewModel.sizeRatio())
         return CGSize(width: size, height: size)
     }
 
-    
     @IBOutlet weak var gameView: UIView! {
         didSet {
             let tapGesture = UITapGestureRecognizer()
@@ -88,7 +82,7 @@ class CoverTheDotViewController: UIViewController {
                     (notification) -> Void in
                 
                     // Motionkit starts taking accelerometer updates.
-                    let motionKit = AppDelegate.Motion.Kit
+                    let motionKit = AppDelegate.Static.Motion
                     motionKit.getAccelerometerValues() {
                         [unowned self] (x: Double, y: Double, z: Double) in
                         
@@ -181,7 +175,7 @@ extension CoverTheDotViewController : UIDynamicAnimatorDelegate {
     }
     
     func dynamicAnimatorWillResume(animator: UIDynamicAnimator) {
-        let motionKit = AppDelegate.Motion.Kit
+        let motionKit = AppDelegate.Static.Motion
         motionKit.getAccelerometerValues() {
             [unowned self]
             (x: Double, y: Double, z: Double) in

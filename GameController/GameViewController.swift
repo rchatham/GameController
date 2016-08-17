@@ -8,20 +8,19 @@
 
 import UIKit
 
-protocol GameViewControllerDelegate {
+internal protocol GameViewControllerDelegate: class {
     func didStartGame(gameViewController: GameViewController, withMiniGames games: [MiniGame])
+    func didQuitGame(gameViewController: GameViewController)
 }
 
-class GameViewController: UIViewController {
+internal final class GameViewController: UIViewController {
     
-    @IBOutlet weak var outputLabel: UILabel!
+    private let viewModel : GameViewModel
+    private weak var delegate: GameViewControllerDelegate?
     
-    var delegate: GameViewControllerDelegate?
-    
-    var viewModel : GameViewModel
-    
-    init(viewModel: GameViewModel) {
+    init(viewModel: GameViewModel, delegate: GameViewControllerDelegate) {
         self.viewModel = viewModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
         
         bindViewModel()
@@ -30,7 +29,16 @@ class GameViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        outputLabel.text = viewModel.outputStringForArray()
+    }
+    
+    func incrementScoreBy(points: Int) {
+        viewModel.incrementScoreBy(points)
+    }
+    
     private func bindViewModel() {
         viewModel.labelCallback = { [weak self] output in
             guard self?.outputLabel != nil else { return }
@@ -42,6 +50,8 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var outputLabel: UILabel!
+    
     @IBAction func startGame(sender: AnyObject) {
         let games = viewModel.sendStartGameData()
         delegate?.didStartGame(self, withMiniGames: games)
@@ -49,11 +59,7 @@ class GameViewController: UIViewController {
     
     @IBAction func goBack(sender: UIButton) {
         viewModel.endConnection()
-        self.dismissViewControllerAnimated(true) {}
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        outputLabel.text = viewModel.outputStringForArray()
+        delegate?.didQuitGame(self)
+//        self.dismissViewControllerAnimated(true) {}
     }
 }

@@ -22,6 +22,8 @@
 		303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7411C385AD700B49854 /* BlockBehavior.swift */; };
 		303EA7441C385C3700B49854 /* MiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7431C385C3700B49854 /* MiniGame.swift */; };
 		303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA7451C38679900B49854 /* CoverTheDot.swift */; };
+		304723B11D63D62C00AFF672 /* JoinMatchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */; };
+		304723B31D63EC6500AFF672 /* JoinMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304723B21D63EC6500AFF672 /* JoinMatchViewModel.swift */; };
 		306ABB3A1C40059500982669 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB351C40059500982669 /* bird.atlas */; };
 		306ABB3B1C40059500982669 /* FlappyBirdGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 306ABB361C40059500982669 /* FlappyBirdGameScene.sks */; };
 		306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306ABB371C40059500982669 /* FlappyBirdGameScene.swift */; };
@@ -36,7 +38,6 @@
 		3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */; };
 		3086FFE11C4167A200EF7EC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3086FFE01C4167A200EF7EC7 /* Extensions.swift */; };
 		308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */; };
-		308BE1801C2B7FCC009AA272 /* JoinMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */; };
 		308BE1821C2B85AA009AA272 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1811C2B85AA009AA272 /* GameViewController.swift */; };
 		308BE1841C2B85B9009AA272 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BE1831C2B85B9009AA272 /* GameViewModel.swift */; };
 		308BE1861C2B87DD009AA272 /* JoinMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */; };
@@ -105,6 +106,8 @@
 		303EA7411C385AD700B49854 /* BlockBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockBehavior.swift; sourceTree = "<group>"; };
 		303EA7431C385C3700B49854 /* MiniGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGame.swift; sourceTree = "<group>"; };
 		303EA7451C38679900B49854 /* CoverTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverTheDot.swift; sourceTree = "<group>"; };
+		304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchCoordinator.swift; sourceTree = "<group>"; };
+		304723B21D63EC6500AFF672 /* JoinMatchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchViewModel.swift; sourceTree = "<group>"; };
 		306ABB351C40059500982669 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		306ABB361C40059500982669 /* FlappyBirdGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FlappyBirdGameScene.sks; sourceTree = "<group>"; };
 		306ABB371C40059500982669 /* FlappyBirdGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlappyBirdGameScene.swift; sourceTree = "<group>"; };
@@ -119,7 +122,6 @@
 		3086FFDE1C415D2000EF7EC7 /* TapTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapTheDotViewModel.swift; sourceTree = "<group>"; };
 		3086FFE01C4167A200EF7EC7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchViewController.swift; sourceTree = "<group>"; };
-		308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMatchViewModel.swift; sourceTree = "<group>"; };
 		308BE1811C2B85AA009AA272 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		308BE1831C2B85B9009AA272 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinMatchViewController.xib; sourceTree = "<group>"; };
@@ -190,9 +192,10 @@
 			isa = PBXGroup;
 			children = (
 				308F444D1BE71D7E006AC354 /* Player.swift */,
+				304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */,
 				308BE17D1C2B7F9A009AA272 /* JoinMatchViewController.swift */,
 				308BE1851C2B87DD009AA272 /* JoinMatchViewController.xib */,
-				308BE17F1C2B7FCC009AA272 /* JoinMatchViewModel.swift */,
+				304723B21D63EC6500AFF672 /* JoinMatchViewModel.swift */,
 				301B79F51D475B730029DBCE /* GameCoordinator.swift */,
 				308BE1811C2B85AA009AA272 /* GameViewController.swift */,
 				308BE1891C2DA30E009AA272 /* GameViewController.xib */,
@@ -598,12 +601,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				308F444E1BE71D7E006AC354 /* Player.swift in Sources */,
+				304723B31D63EC6500AFF672 /* JoinMatchViewModel.swift in Sources */,
 				308BE17E1C2B7F9A009AA272 /* JoinMatchViewController.swift in Sources */,
 				301B79F81D476A270029DBCE /* MiniGameCoordinator.swift in Sources */,
 				303EA73A1C385AB300B49854 /* CoverTheDotViewController.swift in Sources */,
 				306ABB421C4010FC00982669 /* FlappyBird.swift in Sources */,
 				301501481D49DA0A002487BA /* UnrollTheToiletPaper.swift in Sources */,
 				306ABB3D1C40059500982669 /* FlappyBirdGameViewController.swift in Sources */,
+				304723B11D63D62C00AFF672 /* JoinMatchCoordinator.swift in Sources */,
 				303EA73E1C385AB300B49854 /* MiniGameRound.swift in Sources */,
 				301B79F61D475B730029DBCE /* GameCoordinator.swift in Sources */,
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
@@ -621,7 +626,6 @@
 				306ABB3C1C40059500982669 /* FlappyBirdGameScene.swift in Sources */,
 				303EA73C1C385AB300B49854 /* CoverTheDotViewModel.swift in Sources */,
 				308F441E1BE42AFB006AC354 /* AppDelegate.swift in Sources */,
-				308BE1801C2B7FCC009AA272 /* JoinMatchViewModel.swift in Sources */,
 				308BE1841C2B85B9009AA272 /* GameViewModel.swift in Sources */,
 				308BE1821C2B85AA009AA272 /* GameViewController.swift in Sources */,
 				3015014B1D49DAB4002487BA /* UnrollTheToiletPaperViewController.swift in Sources */,

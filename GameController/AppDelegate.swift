@@ -12,20 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var joinMatchCoordinator: JoinMatchCoordinator?
 
-    struct Motion {
-        static let Kit = MotionKit()
+    struct Static {
+        static let Motion = MotionKit()
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        let joinMatchVM = JoinMatchViewModel()
-        let joinMatchVC = JoinMatchViewController(viewModel: joinMatchVM)
-        window?.rootViewController = joinMatchVC
+        window?.rootViewController = UINavigationController()
+        self.joinMatchCoordinator = JoinMatchCoordinator()
+        self.joinMatchCoordinator!.startOnNavigationController(window!.rootViewController as! UINavigationController)
         window?.makeKeyAndVisible()
         
         return true

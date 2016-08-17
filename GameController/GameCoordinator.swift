@@ -9,47 +9,53 @@
 import UIKit
 import PeerConnectivity
 
-internal class GameCoordinator {
+internal protocol GameCoordinatorDelegate: class {
+    func didFinish(gameCoordinator: GameCoordinator)
+}
+
+internal final class GameCoordinator {
     
-    let connectionManager: PeerConnectionManager
-    
+    private let connectionManager: PeerConnectionManager
+    private weak var delegate: GameCoordinatorDelegate?
     private weak var gameViewController: GameViewController?
+    private var miniGameCoordinator: MiniGameCoordinator?
     
-    init(connectionManager: PeerConnectionManager) {
+    init(connectionManager: PeerConnectionManager, delegate: GameCoordinatorDelegate) {
         self.connectionManager = connectionManager
+        self.delegate = delegate
     }
     
     func startOnViewController(viewController: UIViewController) {
+        connectionManager.start()
         let gameVM = GameViewModel(connectionManager: connectionManager)
-        let gameViewController = GameViewController(viewModel: gameVM)
-        gameViewController.delegate = self
+        let gameViewController = GameViewController(viewModel: gameVM, delegate: self)
         viewController.presentViewController(gameViewController, animated: true, completion: nil)
         self.gameViewController = gameViewController
-    }
-}
-
-extension GameCoordinator: GameViewModelDelegate {
-    func receivedPlayerChange(change: PlayerChange) {
-        // Do something when a player change occurs?
     }
 }
 
 extension GameCoordinator: GameViewControllerDelegate {
     
     func didStartGame(gameViewController: GameViewController, withMiniGames games: [MiniGame]) {
-        let miniGameCoordinator = MiniGameCoordinator(games: games)
-        miniGameCoordinator.delegate = self
-        miniGameCoordinator.presentFromViewController(gameViewController)
+        connectionManager.closeSession()
+        miniGameCoordinator = MiniGameCoordinator(games: games, delegate: self)
+        miniGameCoordinator!.presentFromViewController(gameViewController)
+    }
+    
+    func didQuitGame(gameViewController: GameViewController) {
+        delegate?.didFinish(self)
+        gameViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
 extension GameCoordinator: MiniGameCoordinatorDelegate {
     
     func miniGameCoordinator(miniGameCoordinator: MiniGameCoordinator, playerDidScore score: Int) {
-        gameViewController?.viewModel.incrementScoreBy(score)
+        gameViewController?.incrementScoreBy(score)
     }
     
     func miniGameCoordinatorDidFinish(miniGameCoordinator: MiniGameCoordinator) {
-        
+        self.miniGameCoordinator = nil
+        self.connectionManager.openSession()
     }
 }
