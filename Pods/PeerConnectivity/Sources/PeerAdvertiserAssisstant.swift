@@ -1,6 +1,6 @@
 //
 //  PeerAdvertiserAssisstant.swift
-//  GameController
+//  PeerConnectivity
 //
 //  Created by Reid Chatham on 12/23/15.
 //  Copyright © 2015 Reid Chatham. All rights reserved.
@@ -11,9 +11,9 @@ import MultipeerConnectivity
 
 internal struct PeerAdvertiserAssisstant {
     
-    private let session : PeerSession
-    private let assisstant : MCAdvertiserAssistant
-    private let eventProducer : PeerAdvertiserAssisstantEventProducer?
+    fileprivate let session : PeerSession
+    fileprivate let assisstant : MCAdvertiserAssistant
+    fileprivate let eventProducer : PeerAdvertiserAssisstantEventProducer?
     
     internal init(session: PeerSession, serviceType: ServiceType, eventProducer: PeerAdvertiserAssisstantEventProducer? = nil) {
         self.session = session

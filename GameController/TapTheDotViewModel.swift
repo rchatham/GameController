@@ -11,14 +11,14 @@ import Foundation
 protocol TapTheDotViewModelDelegate {
     func startGame()
     func endGame()
-    func updateScore(updater: Int->Int)
+    func updateScore(_ updater: (Int)->Int)
 }
 
 struct TapTheDotViewModel {
     
-    private var delegate: TapTheDotViewModelDelegate
+    fileprivate var delegate: TapTheDotViewModelDelegate
     
-    private var tapCount = 0 {
+    fileprivate var tapCount = 0 {
         didSet {
             if tapCount >= 50 {
                 delegate.endGame()
@@ -29,7 +29,11 @@ struct TapTheDotViewModel {
     init(delegate: TapTheDotViewModelDelegate) {
         self.delegate = delegate
         
-        _ = Timer(timeInterval: 1) { self.scoreGame() }
+        _ = Timer(timeInterval: 1) {
+            delegate.updateScore { (score) -> Int in
+            return score - 1
+            }
+        }
     }
     
     mutating func dotTapped() {
@@ -43,9 +47,9 @@ struct TapTheDotViewModel {
         delegate.startGame()
     }
     
-    func scoreGame() {
-        delegate.updateScore { (score) -> Int in
-            return score - 1
-        }
-    }
+//    func scoreGame() {
+//        delegate.updateScore { (score) -> Int in
+//            return score - 1
+//        }
+//    }
 }

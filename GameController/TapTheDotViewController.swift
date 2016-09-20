@@ -32,7 +32,7 @@ class TapTheDotViewController: UIViewController {
         dotView = UIView(frame: CGRect(x: 0, y: 0, width: sideLength, height: sideLength))
         dotView?.center = view.center
         dotView?.layer.cornerRadius = sideLength/2
-        dotView?.backgroundColor = UIColor.redColor()
+        dotView?.backgroundColor = UIColor.red
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TapTheDotViewController.tappedDot(_:)))
         tapGesture.numberOfTapsRequired = 1
@@ -48,7 +48,7 @@ class TapTheDotViewController: UIViewController {
         dotView?.center = view.center
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.startGame()
@@ -59,7 +59,7 @@ class TapTheDotViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tappedDot(gesture: UITapGestureRecognizer) {
+    func tappedDot(_ gesture: UITapGestureRecognizer) {
         print("tappedDot")
         viewModel.dotTapped()
     }

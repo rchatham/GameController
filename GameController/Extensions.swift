@@ -9,16 +9,16 @@
 import UIKit
 
 
-extension CollectionType {
+extension Collection {
     /// Return a copy of `self` with its elements shuffled
-    func shuffle() -> [Generator.Element] {
+    func shuffle() -> [Iterator.Element] {
         var list = Array(self)
         list.shuffleInPlace()
         return list
     }
 }
 
-extension MutableCollectionType where Index == Int {
+extension MutableCollection where Index == Int, IndexDistance == Int {
     /// Shuffle the elements of `self` in-place.
     mutating func shuffleInPlace() {
         // empty and single-element collections don't shuffle
@@ -44,13 +44,13 @@ extension MutableCollectionType where Index == Int {
 
 
 extension Int {
-    static func random(max: Int) -> Int {
+    static func random(_ max: Int) -> Int {
         return Int(arc4random() % UInt32(max))
     }
 }
 
 extension CGFloat {
-    static func random(max: Int) -> CGFloat {
+    static func random(_ max: Int) -> CGFloat {
         return CGFloat(arc4random() % UInt32(max))
     }
 }
@@ -58,12 +58,12 @@ extension CGFloat {
 extension UIColor {
     class var random: UIColor {
         switch arc4random()%5 {
-        case 0: return UIColor.greenColor()
-        case 1: return UIColor.blueColor()
-        case 2: return UIColor.redColor()
-        case 3: return UIColor.yellowColor()
-        case 4: return UIColor.magentaColor()
-        default: return UIColor.blackColor()
+        case 0: return UIColor.green
+        case 1: return UIColor.blue
+        case 2: return UIColor.red
+        case 3: return UIColor.yellow
+        case 4: return UIColor.magenta
+        default: return UIColor.black
         }
     }
 }

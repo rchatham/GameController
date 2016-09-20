@@ -10,7 +10,7 @@ import Foundation
 
 protocol CoverTheDotViewModelDelegate {
     func startGame()
-    func updateScore(updater: Int->Int)
+    func updateScore(_ updater: (Int)->Int)
 }
 
 protocol CoverTheDotViewModelDataSource {
@@ -20,18 +20,21 @@ protocol CoverTheDotViewModelDataSource {
 
 struct CoverTheDotViewModel {
  
-    private var delegate: CoverTheDotViewModelDelegate
-    private var dataSource: CoverTheDotViewModelDataSource
+    fileprivate var delegate: CoverTheDotViewModelDelegate
+    fileprivate var dataSource: CoverTheDotViewModelDataSource
     
     init(delegate: CoverTheDotViewModelDelegate, dataSource: CoverTheDotViewModelDataSource) {
         self.delegate = delegate
         self.dataSource = dataSource
     }
     
-    mutating func startGame(scoreUpdater updater: MiniGameScoreUpdater) {
-        delegate.startGame()
+    mutating func startGame(scoreUpdater updater: @escaping MiniGameScoreUpdater) {
+        self.delegate.startGame()
+        
+        let delegate = self.delegate
         _ = Timer(timeInterval: 1, repeats: true, invalidateAfter: Double(dataSource.miniGameTimeRemaining())) {
-                self.delegate.updateScore(updater)
+            
+                delegate.updateScore(updater)
         }
     }
     

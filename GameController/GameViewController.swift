@@ -9,14 +9,14 @@
 import UIKit
 
 internal protocol GameViewControllerDelegate: class {
-    func didStartGame(gameViewController: GameViewController, withMiniGames games: [MiniGame])
-    func didQuitGame(gameViewController: GameViewController)
+    func didStartGame(_ gameViewController: GameViewController, withMiniGames games: [MiniGame])
+    func didQuitGame(_ gameViewController: GameViewController)
 }
 
 internal final class GameViewController: UIViewController {
     
-    private let viewModel : GameViewModel
-    private weak var delegate: GameViewControllerDelegate?
+    fileprivate let viewModel : GameViewModel
+    fileprivate weak var delegate: GameViewControllerDelegate?
     
     init(viewModel: GameViewModel, delegate: GameViewControllerDelegate) {
         self.viewModel = viewModel
@@ -30,19 +30,18 @@ internal final class GameViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         outputLabel.text = viewModel.outputStringForArray()
     }
     
-    func incrementScoreBy(points: Int) {
+    func incrementScoreBy(_ points: Int) {
         viewModel.incrementScoreBy(points)
     }
     
-    private func bindViewModel() {
+    fileprivate func bindViewModel() {
         viewModel.labelCallback = { [weak self] output in
-            guard self?.outputLabel != nil else { return }
-            self?.outputLabel.text = output
+            self?.outputLabel?.text = output
         }
         
         viewModel.gameStartCallback = { [unowned self] games in
@@ -52,14 +51,13 @@ internal final class GameViewController: UIViewController {
     
     @IBOutlet weak var outputLabel: UILabel!
     
-    @IBAction func startGame(sender: AnyObject) {
+    @IBAction func startGame(_ sender: AnyObject) {
         let games = viewModel.sendStartGameData()
         delegate?.didStartGame(self, withMiniGames: games)
     }
     
-    @IBAction func goBack(sender: UIButton) {
+    @IBAction func goBack(_ sender: UIButton) {
         viewModel.endConnection()
         delegate?.didQuitGame(self)
-//        self.dismissViewControllerAnimated(true) {}
     }
 }

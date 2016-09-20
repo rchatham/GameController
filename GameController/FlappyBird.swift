@@ -13,10 +13,10 @@ struct FlappyBird : MiniGame {
     weak var delegate: MiniGameDelegate?
     weak var dataSource: MiniGameDataSource?
     
-    let gameType: MiniGameType = .Objective
+    let gameType: MiniGameType = .objective
     
     var gameName: String {
-        return String(FlappyBird)
+        return String(describing: FlappyBird.self)
     }
     
     func readyViewController() -> UIViewController? {
@@ -31,7 +31,7 @@ struct FlappyBird : MiniGame {
         return FlappyBirdGameViewController(viewModel: viewModel())
     }
     
-    private func viewModel() -> FlappyBirdViewModel {
+    fileprivate func viewModel() -> FlappyBirdViewModel {
         return FlappyBirdViewModel(delegate: self)
     }
 }
@@ -42,7 +42,7 @@ extension FlappyBird: FlappyBirdViewModelDelegate {
         delegate?.endGame(self)
     }
     
-    func updateScore(updater: Int->Int) {
+    func updateScore(_ updater: (Int)->Int) {
         delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

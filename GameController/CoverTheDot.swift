@@ -13,8 +13,8 @@ struct CoverTheDot: MiniGame {
     weak var delegate: MiniGameDelegate?
     weak var dataSource: MiniGameDataSource?
     
-    let gameType: MiniGameType = .Timed(duration: 15)
-    let gameName = String(CoverTheDot)
+    let gameType: MiniGameType = .timed(duration: 15)
+    let gameName = String(describing: CoverTheDot.self)
     
     func readyViewController() -> UIViewController? {
         return nil
@@ -36,7 +36,7 @@ extension CoverTheDot: CoverTheDotViewModelDelegate {
          delegate?.startGame(self)
     }
     
-    func updateScore(updater: Int -> Int) {
+    func updateScore(_ updater: (Int) -> Int) {
         delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

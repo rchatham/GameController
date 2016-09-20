@@ -13,8 +13,8 @@ struct UnrollTheToiletPaper: MiniGame {
     weak var delegate: MiniGameDelegate?
     weak var dataSource: MiniGameDataSource?
     
-    let gameType: MiniGameType = .Objective
-    let gameName = String(UnrollTheToiletPaper)
+    let gameType: MiniGameType = .objective
+    let gameName = String(describing: UnrollTheToiletPaper.self)
     
     func readyViewController() -> UIViewController? {
         return nil
@@ -36,7 +36,7 @@ extension UnrollTheToiletPaper: UnrollTheToiletPaperViewModelDelegate {
         delegate?.endGame(self)
     }
     
-    func updateScore(updater: Int -> Int) {
+    func updateScore(_ updater: (Int) -> Int) {
         delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

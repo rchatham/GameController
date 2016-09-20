@@ -10,7 +10,7 @@ import UIKit
 
 class UnrollTheToiletPaperViewController: UIViewController {
     
-    private var viewModel: UnrollTheToiletPaperViewModel
+    fileprivate var viewModel: UnrollTheToiletPaperViewModel
     
     init(viewModel: UnrollTheToiletPaperViewModel) {
         self.viewModel = viewModel
@@ -35,7 +35,7 @@ class UnrollTheToiletPaperViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func unroll(gesture: UIPanGestureRecognizer) {
+    func unroll(_ gesture: UIPanGestureRecognizer) {
         
         guard viewModel.toiletPaperRipped == false
             else {
@@ -43,10 +43,10 @@ class UnrollTheToiletPaperViewController: UIViewController {
                 return viewModel.endGame()
         }
         
-        let velocity = gesture.velocityInView(view)
+        let velocity = gesture.velocity(in: view)
         let vx = Float(velocity.x)
         let vy = Float(velocity.y)
-        let translation = gesture.translationInView(view)
+        let translation = gesture.translation(in: view)
         let tx = Float(translation.x)
         let ty = Float(translation.y)
         

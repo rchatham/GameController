@@ -10,16 +10,16 @@ import UIKit
 
 class CoverTheDotViewController: UIViewController {
     
-    private var viewModel : CoverTheDotViewModel
-    private lazy var animator: UIDynamicAnimator = {
+    fileprivate var viewModel : CoverTheDotViewModel
+    fileprivate lazy var animator: UIDynamicAnimator = {
         let lazyAnimator = UIDynamicAnimator(referenceView: self.gameView)
         lazyAnimator.delegate = self
         return lazyAnimator
     }()
-    private var dotView: DotView!
-    private let blockBehavior = BlockBehavior()
-    private var currentBlocks = [UIView]()
-    private var blockSize: CGSize {
+    fileprivate var dotView: DotView!
+    fileprivate let blockBehavior = BlockBehavior()
+    fileprivate var currentBlocks = [UIView]()
+    fileprivate var blockSize: CGSize {
         let size = gameView.bounds.size.width / CGFloat(viewModel.sizeRatio())
         return CGSize(width: size, height: size)
     }
@@ -55,7 +55,7 @@ class CoverTheDotViewController: UIViewController {
         animator.addBehavior(blockBehavior)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.startGame(scoreUpdater: {
@@ -63,8 +63,8 @@ class CoverTheDotViewController: UIViewController {
             // Score match
             
             guard let dotView = self?.dotView,
-                newPts = self?.blocksCoveringDot(dotView),
-                outputText = self?.viewModel.outputText()
+                let newPts = self?.blocksCoveringDot(dotView),
+                let outputText = self?.viewModel.outputText()
                 else { return score }
             self?.gameUpdateLabel.text = outputText
             
@@ -72,13 +72,12 @@ class CoverTheDotViewController: UIViewController {
         })
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        NSNotificationCenter
-            .defaultCenter()
-            .addObserverForName(UIApplicationDidBecomeActiveNotification,
-                object: nil, queue: NSOperationQueue.mainQueue()) {
+        NotificationCenter.default
+            .addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive,
+                object: nil, queue: OperationQueue.main) {
                     (notification) -> Void in
                 
                     // Motionkit starts taking accelerometer updates.
@@ -90,10 +89,10 @@ class CoverTheDotViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         
         AppDelegate.Static.Motion.stopAccelerometerUpdates()
         
@@ -114,11 +113,11 @@ class CoverTheDotViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tap(sender: UITapGestureRecognizer) {
-        if sender.state == .Ended {
+    func tap(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
             
             // handling code
-            let touchPosition = sender.locationInView(gameView)
+            let touchPosition = sender.location(in: gameView)
             let size = blockSize
             let x = touchPosition.x - (size.width/2)
             let y = touchPosition.y - (size.height/2)
@@ -127,13 +126,13 @@ class CoverTheDotViewController: UIViewController {
         }
     }
     
-    private func blocksCoveringDot(dotView: DotView) -> Int {
+    fileprivate func blocksCoveringDot(_ dotView: DotView) -> Int {
         
         var blockCount = 0
         
         for view in gameView.subviews {
             if dotView !== view {
-                if CGRectIntersectsRect(dotView.frame, view.frame) {
+                if dotView.frame.intersects(view.frame) {
                     blockCount += 1
                 }
             }
@@ -141,7 +140,7 @@ class CoverTheDotViewController: UIViewController {
         return blockCount
     }
     
-    private func dropBlocks(withLocation location: CGPoint, size: CGSize) {
+    fileprivate func dropBlocks(withLocation location: CGPoint, size: CGSize) {
         let frame = CGRect(origin: location, size: size)
         
         let blockCount = viewModel.maxBlocks()
@@ -155,12 +154,12 @@ class CoverTheDotViewController: UIViewController {
         if currentBlocks.count > blockCount {
             for _ in blockCount..<currentBlocks.count {
                 blockBehavior.removeBlock(currentBlocks[0])
-                currentBlocks.removeAtIndex(0)
+                currentBlocks.remove(at: 0)
             }
         }
     }
     
-    private func removeBlocks() {
+    fileprivate func removeBlocks() {
         for block in currentBlocks {
             blockBehavior.removeBlock(block)
         }
@@ -170,11 +169,11 @@ class CoverTheDotViewController: UIViewController {
 
 extension CoverTheDotViewController : UIDynamicAnimatorDelegate {
     
-    func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
+    func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator) {
         AppDelegate.Static.Motion.stopAccelerometerUpdates()
     }
     
-    func dynamicAnimatorWillResume(animator: UIDynamicAnimator) {
+    func dynamicAnimatorWillResume(_ animator: UIDynamicAnimator) {
         AppDelegate.Static.Motion.getAccelerometerValues() {
             [unowned self]
             (x: Double, y: Double, z: Double) in

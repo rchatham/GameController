@@ -13,8 +13,8 @@ struct TapTheDot : MiniGame {
     weak var delegate: MiniGameDelegate?
     weak var dataSource: MiniGameDataSource?
     
-    let gameType: MiniGameType = .TimedObjective(duration: 15)
-    let gameName = String(TapTheDot)
+    let gameType: MiniGameType = .timedObjective(duration: 15)
+    let gameName = String(describing: TapTheDot.self)
     
     func readyViewController() -> UIViewController? {
         return nil
@@ -28,7 +28,7 @@ struct TapTheDot : MiniGame {
         return TapTheDotViewController(viewModel: viewModel())
     }
     
-    private func viewModel() -> TapTheDotViewModel {
+    fileprivate func viewModel() -> TapTheDotViewModel {
         return TapTheDotViewModel(delegate: self)
     }
 }
@@ -43,7 +43,7 @@ extension TapTheDot: TapTheDotViewModelDelegate {
         delegate?.startGame(self)
     }
     
-    func updateScore(updater: Int -> Int) {
+    func updateScore(_ updater: (Int) -> Int) {
         delegate?.updateScore(self, scoreUpdater: updater)
     }
 }

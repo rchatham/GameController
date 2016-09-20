@@ -11,83 +11,85 @@ import PeerConnectivity
 
 internal final class GameViewModel {
     
-    var gameStartCallback : [MiniGame]->Void = {_ in}
-    var labelCallback : (String->Void)? {
-        didSet {
-            guard let labelCallback = labelCallback else { return }
-            connectionManager.listenOn(devicesChanged: { _, peers in
-                let output = self.outputStringForArray()
-                labelCallback(output)
-            }, withKey: "LabelCallback")
-        }
-    }
+    var gameStartCallback : ([MiniGame])->Void = {_ in}
+    var labelCallback : ((String)->Void)?
     
-    private(set) var player : Player {
+    fileprivate(set) var player : Player {
         didSet {
-            let scoreObject : [String:AnyObject] = ["score":player.score]
+            let scoreObject : [String:AnyObject] = ["score":player.score as AnyObject]
             connectionManager.sendEvent(scoreObject)
         }
     }
-    private(set) var connectedPlayers : [Player] = []
-    private let connectionManager : PeerConnectionManager
+    fileprivate(set) var connectedPlayers : [Player] = []
+    fileprivate let connectionManager : PeerConnectionManager
     
     init(connectionManager: PeerConnectionManager) {
         self.player = Player(peer: connectionManager.peer)
         self.connectionManager = connectionManager
         
         self.connectionManager
-            .listenOn(devicesChanged: { [weak self] (peer: Peer, displayNames: [Peer]) -> Void in
-                switch peer.status {
-                case .Connected(_):
-                    guard let players = self?.connectedPlayers
-                        where !players.contains(Player(peer: peer))
-                        else { return }
-                    self?.connectedPlayers += [Player(peer: peer)]
-                case .NotConnected(_):
-                    guard let index = self?.connectedPlayers.indexOf(Player(peer: peer)) else { return }
-                    self?.connectedPlayers.removeAtIndex(index)
-                default: break
-                }
-            
-            }, dataReceived: { [weak self] (peer: Peer, data: NSData) -> Void in
+            .listenOn({ [weak self] (event) in
                 
-                guard let dataObject = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String:AnyObject]
-                    else { return }
-                
-                if let gamesNames = dataObject["start"] as? [String] {
+                switch event {
+                case .devicesChanged(let peer, _):
                     
-                    var games: [MiniGame] = []
+                    switch peer.status {
+                    case .connected:
+                        guard let players = self?.connectedPlayers,
+                            !players.contains(Player(peer: peer))
+                            else { return }
+                        self?.connectedPlayers += [Player(peer: peer)]
+                        
+                    case .notConnected:
+                        guard let index = self?.connectedPlayers.index(of: Player(peer: peer)) else { return }
+                        self?.connectedPlayers.remove(at: index)
+                        
+                    default : break
+                    }
+                    if let output = self?.outputStringForArray() {
+                        self?.labelCallback?(output)
+                    }
                     
-                    for gameName in gamesNames {
-                        switch gameName {
-                        case "CoverTheDot":
-                            games.append(CoverTheDot())
-                        case "TapTheDot":
-                            games.append(TapTheDot())
-                        case "FlappyBird":
-                            games.append(FlappyBird())
-                        default: break
+                case .receivedEvent(let peer, let eventInfo):
+                    
+                    if let gamesNames = eventInfo["start"] as? [String] {
+                        
+                        var games: [MiniGame] = []
+                        
+                        for gameName in gamesNames {
+                            switch gameName {
+                            case "CoverTheDot":
+                                games.append(CoverTheDot())
+                            case "TapTheDot":
+                                games.append(TapTheDot())
+                            case "FlappyBird":
+                                games.append(FlappyBird())
+                            default : break
+                            }
+                        }
+                        self?.gameStartCallback(games)
+                    }
+                    else if let score = eventInfo["score"] as? Int {
+                        self?.connectedPlayers = self!.connectedPlayers.map { (player) in
+                            if player.peer == peer {
+                                return Player(peer: peer, score: score)
+                            } else {
+                                return player
+                            }
+                        }
+                        if let output = self?.outputStringForArray() {
+                            self?.labelCallback?(output)
                         }
                     }
-                    self?.gameStartCallback(games)
-                }
-                else if let score = dataObject["score"] as? Int {
-                    self?.connectedPlayers = self!.connectedPlayers.map { (player) in
-                        if player.peer == peer {
-                            return Player(peer: peer, score: score)
-                        } else {
-                            return player
-                        }
-                    }
-                    self?.labelCallback?(self!.outputStringForArray())
-                
+                    
+                default : break
                 }
             }, withKey: "GameSetup")
     }
     
     func sendStartGameData() -> [MiniGame] {
         
-        var gamesArray: [MiniGame] = [
+        var gamesArray : [MiniGame] = [
             CoverTheDot(),
             TapTheDot(),
             FlappyBird(),
@@ -101,24 +103,24 @@ internal final class GameViewModel {
         for game in gamesArray {
             switch game {
             case _ where (game as? CoverTheDot) != nil:
-                gamesNames.append(String(CoverTheDot))
+                gamesNames.append(String(describing: CoverTheDot.self))
             case _ where (game as? TapTheDot) != nil:
-                gamesNames.append(String(TapTheDot))
+                gamesNames.append(String(describing: TapTheDot.self))
             case _ where (game as? FlappyBird) != nil:
-                gamesNames.append(String(FlappyBird))
+                gamesNames.append(String(describing: FlappyBird.self))
             case _ where (game as? UnrollTheToiletPaper) != nil:
-                gamesNames.append(String(UnrollTheToiletPaper))
+                gamesNames.append(String(describing: UnrollTheToiletPaper.self))
             default: break
             }
         }
         
-        let startObject : [String:AnyObject] = ["start":gamesNames]
+        let startObject : [String:AnyObject] = ["start":gamesNames as AnyObject]
         connectionManager.sendEvent(startObject)
         
         return gamesArray
     }
     
-    func incrementScoreBy(points: Int) {
+    func incrementScoreBy(_ points: Int) {
         player.incrementScoreBy(points)
     }
     
@@ -129,7 +131,7 @@ internal final class GameViewModel {
     func outputStringForArray() -> String {
         
         let output = "Connected gremlins:\n"
-            + (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",combine: +))
+            + (connectedPlayers.map { "Player: \($0.name), Score: \($0.score)\n" }.reduce("",+))
             + "My score: \(player.score)"
         
         return output

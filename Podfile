@@ -6,7 +6,7 @@ target 'GameController' do
   use_frameworks!
 
   # Pods for GameController
-  pod 'PeerConnectivity'
+  pod 'PeerConnectivity', '~>0.4'
 
 
   target 'GameControllerTests' do

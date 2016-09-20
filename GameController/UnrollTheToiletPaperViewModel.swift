@@ -9,22 +9,22 @@
 import Foundation
 
 protocol UnrollTheToiletPaperViewModelDelegate {
-    func updateScore(updater: Int->Int)
+    func updateScore(_ updater: (Int)->Int)
     func endGame()
 }
 
 struct UnrollTheToiletPaperViewModel {
     
-    private var delegate: UnrollTheToiletPaperViewModelDelegate
+    fileprivate var delegate: UnrollTheToiletPaperViewModelDelegate
     
-    internal private(set) var toiletPaperRipped = false
-    private var runningTotal: Int = 0
+    internal fileprivate(set) var toiletPaperRipped = false
+    fileprivate var runningTotal: Int = 0
     
     init(delegate: UnrollTheToiletPaperViewModelDelegate) {
         self.delegate = delegate
     }
     
-    mutating func pullToiletPaperWith(velocity velocity: (x: Float, y: Float), translation: (x: Float, y: Float)) {
+    mutating func pullToiletPaperWith(velocity: (x: Float, y: Float), translation: (x: Float, y: Float)) {
         if velocity.y < 0 {
             // print("Swiping the wrong way dummy!")
         } else if velocity.x > 10 || velocity.x < -10
@@ -36,7 +36,7 @@ struct UnrollTheToiletPaperViewModel {
         }
     }
     
-    mutating func unroll(lengthOfButtTissue: Float) {
+    mutating func unroll(_ lengthOfButtTissue: Float) {
         // print("Unrolled \(translation.y) toilet paper")
         runningTotal += Int(lengthOfButtTissue)
         print(runningTotal)

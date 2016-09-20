@@ -9,11 +9,11 @@
 import UIKit
 
 public protocol MiniGameDelegate: class {
-    func startGame(miniGame: MiniGame)
-    func pauseGame(miniGame: MiniGame)
-    func resumeGame(miniGame: MiniGame)
-    func endGame(miniGame: MiniGame)
-    func updateScore(miniGame: MiniGame, scoreUpdater updater: MiniGameScoreUpdater)
+    func startGame(_ miniGame: MiniGame)
+    func pauseGame(_ miniGame: MiniGame)
+    func resumeGame(_ miniGame: MiniGame)
+    func endGame(_ miniGame: MiniGame)
+    func updateScore(_ miniGame: MiniGame, scoreUpdater updater: MiniGameScoreUpdater)
 }
 
 public protocol MiniGameDataSource: class {
@@ -22,12 +22,12 @@ public protocol MiniGameDataSource: class {
 }
 
 public enum MiniGameType {
-    case Objective
-    case Timed(duration: Int)
-    case TimedObjective(duration: Int)
+    case objective
+    case timed(duration: Int)
+    case timedObjective(duration: Int)
 }
 
-public typealias MiniGameScoreUpdater = Int->Int
+public typealias MiniGameScoreUpdater = (Int)->Int
 
 public protocol MiniGame {
     

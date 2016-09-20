@@ -10,20 +10,20 @@ import UIKit
 import SpriteKit
 
 extension SKNode {
-    class func unarchiveFromFile(file : String) -> SKNode? {
+    class func unarchiveFromFile(_ file : String) -> SKNode? {
         
-        let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks")
+        let path = Bundle.main.path(forResource: file, ofType: "sks")
         
-        let sceneData: NSData?
+        let sceneData: Data?
         do {
-            sceneData = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
+            sceneData = try Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
         } catch _ {
             sceneData = nil
         }
-        let archiver = NSKeyedUnarchiver(forReadingWithData: sceneData!)
+        let archiver = NSKeyedUnarchiver(forReadingWith: sceneData!)
         
         archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-        let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! FlappyBirdGameScene
+        let scene = archiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as! FlappyBirdGameScene
         archiver.finishDecoding()
         return scene
     }
@@ -37,7 +37,7 @@ class FlappyBirdGameViewController: UIViewController {
         }
     }
     
-    private var viewModel : FlappyBirdViewModel
+    fileprivate var viewModel : FlappyBirdViewModel
     
     init(viewModel: FlappyBirdViewModel) {
         self.viewModel = viewModel
@@ -71,32 +71,32 @@ class FlappyBirdGameViewController: UIViewController {
         sceneView.ignoresSiblingOrder = true
         
         /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .aspectFill
         
         sceneView.presentScene(scene)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
 //        ESPresentationManager.sharedInstance.presentationController?.changeSize()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
 //        sceneView.
     }
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return UIInterfaceOrientationMask.AllButUpsideDown
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIInterfaceOrientationMask.allButUpsideDown
         } else {
-            return UIInterfaceOrientationMask.All
+            return UIInterfaceOrientationMask.all
         }
     }
 

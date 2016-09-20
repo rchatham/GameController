@@ -10,13 +10,13 @@ import UIKit
 import PeerConnectivity
 
 internal protocol JoinMatchViewControllerDelegate: class {
-    func startGameWithConnection(connectionManager: PeerConnectionManager)
+    func startGameWithConnection(_ connectionManager: PeerConnectionManager)
 }
 
 internal final class JoinMatchViewController: UIViewController {
     
-    private let viewModel : JoinMatchViewModel
-    private weak var delegate: JoinMatchViewControllerDelegate?
+    fileprivate let viewModel : JoinMatchViewModel
+    fileprivate weak var delegate: JoinMatchViewControllerDelegate?
     
     init(viewModel: JoinMatchViewModel, delegate: JoinMatchViewControllerDelegate) {
         self.viewModel = viewModel
@@ -28,10 +28,10 @@ internal final class JoinMatchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @IBAction func go(sender: UIButton) {
+    @IBAction func go(_ sender: UIButton) {
         
         guard let displayName = displayNameTextField.text
-            where !displayName.isEmpty
+            , !displayName.isEmpty
             else { return }
         
         let connectionType = viewModel.connectionTypeForInt(connectionStyleSwitcher.selectedSegmentIndex)
@@ -60,7 +60,7 @@ internal final class JoinMatchViewController: UIViewController {
 
 extension JoinMatchViewController : UITextFieldDelegate {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
 }

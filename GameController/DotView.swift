@@ -23,13 +23,13 @@ class DotView: UIView {
         didSet {
             self.backgroundColor = UIColor.random
             
-            NSTimer.scheduledTimerWithTimeInterval(Double(Int.random(5)+1),
+            Foundation.Timer.scheduledTimer(timeInterval: Double(Int.random(5)+1),
                 target: self, selector: #selector(DotView.moveDot(_:)),
                 userInfo: nil, repeats: false)
         }
     }
     
-    func moveDot(timer: NSTimer) {
+    func moveDot(_ timer: Foundation.Timer) {
         print("Move dot")
         let size = dotSize
         guard let superviewFrame = superview?.frame else { return }
@@ -42,25 +42,25 @@ class DotView: UIView {
     
     // MARK: - Private
     
-    private func sizeRatio() -> Int {
+    fileprivate func sizeRatio() -> Int {
         return Int.random(5) + 2
     }
     
-    private var dotSize: CGSize {
-        guard let superWidth = superview?.bounds.size.width else { return CGSizeZero }
+    fileprivate var dotSize: CGSize {
+        guard let superWidth = superview?.bounds.size.width else { return CGSize.zero }
         let size = superWidth / CGFloat(sizeRatio())
         return CGSize(width: size, height: size)
     }
     
-    private func resizeCircleView(frame frame: CGRect, duration: Double) {
+    fileprivate func resizeCircleView(frame: CGRect, duration: Double) {
         
         // TODO: - Make work with spring animations - Was getting wierd behavior
         
         var options = UIViewAnimationOptions()
-        options.insert(.CurveEaseInOut)
-        options.insert(.BeginFromCurrentState)
+        options.insert(UIViewAnimationOptions())
+        options.insert(.beginFromCurrentState)
         
-        UIView.animateWithDuration(duration, delay: 0.0, options: options, animations: {
+        UIView.animate(withDuration: duration, delay: 0.0, options: options, animations: {
                 [unowned self] in
                 self.frame = frame
             }, completion: nil)
@@ -72,6 +72,6 @@ class DotView: UIView {
         animation.toValue = cornerRadius
         animation.duration = duration
         self.layer.cornerRadius = cornerRadius
-        self.layer.addAnimation(animation, forKey: "cornerRadius")
+        self.layer.add(animation, forKey: "cornerRadius")
     }
 }

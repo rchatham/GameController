@@ -10,12 +10,12 @@ import Foundation
 
 protocol FlappyBirdViewModelDelegate {
     func endGame()
-    func updateScore(updater: Int->Int)
+    func updateScore(_ updater: (Int)->Int)
 }
 
 struct FlappyBirdViewModel {
     
-    private var delegate : FlappyBirdViewModelDelegate
+    fileprivate var delegate : FlappyBirdViewModelDelegate
     
     init(delegate: FlappyBirdViewModelDelegate) {
         self.delegate = delegate
@@ -25,7 +25,7 @@ struct FlappyBirdViewModel {
         delegate.endGame()
     }
     
-    func updateScore(updater: Int->Int) {
+    func updateScore(_ updater: (Int)->Int) {
         delegate.updateScore(updater)
     }
 }

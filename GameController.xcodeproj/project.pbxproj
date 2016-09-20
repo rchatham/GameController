@@ -362,6 +362,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44421BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameController" */;
 			buildPhases = (
+				1B9DD06DCA494BE32D8E6041 /* [CP] Check Pods Manifest.lock */,
 				66EB822CB4A0B227B297C1BF /* [CP] Check Pods Manifest.lock */,
 				308F44161BE42AFB006AC354 /* Sources */,
 				308F44171BE42AFB006AC354 /* Frameworks */,
@@ -369,6 +370,8 @@
 				30B6EAC51D492D320057463A /* Embed Frameworks */,
 				D7A42B3110FFE40956A4EA5F /* [CP] Embed Pods Frameworks */,
 				8269003ABD5E62E56E837AAD /* [CP] Copy Pods Resources */,
+				32E7795EAF3A8A0524793100 /* 📦 Embed Pods Frameworks */,
+				156F4904EABF97A792A82698 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,12 +386,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44451BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameControllerTests" */;
 			buildPhases = (
+				65619A504A3527057FF161E1 /* [CP] Check Pods Manifest.lock */,
 				0A83597EB7BFE44510B87888 /* [CP] Check Pods Manifest.lock */,
 				308F442A1BE42AFB006AC354 /* Sources */,
 				308F442B1BE42AFB006AC354 /* Frameworks */,
 				308F442C1BE42AFB006AC354 /* Resources */,
 				31E92D2BF80F115D77E645A3 /* [CP] Embed Pods Frameworks */,
 				6A08EE3202F2F43B3F2D3A9D /* [CP] Copy Pods Resources */,
+				C3861F4AFCA30CA3900D438A /* 📦 Embed Pods Frameworks */,
+				A61CA0C5484278BC13809AC5 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -404,11 +410,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 308F44481BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "GameControllerUITests" */;
 			buildPhases = (
+				7A488AC44F2A1A8ECACF214A /* [CP] Check Pods Manifest.lock */,
 				54A5D2DB25C36FBE07500E74 /* [CP] Check Pods Manifest.lock */,
 				308F44351BE42AFB006AC354 /* Sources */,
 				308F44361BE42AFB006AC354 /* Frameworks */,
 				308F44371BE42AFB006AC354 /* Resources */,
 				464F688D0BD955CD983F0F1B /* [CP] Copy Pods Resources */,
+				C2FB9ECBC1844380B77731B2 /* 📦 Copy Pods Resources */,
+				9F9FF19687DADED151A13B9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -426,19 +435,22 @@
 		308F44121BE42AFA006AC354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Reid Chatham";
 				TargetAttributes = {
 					308F44191BE42AFB006AC354 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = NT7FFBVKUP;
+						LastSwiftMigration = 0800;
 					};
 					308F442D1BE42AFB006AC354 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 308F44191BE42AFB006AC354;
 					};
 					308F44381BE42AFB006AC354 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 308F44191BE42AFB006AC354;
 					};
 				};
@@ -514,6 +526,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		156F4904EABF97A792A82698 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameController/Pods-GameController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1B9DD06DCA494BE32D8E6041 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		31E92D2BF80F115D77E645A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,6 +569,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32E7795EAF3A8A0524793100 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameController/Pods-GameController-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		464F688D0BD955CD983F0F1B /* [CP] Copy Pods Resources */ = {
@@ -559,6 +616,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		65619A504A3527057FF161E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		66EB822CB4A0B227B297C1BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -589,6 +661,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A488AC44F2A1A8ECACF214A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		8269003ABD5E62E56E837AAD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -602,6 +689,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameController/Pods-GameController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F9FF19687DADED151A13B9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A61CA0C5484278BC13809AC5 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2FB9ECBC1844380B77731B2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3861F4AFCA30CA3900D438A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7A42B3110FFE40956A4EA5F /* [CP] Embed Pods Frameworks */ = {
@@ -714,8 +861,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -759,8 +908,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -779,6 +930,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -788,6 +940,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9B7A950D9AA81FA8C69D7EC /* Pods-GameController.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -797,10 +950,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GameController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -808,6 +963,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F815D4CC957AEC12F1B0B63 /* Pods-GameController.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -817,10 +973,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = GameController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -833,6 +991,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameController.app/GameController";
 			};
 			name = Debug;
@@ -846,6 +1005,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameController.app/GameController";
 			};
 			name = Release;
@@ -858,6 +1018,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GameController;
 				USES_XCTRUNNER = YES;
 			};
@@ -871,6 +1032,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GameController;
 				USES_XCTRUNNER = YES;
 			};

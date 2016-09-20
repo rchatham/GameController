@@ -7,34 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020A395F09EEBA2D512D54AA169D75E5 /* PeerAdvertiserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065E6E73095E3AA0D600885B4DBF45DD /* PeerAdvertiserAssisstant.swift */; };
-		09C8A47C85177B0492026410633A83AB /* PeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9949E7769D5EDC482C56A95D9DD230 /* PeerSession.swift */; };
 		1151F774809084D9C7315475EE899764 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0866A5F54D12F10DF8D3795C0A608005 /* Foundation.framework */; };
-		1422CBD56069A69AD5FC89156B32FE66 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA6E67D334DB38760516DE733D1122 /* PeerAdvertiserAssisstantEventProducer.swift */; };
 		145B1A680A8B26D9C63A09F290B434D2 /* Pods-GameController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F8970FD4A6F610F2AE0BE3A68069B0 /* Pods-GameController-dummy.m */; };
-		3F8E75DD1CCD817148503A327AF8C8E8 /* PeerConnectivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8E585588AF556515A25F5E0DCB8E40 /* PeerConnectivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		479C39867E0BCBDBB7BAAE0338CF6296 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88998DB46C1DC71386372010C5A6C928 /* Peer.swift */; };
-		5A70A24F2CD32FE940FFF87C1BD1C813 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 26A9D3EF58A737149E79090DBE9E6EDF /* Info.plist */; };
-		741E03F18A291F01E82E0D3E5D3C2ED9 /* PeerBrowserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8876DC189FA1B1F589BCBF72A47113D /* PeerBrowserAssisstant.swift */; };
-		762C02283CF123D2359C6E22518F170D /* PeerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9AB3DD80BDCF911AA82DB9E82C8F0 /* PeerBrowser.swift */; };
+		21D1EFDD783505798A3CBA0E00AB2FBE /* PeerAdvertiserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAAFEFFBC447C568678F463B9694A9 /* PeerAdvertiserAssisstant.swift */; };
+		256289E2458B58E9FDE6256C0274FDC2 /* PeerBrowserAssisstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF87382DC9474725D1391733DE65397 /* PeerBrowserAssisstant.swift */; };
+		28FD4A87432D8DD3960BD9F7C8A55510 /* PeerBrowserViewControllerEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873D385FF46F93EE72D1F3BC35EC879 /* PeerBrowserViewControllerEventProducer.swift */; };
+		2ED7B9CB4F77A5FCA1949C53F96056FE /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 4F8CC832181A9ABA6971E6BED3629FB1 /* Info.plist */; };
+		3851ADEE40105C905BA004D125176509 /* PeerBrowserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20C47C5B759FFD79123AD0093415C4 /* PeerBrowserEventProducer.swift */; };
+		44589581B1A703DBFB437E9B9BD93643 /* PeerAdvertiserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE70FA78F6B0AD58D46135F670369EA /* PeerAdvertiserEventProducer.swift */; };
+		4583DF939AD750238064A15402E50D19 /* MultiObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D60ECA81B15C28E29CF3BE6DC01F7 /* MultiObservable.swift */; };
+		48868E78B03F62F6A5C33ABA7F157C19 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6AFBB4E5E53258484FB3A68F4D9A1 /* Observable.swift */; };
 		78D9B1168B97A6BF5F4D3D9436A8EC82 /* Pods-GameControllerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 807B15782E3DF54791B61E185D2D8BA4 /* Pods-GameControllerTests-dummy.m */; };
-		7D8CEC05BBC4B5D53CC53558AAA18297 /* PeerAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223A48C16EE9FF0F95FF46906A091C5 /* PeerAdvertiser.swift */; };
-		7EE3D49015A3E8BD4F2F5B0D92EB6AE3 /* PeerBrowserViewControllerEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8903AE2D256B549681DD38B83DD0209 /* PeerBrowserViewControllerEventProducer.swift */; };
-		80E2C5F7D98272792213D9E95E9434C7 /* MultiObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A072BF07EB65D9555E4F4034E76195 /* MultiObservable.swift */; };
-		82788979CDD9DB95544133FF98DC7E48 /* PeerConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BEBD1A3535F604F207D6B0FC4768CD /* PeerConnectionManager.swift */; };
+		8046134E42E4E077F2AA2026B6EE3EF6 /* PeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6ED9228AF924EF4876866C1D8C9940 /* PeerSession.swift */; };
 		84B1806FD0A15850CCD8CA5B77323067 /* Pods-GameController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E438E6C344503C43367E5D3014FB47CE /* Pods-GameController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		985609EEC3E798ED268AF4DD59EAE09C /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7202CBB0C1888C1BA1E87D9874C5911C /* Observable.swift */; };
+		97B75CD2B5ACB88A6157A7F9C13E613F /* PeerConnectivity.h in Headers */ = {isa = PBXBuildFile; fileRef = E7995368885EA62C84F42D19CF200595 /* PeerConnectivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		998338D140AF725EC885EB4051650353 /* PeerAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F677743ECEEBFDD5A20797F518994EB /* PeerAdvertiser.swift */; };
+		9B07B127DB7A914F9A9582B6E75EACCE /* PeerConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1709016E2B1241954175935888E436 /* PeerConnectionManager.swift */; };
 		A07ABD87708E0F16702C2537378B5DBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0866A5F54D12F10DF8D3795C0A608005 /* Foundation.framework */; };
+		A3C3A117E39C593E0C7A72A27EF8B6F6 /* PeerConnectivity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE55C26051BB6F1849AD806067B495 /* PeerConnectivity-dummy.m */; };
+		AE54EB18FB2C4CE5EFA017C2670B33EC /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C95F9059E6AD9B4BE2FC739535C87 /* Peer.swift */; };
 		BAAA8C4652B60549A29216278B9706D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0866A5F54D12F10DF8D3795C0A608005 /* Foundation.framework */; };
-		BFEFEFE66DAC30B9ADD7C4C41A499399 /* PeerAdvertiserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C066706FF79EA642FA21C20B7C292 /* PeerAdvertiserEventProducer.swift */; };
-		CA5DCB6CC5B49A170FB92F9F90DE4A81 /* PeerConnectivity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A0E9040473EE784F9E236E4B45B00 /* PeerConnectivity-dummy.m */; };
+		BBDCE0930F263B2B7421DB481BCB3A57 /* PeerSessionEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9748E6D1F6770FC5B6EF274832C0C1 /* PeerSessionEventProducer.swift */; };
+		CDF4FBD4626247542EAAB5B3D8EBA579 /* PeerConnectionResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722AD7D84ADAA142447705C10269352 /* PeerConnectionResponder.swift */; };
 		D4D7406223E20155E38E436364BF8465 /* Pods-GameControllerUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F559050DC29F9EF31F55BBC8CB013 /* Pods-GameControllerUITests-dummy.m */; };
 		DDACB3CB532542CF308614CB5C807FE4 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0197E994551AE3A6ABA8AF1CADE49C /* MultipeerConnectivity.framework */; };
-		DE45FB3FE3B034BED17B93B4A00B07C0 /* PeerBrowserEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF54575260E4D7243F71B08B80C8277 /* PeerBrowserEventProducer.swift */; };
+		E3DD4631C47FA3704C6661B323858817 /* PeerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467CC5BE7864AF2EE5E73C27332D6EF0 /* PeerBrowser.swift */; };
 		EC326C6C87314B55CADEECFFB431BF17 /* Pods-GameControllerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64764B340D2B314A4704FB690E8472C6 /* Pods-GameControllerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED1981E6D5F393830C459EB72AD8FC44 /* PeerConnectivity-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E23C3BCE38FC8E119459BF7F1048C14 /* PeerConnectivity-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EDB600A03DC0FCFFB21C9B17A80D527A /* PeerSessionEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7730375AD8914941889315E5C89456A /* PeerSessionEventProducer.swift */; };
-		F4B9F0DF6A1CF452E0E087270F0ACB54 /* PeerConnectionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3CEBEE6E183EA250DC8027A91015EB /* PeerConnectionListener.swift */; };
+		ED1981E6D5F393830C459EB72AD8FC44 /* PeerConnectivity-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D4BBDA513FE2FF9862BBE5C799D8DC7 /* PeerConnectivity-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED37AEFF87F35AF5A182BE412BA06EE7 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13838CFAB32F046895F6551F479D71 /* PeerAdvertiserAssisstantEventProducer.swift */; };
 		F89113E8EF8A673B0D549BED6F782F46 /* Pods-GameControllerUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4AA7FDDC7FC71C213C4DCE8A8CCFEED /* Pods-GameControllerUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9945734074ECD5AEBB62CB96723958F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0866A5F54D12F10DF8D3795C0A608005 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -50,35 +50,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00EE55C26051BB6F1849AD806067B495 /* PeerConnectivity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PeerConnectivity-dummy.m"; sourceTree = "<group>"; };
+		029C95F9059E6AD9B4BE2FC739535C87 /* Peer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Peer.swift; path = Sources/Peer.swift; sourceTree = "<group>"; };
 		0494217CDD73A4B782C82192C3F52B4F /* Pods-GameControllerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GameControllerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		065E6E73095E3AA0D600885B4DBF45DD /* PeerAdvertiserAssisstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserAssisstant.swift; path = PeerConnectivity/PeerAdvertiserAssisstant.swift; sourceTree = "<group>"; };
 		06A9F7D2EABC3C8C013ADA234222D88B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		074FF750F72AB862F294ED15EDA10249 /* PeerConnectivity.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PeerConnectivity.modulemap; sourceTree = "<group>"; };
 		0866A5F54D12F10DF8D3795C0A608005 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0ADBA696DA8160CCDC6855C8D77538A5 /* Pods-GameControllerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GameControllerTests.modulemap"; sourceTree = "<group>"; };
-		12A072BF07EB65D9555E4F4034E76195 /* MultiObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiObservable.swift; path = PeerConnectivity/MultiObservable.swift; sourceTree = "<group>"; };
 		1581F1D3BEDA5AE19C7A64666BED476D /* Pods-GameControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GameControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		1722AD7D84ADAA142447705C10269352 /* PeerConnectionResponder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerConnectionResponder.swift; path = Sources/PeerConnectionResponder.swift; sourceTree = "<group>"; };
 		19EFB37C088A7057C1489BE7AB2EA946 /* Pods-GameControllerUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GameControllerUITests.modulemap"; sourceTree = "<group>"; };
 		1B019EE97AB8F6D3E8ED2682E3D84499 /* Pods-GameController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GameController-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1E23C3BCE38FC8E119459BF7F1048C14 /* PeerConnectivity-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PeerConnectivity-umbrella.h"; sourceTree = "<group>"; };
-		26A9D3EF58A737149E79090DBE9E6EDF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = PeerConnectivity/Info.plist; sourceTree = "<group>"; };
-		2B3CEBEE6E183EA250DC8027A91015EB /* PeerConnectionListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerConnectionListener.swift; path = PeerConnectivity/PeerConnectionListener.swift; sourceTree = "<group>"; };
+		1D1709016E2B1241954175935888E436 /* PeerConnectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerConnectionManager.swift; path = Sources/PeerConnectionManager.swift; sourceTree = "<group>"; };
+		1FF87382DC9474725D1391733DE65397 /* PeerBrowserAssisstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserAssisstant.swift; path = Sources/PeerBrowserAssisstant.swift; sourceTree = "<group>"; };
 		2D08F1548B8F8CBF3B89826D2850B910 /* Pods-GameControllerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GameControllerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2D75BB543FFED5D7ECD57FA43C8B442C /* Pods-GameControllerUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GameControllerUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		31F8970FD4A6F610F2AE0BE3A68069B0 /* Pods-GameController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GameController-dummy.m"; sourceTree = "<group>"; };
+		3873D385FF46F93EE72D1F3BC35EC879 /* PeerBrowserViewControllerEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserViewControllerEventProducer.swift; path = Sources/PeerBrowserViewControllerEventProducer.swift; sourceTree = "<group>"; };
 		3A0197E994551AE3A6ABA8AF1CADE49C /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
-		3A9949E7769D5EDC482C56A95D9DD230 /* PeerSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerSession.swift; path = PeerConnectivity/PeerSession.swift; sourceTree = "<group>"; };
-		5223A48C16EE9FF0F95FF46906A091C5 /* PeerAdvertiser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiser.swift; path = PeerConnectivity/PeerAdvertiser.swift; sourceTree = "<group>"; };
-		548C066706FF79EA642FA21C20B7C292 /* PeerAdvertiserEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserEventProducer.swift; path = PeerConnectivity/PeerAdvertiserEventProducer.swift; sourceTree = "<group>"; };
+		44EAAFEFFBC447C568678F463B9694A9 /* PeerAdvertiserAssisstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserAssisstant.swift; path = Sources/PeerAdvertiserAssisstant.swift; sourceTree = "<group>"; };
+		467CC5BE7864AF2EE5E73C27332D6EF0 /* PeerBrowser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowser.swift; path = Sources/PeerBrowser.swift; sourceTree = "<group>"; };
+		4F8CC832181A9ABA6971E6BED3629FB1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		64764B340D2B314A4704FB690E8472C6 /* Pods-GameControllerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GameControllerTests-umbrella.h"; sourceTree = "<group>"; };
-		653A0E9040473EE784F9E236E4B45B00 /* PeerConnectivity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PeerConnectivity-dummy.m"; sourceTree = "<group>"; };
-		65C9AB3DD80BDCF911AA82DB9E82C8F0 /* PeerBrowser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowser.swift; path = PeerConnectivity/PeerBrowser.swift; sourceTree = "<group>"; };
+		65C6AFBB4E5E53258484FB3A68F4D9A1 /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = Sources/Observable.swift; sourceTree = "<group>"; };
 		6A15E5F75B9905F6E1E60BA54E2AA7A5 /* Pods-GameController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GameController-acknowledgements.plist"; sourceTree = "<group>"; };
 		6BB339B08C89ECCD9EDDF0DB393DEA08 /* Pods-GameController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GameController.modulemap"; sourceTree = "<group>"; };
-		71CEB7024A59A2FB43EEEEEAEA858CB7 /* PeerConnectivity.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PeerConnectivity.xcconfig; sourceTree = "<group>"; };
-		7202CBB0C1888C1BA1E87D9874C5911C /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = PeerConnectivity/Observable.swift; sourceTree = "<group>"; };
 		74332A6F59DDBB648630BE942F14FF72 /* Pods_GameControllerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameControllerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D75CA7267122D7796E727A4A9DA06F /* Pods-GameControllerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GameControllerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		790D60ECA81B15C28E29CF3BE6DC01F7 /* MultiObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiObservable.swift; path = Sources/MultiObservable.swift; sourceTree = "<group>"; };
+		7F677743ECEEBFDD5A20797F518994EB /* PeerAdvertiser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiser.swift; path = Sources/PeerAdvertiser.swift; sourceTree = "<group>"; };
 		7FC9B1310FA48E5CE74F7DE796884253 /* Pods_GameControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		807B15782E3DF54791B61E185D2D8BA4 /* Pods-GameControllerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GameControllerTests-dummy.m"; sourceTree = "<group>"; };
 		8147F948C497318906DB0DDB3C9A7CC3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,29 +86,30 @@
 		850517EC2EB325F4AA2D25320122574E /* Pods-GameControllerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GameControllerTests-resources.sh"; sourceTree = "<group>"; };
 		85F7814C1AF28AAB01B01F49D4FFE1CE /* Pods_GameController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		883D714216B2212E13053300CB8C68AF /* Pods-GameControllerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GameControllerTests-frameworks.sh"; sourceTree = "<group>"; };
-		88998DB46C1DC71386372010C5A6C928 /* Peer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Peer.swift; path = PeerConnectivity/Peer.swift; sourceTree = "<group>"; };
-		91BA6E67D334DB38760516DE733D1122 /* PeerAdvertiserAssisstantEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserAssisstantEventProducer.swift; path = PeerConnectivity/PeerAdvertiserAssisstantEventProducer.swift; sourceTree = "<group>"; };
+		8D4BBDA513FE2FF9862BBE5C799D8DC7 /* PeerConnectivity-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PeerConnectivity-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D8E585588AF556515A25F5E0DCB8E40 /* PeerConnectivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PeerConnectivity.h; path = PeerConnectivity/PeerConnectivity.h; sourceTree = "<group>"; };
+		981ABE0B7AAE742CC50B7B903A17A451 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DE70FA78F6B0AD58D46135F670369EA /* PeerAdvertiserEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserEventProducer.swift; path = Sources/PeerAdvertiserEventProducer.swift; sourceTree = "<group>"; };
 		9E645A1E6862875CFA5053C7A7895FC9 /* Pods-GameControllerUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GameControllerUITests-frameworks.sh"; sourceTree = "<group>"; };
-		A7730375AD8914941889315E5C89456A /* PeerSessionEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerSessionEventProducer.swift; path = PeerConnectivity/PeerSessionEventProducer.swift; sourceTree = "<group>"; };
+		A95A9CBF30D157A166AC2246791A2864 /* PeerConnectivity.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PeerConnectivity.xcconfig; sourceTree = "<group>"; };
 		B30B4896D7403BBAF66FBEEA6EB84832 /* Pods-GameControllerUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GameControllerUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BA84887BB580E33B72F0919DE6906DA4 /* Pods-GameControllerUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GameControllerUITests-resources.sh"; sourceTree = "<group>"; };
-		C233EAB28DFADF3DFAA7BB7C41D28392 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC9748E6D1F6770FC5B6EF274832C0C1 /* PeerSessionEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerSessionEventProducer.swift; path = Sources/PeerSessionEventProducer.swift; sourceTree = "<group>"; };
 		C3182B10A3516182A609661EB167DE91 /* PeerConnectivity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PeerConnectivity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5EB77C66E47D55BCD52BCB7E82678B4 /* PeerConnectivity-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PeerConnectivity-prefix.pch"; sourceTree = "<group>"; };
+		C84757F7B769F0DD93E932854E5F4CBD /* PeerConnectivity-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PeerConnectivity-prefix.pch"; sourceTree = "<group>"; };
 		C9B2416076370AF69E18DF31CB0BCAA6 /* Pods-GameController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GameController.debug.xcconfig"; sourceTree = "<group>"; };
-		CCF54575260E4D7243F71B08B80C8277 /* PeerBrowserEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserEventProducer.swift; path = PeerConnectivity/PeerBrowserEventProducer.swift; sourceTree = "<group>"; };
-		D6BEBD1A3535F604F207D6B0FC4768CD /* PeerConnectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerConnectionManager.swift; path = PeerConnectivity/PeerConnectionManager.swift; sourceTree = "<group>"; };
-		D8903AE2D256B549681DD38B83DD0209 /* PeerBrowserViewControllerEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserViewControllerEventProducer.swift; path = PeerConnectivity/PeerBrowserViewControllerEventProducer.swift; sourceTree = "<group>"; };
+		D02F0DB302665C872BA52385030553E5 /* PeerConnectivity.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PeerConnectivity.modulemap; sourceTree = "<group>"; };
 		E438E6C344503C43367E5D3014FB47CE /* Pods-GameController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GameController-umbrella.h"; sourceTree = "<group>"; };
 		E4AA7FDDC7FC71C213C4DCE8A8CCFEED /* Pods-GameControllerUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GameControllerUITests-umbrella.h"; sourceTree = "<group>"; };
 		E70F559050DC29F9EF31F55BBC8CB013 /* Pods-GameControllerUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GameControllerUITests-dummy.m"; sourceTree = "<group>"; };
-		E8876DC189FA1B1F589BCBF72A47113D /* PeerBrowserAssisstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserAssisstant.swift; path = PeerConnectivity/PeerBrowserAssisstant.swift; sourceTree = "<group>"; };
+		E7995368885EA62C84F42D19CF200595 /* PeerConnectivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PeerConnectivity.h; path = Sources/PeerConnectivity.h; sourceTree = "<group>"; };
+		EA20C47C5B759FFD79123AD0093415C4 /* PeerBrowserEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerBrowserEventProducer.swift; path = Sources/PeerBrowserEventProducer.swift; sourceTree = "<group>"; };
 		EB48421563F65B359FD4279C1022952E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC49B9748A641CB017334311339FC9B2 /* Pods-GameController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GameController.release.xcconfig"; sourceTree = "<group>"; };
+		EF13838CFAB32F046895F6551F479D71 /* PeerAdvertiserAssisstantEventProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerAdvertiserAssisstantEventProducer.swift; path = Sources/PeerAdvertiserAssisstantEventProducer.swift; sourceTree = "<group>"; };
 		F1444A6A971467BCE296F514692CA3AF /* Pods-GameControllerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GameControllerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F149B2A333EDA1DFC5C0FDAE2D0D5049 /* Pods-GameController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GameController-resources.sh"; sourceTree = "<group>"; };
+		FF6ED9228AF924EF4876866C1D8C9940 /* PeerSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeerSession.swift; path = Sources/PeerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,37 +159,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		40B64BC3824A3F2E5027CCD7C5945E7B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				981ABE0B7AAE742CC50B7B903A17A451 /* Info.plist */,
+				D02F0DB302665C872BA52385030553E5 /* PeerConnectivity.modulemap */,
+				A95A9CBF30D157A166AC2246791A2864 /* PeerConnectivity.xcconfig */,
+				00EE55C26051BB6F1849AD806067B495 /* PeerConnectivity-dummy.m */,
+				C84757F7B769F0DD93E932854E5F4CBD /* PeerConnectivity-prefix.pch */,
+				8D4BBDA513FE2FF9862BBE5C799D8DC7 /* PeerConnectivity-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PeerConnectivity";
+			sourceTree = "<group>";
+		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4C4D11740C58D55623C5A125DE1E3C71 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4B178AE6E84AC0CC24F2E4815FFEF736 /* PeerConnectivity */ = {
-			isa = PBXGroup;
-			children = (
-				26A9D3EF58A737149E79090DBE9E6EDF /* Info.plist */,
-				12A072BF07EB65D9555E4F4034E76195 /* MultiObservable.swift */,
-				7202CBB0C1888C1BA1E87D9874C5911C /* Observable.swift */,
-				88998DB46C1DC71386372010C5A6C928 /* Peer.swift */,
-				5223A48C16EE9FF0F95FF46906A091C5 /* PeerAdvertiser.swift */,
-				065E6E73095E3AA0D600885B4DBF45DD /* PeerAdvertiserAssisstant.swift */,
-				91BA6E67D334DB38760516DE733D1122 /* PeerAdvertiserAssisstantEventProducer.swift */,
-				548C066706FF79EA642FA21C20B7C292 /* PeerAdvertiserEventProducer.swift */,
-				65C9AB3DD80BDCF911AA82DB9E82C8F0 /* PeerBrowser.swift */,
-				E8876DC189FA1B1F589BCBF72A47113D /* PeerBrowserAssisstant.swift */,
-				CCF54575260E4D7243F71B08B80C8277 /* PeerBrowserEventProducer.swift */,
-				D8903AE2D256B549681DD38B83DD0209 /* PeerBrowserViewControllerEventProducer.swift */,
-				2B3CEBEE6E183EA250DC8027A91015EB /* PeerConnectionListener.swift */,
-				D6BEBD1A3535F604F207D6B0FC4768CD /* PeerConnectionManager.swift */,
-				9D8E585588AF556515A25F5E0DCB8E40 /* PeerConnectivity.h */,
-				3A9949E7769D5EDC482C56A95D9DD230 /* PeerSession.swift */,
-				A7730375AD8914941889315E5C89456A /* PeerSessionEventProducer.swift */,
-				BB2F936B080CEBAE5738F3F0101F3170 /* Support Files */,
-			);
-			path = PeerConnectivity;
 			sourceTree = "<group>";
 		};
 		4C4D11740C58D55623C5A125DE1E3C71 /* iOS */ = {
@@ -204,9 +193,34 @@
 		4DE5A74E8F0B26D3CB56596304E4C6B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4B178AE6E84AC0CC24F2E4815FFEF736 /* PeerConnectivity */,
+				5F23CD90C43BD7B6211188B271687DE7 /* PeerConnectivity */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5F23CD90C43BD7B6211188B271687DE7 /* PeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				4F8CC832181A9ABA6971E6BED3629FB1 /* Info.plist */,
+				790D60ECA81B15C28E29CF3BE6DC01F7 /* MultiObservable.swift */,
+				65C6AFBB4E5E53258484FB3A68F4D9A1 /* Observable.swift */,
+				029C95F9059E6AD9B4BE2FC739535C87 /* Peer.swift */,
+				7F677743ECEEBFDD5A20797F518994EB /* PeerAdvertiser.swift */,
+				44EAAFEFFBC447C568678F463B9694A9 /* PeerAdvertiserAssisstant.swift */,
+				EF13838CFAB32F046895F6551F479D71 /* PeerAdvertiserAssisstantEventProducer.swift */,
+				9DE70FA78F6B0AD58D46135F670369EA /* PeerAdvertiserEventProducer.swift */,
+				467CC5BE7864AF2EE5E73C27332D6EF0 /* PeerBrowser.swift */,
+				1FF87382DC9474725D1391733DE65397 /* PeerBrowserAssisstant.swift */,
+				EA20C47C5B759FFD79123AD0093415C4 /* PeerBrowserEventProducer.swift */,
+				3873D385FF46F93EE72D1F3BC35EC879 /* PeerBrowserViewControllerEventProducer.swift */,
+				1D1709016E2B1241954175935888E436 /* PeerConnectionManager.swift */,
+				1722AD7D84ADAA142447705C10269352 /* PeerConnectionResponder.swift */,
+				E7995368885EA62C84F42D19CF200595 /* PeerConnectivity.h */,
+				FF6ED9228AF924EF4876866C1D8C9940 /* PeerSession.swift */,
+				BC9748E6D1F6770FC5B6EF274832C0C1 /* PeerSessionEventProducer.swift */,
+				40B64BC3824A3F2E5027CCD7C5945E7B /* Support Files */,
+			);
+			path = PeerConnectivity;
 			sourceTree = "<group>";
 		};
 		6BA82DE967C033B55B71BE0882963F77 /* Products */ = {
@@ -285,20 +299,6 @@
 			path = "Target Support Files/Pods-GameControllerUITests";
 			sourceTree = "<group>";
 		};
-		BB2F936B080CEBAE5738F3F0101F3170 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C233EAB28DFADF3DFAA7BB7C41D28392 /* Info.plist */,
-				074FF750F72AB862F294ED15EDA10249 /* PeerConnectivity.modulemap */,
-				71CEB7024A59A2FB43EEEEEAEA858CB7 /* PeerConnectivity.xcconfig */,
-				653A0E9040473EE784F9E236E4B45B00 /* PeerConnectivity-dummy.m */,
-				C5EB77C66E47D55BCD52BCB7E82678B4 /* PeerConnectivity-prefix.pch */,
-				1E23C3BCE38FC8E119459BF7F1048C14 /* PeerConnectivity-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PeerConnectivity";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1981E6D5F393830C459EB72AD8FC44 /* PeerConnectivity-umbrella.h in Headers */,
-				3F8E75DD1CCD817148503A327AF8C8E8 /* PeerConnectivity.h in Headers */,
+				97B75CD2B5ACB88A6157A7F9C13E613F /* PeerConnectivity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DCA2D3D3BA9D78D09DAF0C35FDC7020 /* Build configuration list for PBXNativeTarget "PeerConnectivity" */;
 			buildPhases = (
-				05407B367347A5CD2E73EC73EEA786B9 /* Sources */,
+				439A4665C52DE0E1153E5AA6BA0FC211 /* Sources */,
 				C97C1A54E4014D80453DA89272448A12 /* Frameworks */,
 				29CE02A83D911B335EFBD43D869A4665 /* Headers */,
 			);
@@ -437,30 +437,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		05407B367347A5CD2E73EC73EEA786B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A70A24F2CD32FE940FFF87C1BD1C813 /* Info.plist in Sources */,
-				80E2C5F7D98272792213D9E95E9434C7 /* MultiObservable.swift in Sources */,
-				985609EEC3E798ED268AF4DD59EAE09C /* Observable.swift in Sources */,
-				479C39867E0BCBDBB7BAAE0338CF6296 /* Peer.swift in Sources */,
-				7D8CEC05BBC4B5D53CC53558AAA18297 /* PeerAdvertiser.swift in Sources */,
-				020A395F09EEBA2D512D54AA169D75E5 /* PeerAdvertiserAssisstant.swift in Sources */,
-				1422CBD56069A69AD5FC89156B32FE66 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */,
-				BFEFEFE66DAC30B9ADD7C4C41A499399 /* PeerAdvertiserEventProducer.swift in Sources */,
-				762C02283CF123D2359C6E22518F170D /* PeerBrowser.swift in Sources */,
-				741E03F18A291F01E82E0D3E5D3C2ED9 /* PeerBrowserAssisstant.swift in Sources */,
-				DE45FB3FE3B034BED17B93B4A00B07C0 /* PeerBrowserEventProducer.swift in Sources */,
-				7EE3D49015A3E8BD4F2F5B0D92EB6AE3 /* PeerBrowserViewControllerEventProducer.swift in Sources */,
-				F4B9F0DF6A1CF452E0E087270F0ACB54 /* PeerConnectionListener.swift in Sources */,
-				82788979CDD9DB95544133FF98DC7E48 /* PeerConnectionManager.swift in Sources */,
-				CA5DCB6CC5B49A170FB92F9F90DE4A81 /* PeerConnectivity-dummy.m in Sources */,
-				09C8A47C85177B0492026410633A83AB /* PeerSession.swift in Sources */,
-				EDB600A03DC0FCFFB21C9B17A80D527A /* PeerSessionEventProducer.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2DE4E8EB50DA57E826B0EB161C32AFC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,6 +450,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				145B1A680A8B26D9C63A09F290B434D2 /* Pods-GameController-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		439A4665C52DE0E1153E5AA6BA0FC211 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ED7B9CB4F77A5FCA1949C53F96056FE /* Info.plist in Sources */,
+				4583DF939AD750238064A15402E50D19 /* MultiObservable.swift in Sources */,
+				48868E78B03F62F6A5C33ABA7F157C19 /* Observable.swift in Sources */,
+				AE54EB18FB2C4CE5EFA017C2670B33EC /* Peer.swift in Sources */,
+				998338D140AF725EC885EB4051650353 /* PeerAdvertiser.swift in Sources */,
+				21D1EFDD783505798A3CBA0E00AB2FBE /* PeerAdvertiserAssisstant.swift in Sources */,
+				ED37AEFF87F35AF5A182BE412BA06EE7 /* PeerAdvertiserAssisstantEventProducer.swift in Sources */,
+				44589581B1A703DBFB437E9B9BD93643 /* PeerAdvertiserEventProducer.swift in Sources */,
+				E3DD4631C47FA3704C6661B323858817 /* PeerBrowser.swift in Sources */,
+				256289E2458B58E9FDE6256C0274FDC2 /* PeerBrowserAssisstant.swift in Sources */,
+				3851ADEE40105C905BA004D125176509 /* PeerBrowserEventProducer.swift in Sources */,
+				28FD4A87432D8DD3960BD9F7C8A55510 /* PeerBrowserViewControllerEventProducer.swift in Sources */,
+				9B07B127DB7A914F9A9582B6E75EACCE /* PeerConnectionManager.swift in Sources */,
+				CDF4FBD4626247542EAAB5B3D8EBA579 /* PeerConnectionResponder.swift in Sources */,
+				A3C3A117E39C593E0C7A72A27EF8B6F6 /* PeerConnectivity-dummy.m in Sources */,
+				8046134E42E4E077F2AA2026B6EE3EF6 /* PeerSession.swift in Sources */,
+				BBDCE0930F263B2B7421DB481BCB3A57 /* PeerSessionEventProducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +497,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+		108613454954FF255EDC36E37CB417AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0494217CDD73A4B782C82192C3F52B4F /* Pods-GameControllerUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GameControllerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -515,6 +550,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -532,84 +568,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		1761249DBB851A6E1819C1203E667386 /* Debug */ = {
+		39B98B8013401A1693C52D822AB788BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0494217CDD73A4B782C82192C3F52B4F /* Pods-GameControllerUITests.debug.xcconfig */;
+			baseConfigurationReference = A95A9CBF30D157A166AC2246791A2864 /* PeerConnectivity.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GameControllerUITests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		30750BF3B003EB92ED041040E01F8760 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 824A88218AA96084559CAEDD5A606B35 /* Pods-GameControllerTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GameControllerTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5918B0B603CC97FC29BA6C8B566E0250 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71CEB7024A59A2FB43EEEEEAEA858CB7 /* PeerConnectivity.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -621,11 +594,115 @@
 				GCC_PREFIX_HEADER = "Target Support Files/PeerConnectivity/PeerConnectivity-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PeerConnectivity/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PeerConnectivity/PeerConnectivity.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = PeerConnectivity;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3AE6355A7737DCFB2666ADA2CBDA5BCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1444A6A971467BCE296F514692CA3AF /* Pods-GameControllerUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GameControllerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		643489E96C123A4B9CF8F262935ECC7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95A9CBF30D157A166AC2246791A2864 /* PeerConnectivity.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PeerConnectivity/PeerConnectivity-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PeerConnectivity/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PeerConnectivity/PeerConnectivity.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PeerConnectivity;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		75631DA91138F0DDBB11DBED83462429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9B2416076370AF69E18DF31CB0BCAA6 /* Pods-GameController.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GameController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GameController/Pods-GameController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GameController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -635,135 +712,7 @@
 			};
 			name = Debug;
 		};
-		639BE3DDFB9403A6C5EA16FB4B2F06EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC49B9748A641CB017334311339FC9B2 /* Pods-GameController.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-GameController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GameController/Pods-GameController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GameController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6980BF871BD5597C919AE30579DD0CC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1444A6A971467BCE296F514692CA3AF /* Pods-GameControllerUITests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GameControllerUITests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		83C727A2F7D3A5EBA97AB3CEEACDE8AB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71CEB7024A59A2FB43EEEEEAEA858CB7 /* PeerConnectivity.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PeerConnectivity/PeerConnectivity-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PeerConnectivity/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PeerConnectivity/PeerConnectivity.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PeerConnectivity;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BD0F76822C67459C06B7106C3F66B815 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1581F1D3BEDA5AE19C7A64666BED476D /* Pods-GameControllerTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GameControllerTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -781,6 +730,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -794,18 +744,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		D49B5582A541FA3BE8B3A447D6AC8600 /* Debug */ = {
+		B4FF3DC0615275AECD8DA30199B2E67F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9B2416076370AF69E18DF31CB0BCAA6 /* Pods-GameController.debug.xcconfig */;
+			baseConfigurationReference = 824A88218AA96084559CAEDD5A606B35 /* Pods-GameControllerTests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -814,13 +767,83 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GameControllerTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B9008C9517D8934AF13F80106FF9B231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1581F1D3BEDA5AE19C7A64666BED476D /* Pods-GameControllerTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-GameControllerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GameControllerTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E42C2107444AC3BDF41CD4525D8A19DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC49B9748A641CB017334311339FC9B2 /* Pods-GameController.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-GameController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GameController/Pods-GameController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -828,12 +851,11 @@
 				PRODUCT_NAME = Pods_GameController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -841,8 +863,8 @@
 		0DCA2D3D3BA9D78D09DAF0C35FDC7020 /* Build configuration list for PBXNativeTarget "PeerConnectivity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5918B0B603CC97FC29BA6C8B566E0250 /* Debug */,
-				83C727A2F7D3A5EBA97AB3CEEACDE8AB /* Release */,
+				39B98B8013401A1693C52D822AB788BE /* Debug */,
+				643489E96C123A4B9CF8F262935ECC7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -850,8 +872,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				034014829C1E4434983CF3A690C12017 /* Debug */,
-				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -859,8 +881,8 @@
 		A1800ED115D5900E867A44FEED222907 /* Build configuration list for PBXNativeTarget "Pods-GameControllerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1761249DBB851A6E1819C1203E667386 /* Debug */,
-				6980BF871BD5597C919AE30579DD0CC8 /* Release */,
+				108613454954FF255EDC36E37CB417AC /* Debug */,
+				3AE6355A7737DCFB2666ADA2CBDA5BCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -868,8 +890,8 @@
 		AB2B671570C06E42401097848FF27ABE /* Build configuration list for PBXNativeTarget "Pods-GameController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D49B5582A541FA3BE8B3A447D6AC8600 /* Debug */,
-				639BE3DDFB9403A6C5EA16FB4B2F06EE /* Release */,
+				75631DA91138F0DDBB11DBED83462429 /* Debug */,
+				E42C2107444AC3BDF41CD4525D8A19DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -877,8 +899,8 @@
 		CF0BFA3C7BB8226BC73BC4FC69561D10 /* Build configuration list for PBXNativeTarget "Pods-GameControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30750BF3B003EB92ED041040E01F8760 /* Debug */,
-				BD0F76822C67459C06B7106C3F66B815 /* Release */,
+				B4FF3DC0615275AECD8DA30199B2E67F /* Debug */,
+				B9008C9517D8934AF13F80106FF9B231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

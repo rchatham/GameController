@@ -1,12 +1,12 @@
 PODS:
-  - PeerConnectivity (0.2.2)
+  - PeerConnectivity (0.4.1)
 
 DEPENDENCIES:
-  - PeerConnectivity
+  - PeerConnectivity (~> 0.4)
 
 SPEC CHECKSUMS:
-  PeerConnectivity: d2499b4a448caf9d25dfce42fea9b93434f2e57c
+  PeerConnectivity: 22a3542a82cc848306f5a06a8b8ac3104a874321
 
-PODFILE CHECKSUM: 79aee4f160217fc507139ea2b792895786f11697
+PODFILE CHECKSUM: e31a4e0043aa6494f066a32388c70142fbf8880b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

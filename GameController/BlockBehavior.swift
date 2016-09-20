@@ -34,19 +34,19 @@ class BlockBehavior: UIDynamicBehavior {
         addChildBehavior(blockBehavior)
     }
     
-    func addBarrier(path: UIBezierPath, named name: String) {
-        collider.removeBoundaryWithIdentifier(name)
-        collider.addBoundaryWithIdentifier(name, forPath: path)
+    func addBarrier(_ path: UIBezierPath, named name: String) {
+        collider.removeBoundary(withIdentifier: name as NSCopying)
+        collider.addBoundary(withIdentifier: name as NSCopying, for: path)
     }
     
-    func addBlock(block: UIView) {
+    func addBlock(_ block: UIView) {
         dynamicAnimator?.referenceView?.addSubview(block)
         gravity.addItem(block)
         collider.addItem(block)
         blockBehavior.addItem(block)
     }
     
-    func removeBlock(block: UIView) {
+    func removeBlock(_ block: UIView) {
         gravity.addItem(block)
         collider.removeItem(block)
         blockBehavior.removeItem(block)

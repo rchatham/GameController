@@ -9,18 +9,18 @@
 import UIKit
 
 internal protocol MiniGameRoundDelegate: class {
-    func gameRoundDidPause(miniGameRound: MiniGameRound)
-    func gameRoundDidResume(miniGameRound: MiniGameRound)
-    func gameRound(miniGameRound: MiniGameRound, endedGameWithScore score: Int)
+    func gameRoundDidPause(_ miniGameRound: MiniGameRound)
+    func gameRoundDidResume(_ miniGameRound: MiniGameRound)
+    func gameRound(_ miniGameRound: MiniGameRound, endedGameWithScore score: Int)
 }
 
 internal class MiniGameRound {
     
-    private typealias ScoreUpdater = Int->Int
+    fileprivate typealias ScoreUpdater = (Int)->Int
     
-    internal private(set) var gameType : MiniGameType?
-    internal private(set) var score = 0
-    private(set) var isPaused = false {
+    internal fileprivate(set) var gameType : MiniGameType?
+    internal fileprivate(set) var score = 0
+    fileprivate(set) var isPaused = false {
         didSet {
             if oldValue != isPaused {
                 if isPaused {
@@ -39,21 +39,21 @@ internal class MiniGameRound {
         }
         guard let type = gameType else { return nil }
         switch type {
-        case .Timed(let duration):
+        case .timed(let duration):
             return duration
-        case .TimedObjective(let duration):
+        case .timedObjective(let duration):
             return duration
         default: return nil
         }
     }
     
-    internal func setGameDelegate(delegate: MiniGameRoundDelegate) {
+    internal func setGameDelegate(_ delegate: MiniGameRoundDelegate) {
         if self.delegate == nil {
             self.delegate = delegate
         }
     }
     
-    internal func setGameType(gameType: MiniGameType) {
+    internal func setGameType(_ gameType: MiniGameType) {
         score = 0
         gameTimer?.stop()
         gameTimer = nil
@@ -62,48 +62,48 @@ internal class MiniGameRound {
     
     // MARK: - Private
     
-    private weak var delegate : MiniGameRoundDelegate?
-    private var gameTimer: Timer?
+    fileprivate weak var delegate : MiniGameRoundDelegate?
+    fileprivate var gameTimer: Timer?
     
-    private func startTimer() {
+    fileprivate func startTimer() {
         guard let duration = timeRemaining else { return }
         gameTimer = Timer(timeInterval: Double(duration)) { [weak self] in self?.gameOver() }
     }
     
-    private func updateScore(updater: ScoreUpdater) {
+    fileprivate func updateScore(_ updater: ScoreUpdater) {
         score = updater(score)
     }
     
-    private func pauseTimer() {
+    fileprivate func pauseTimer() {
         if isPaused == false {
             gameTimer?.pause()
             isPaused = true
         }
     }
     
-    private func resumeTimer() {
+    fileprivate func resumeTimer() {
         if isPaused {
             gameTimer?.resume()
             isPaused = false
         }
     }
     
-    private func endGame() {
+    fileprivate func endGame() {
         gameTimer?.stop()
         delegate!.gameRound(self, endedGameWithScore: score)
     }
     
-    private func gameOver() {
+    fileprivate func gameOver() {
         delegate!.gameRound(self, endedGameWithScore: score)
     }
 }
 
 extension MiniGameRound: MiniGameDelegate {
-    internal func startGame(miniGame: MiniGame) { startTimer() }
-    internal func pauseGame(miniGame: MiniGame) { pauseTimer() }
-    internal func resumeGame(miniGame: MiniGame) { resumeTimer() }
-    internal func endGame(miniGame: MiniGame) { endGame() }
-    internal func updateScore(miniGame: MiniGame, scoreUpdater updater: Int -> Int) { updateScore(updater) }
+    internal func startGame(_ miniGame: MiniGame) { startTimer() }
+    internal func pauseGame(_ miniGame: MiniGame) { pauseTimer() }
+    internal func resumeGame(_ miniGame: MiniGame) { resumeTimer() }
+    internal func endGame(_ miniGame: MiniGame) { endGame() }
+    internal func updateScore(_ miniGame: MiniGame, scoreUpdater updater: (Int) -> Int) { updateScore(updater) }
 }
 
 extension MiniGameRound: MiniGameDataSource {
