@@ -20,6 +20,9 @@ internal final class MiniGameCoordinator: CoordinatorType {
     fileprivate let miniGameRound = MiniGameRound()
     fileprivate weak var navigationController : UINavigationController?
     
+    // Does not present any child coordinators. Constant empty array.
+    internal let childCoordinators: [CoordinatorType] = []
+    
     init(games: [MiniGame], delegate: MiniGameCoordinatorDelegate) {
         self.games = games
         self.delegate = delegate

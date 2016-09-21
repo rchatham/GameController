@@ -12,7 +12,7 @@ import PeerConnectivity
 internal final class JoinMatchCoordinator: CoordinatorType {
     
     fileprivate weak var navigationController: UINavigationController?
-    fileprivate var childCoordinators: [CoordinatorType] = []
+    fileprivate(set) internal var childCoordinators: [CoordinatorType] = []
     
     func startOnNavigationController(_ navigationController: UINavigationController) {
         let joinMatchVM = JoinMatchViewModel()
