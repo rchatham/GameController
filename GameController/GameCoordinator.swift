@@ -13,12 +13,12 @@ internal protocol GameCoordinatorDelegate: class {
     func didFinish(_ gameCoordinator: GameCoordinator)
 }
 
-internal final class GameCoordinator {
+internal final class GameCoordinator: CoordinatorType {
     
     fileprivate let connectionManager: PeerConnectionManager
     fileprivate weak var delegate: GameCoordinatorDelegate?
     fileprivate weak var gameViewController: GameViewController?
-    fileprivate var miniGameCoordinator: MiniGameCoordinator?
+    fileprivate var childCoordinators: [CoordinatorType] = []
     
     init(connectionManager: PeerConnectionManager, delegate: GameCoordinatorDelegate) {
         self.connectionManager = connectionManager
@@ -38,8 +38,9 @@ extension GameCoordinator: GameViewControllerDelegate {
     
     func didStartGame(_ gameViewController: GameViewController, withMiniGames games: [MiniGame]) {
         connectionManager.closeSession()
-        miniGameCoordinator = MiniGameCoordinator(games: games, delegate: self)
-        miniGameCoordinator!.presentFromViewController(gameViewController)
+        let miniGameCoordinator = MiniGameCoordinator(games: games, delegate: self)
+        miniGameCoordinator.presentFromViewController(gameViewController)
+        childCoordinators.append(miniGameCoordinator)
     }
     
     func didQuitGame(_ gameViewController: GameViewController) {
@@ -55,7 +56,7 @@ extension GameCoordinator: MiniGameCoordinatorDelegate {
     }
     
     func miniGameCoordinatorDidFinish(_ miniGameCoordinator: MiniGameCoordinator) {
-        self.miniGameCoordinator = nil
+        childCoordinators.remove(at: childCoordinators.index(where: { $0 === miniGameCoordinator })!)
         self.connectionManager.openSession()
     }
 }

@@ -9,10 +9,10 @@
 import UIKit
 import PeerConnectivity
 
-internal final class JoinMatchCoordinator {
+internal final class JoinMatchCoordinator: CoordinatorType {
     
     fileprivate weak var navigationController: UINavigationController?
-    fileprivate var gameCoordinator: GameCoordinator?
+    fileprivate var childCoordinators: [CoordinatorType] = []
     
     func startOnNavigationController(_ navigationController: UINavigationController) {
         let joinMatchVM = JoinMatchViewModel()
@@ -28,28 +28,30 @@ extension JoinMatchCoordinator: JoinMatchViewControllerDelegate {
     func startGameWithConnection(_ connectionManager: PeerConnectionManager) {
         
         guard let navigationController = navigationController else { return }
-        gameCoordinator = GameCoordinator(connectionManager: connectionManager, delegate: self)
+        let gameCoordinator = GameCoordinator(connectionManager: connectionManager, delegate: self)
         
         switch connectionManager.connectionType {
         case .automatic:
-            gameCoordinator?.startOnViewController(navigationController.viewControllers[0])
+            gameCoordinator.startOnViewController(navigationController.viewControllers[0])
         case .inviteOnly:
-            let browser = connectionManager.browserViewController { [weak self] (event) in
+            let browser = connectionManager.browserViewController { (event) in
                 switch event {
                 case .didFinish:
-                    self?.gameCoordinator?.startOnViewController(navigationController.viewControllers[0])
+                    gameCoordinator.startOnViewController(navigationController.viewControllers[0])
                 default: break
                 }
             }!
             navigationController.viewControllers[0].present(browser, animated: true, completion: nil)
         case .custom: fatalError("Unsupported connection type!")
         }
+        
+        childCoordinators.append(gameCoordinator)
     }
 }
 
 extension JoinMatchCoordinator: GameCoordinatorDelegate {
     
     func didFinish(_ gameCoordinator: GameCoordinator) {
-        self.gameCoordinator = nil
+        childCoordinators.remove(at: childCoordinators.index(where: { $0 === gameCoordinator })!)
     }
 }

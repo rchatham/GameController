@@ -13,7 +13,7 @@ protocol MiniGameCoordinatorDelegate: class {
     func miniGameCoordinatorDidFinish(_ miniGameCoordinator: MiniGameCoordinator)
 }
 
-internal final class MiniGameCoordinator {
+internal final class MiniGameCoordinator: CoordinatorType {
     
     fileprivate var games: [MiniGame] = []
     fileprivate weak var delegate: MiniGameCoordinatorDelegate?

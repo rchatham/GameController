@@ -48,6 +48,7 @@
 		308F44331BE42AFB006AC354 /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F44321BE42AFB006AC354 /* GameControllerTests.swift */; };
 		308F443E1BE42AFB006AC354 /* GameControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */; };
 		308F444E1BE71D7E006AC354 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F444D1BE71D7E006AC354 /* Player.swift */; };
+		309837681D90BB1E0002338A /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309837671D90BB1E0002338A /* CoordinatorType.swift */; };
 		30B6EAC21D4831920057463A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6EAC11D4831920057463A /* Timer.swift */; };
 		5C15B742B10B0F1DBDF08BED /* Pods_GameControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B10449E2ED8EBA4A857065 /* Pods_GameControllerTests.framework */; };
 		A1324F1C6891A6933E8D0EB8 /* Pods_GameControllerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127F71D6C46901057FB1D645 /* Pods_GameControllerUITests.framework */; };
@@ -134,6 +135,7 @@
 		308F443D1BE42AFB006AC354 /* GameControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerUITests.swift; sourceTree = "<group>"; };
 		308F443F1BE42AFC006AC354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		308F444D1BE71D7E006AC354 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		309837671D90BB1E0002338A /* CoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		30B6EAC11D4831920057463A /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		3E839E9423CE87CB253517DD /* Pods_GameController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F94F04617DA325E0D9C4A6F /* Pods-GameControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		304723B41D65273E00AFF672 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				309837671D90BB1E0002338A /* CoordinatorType.swift */,
 				304723B01D63D62C00AFF672 /* JoinMatchCoordinator.swift */,
 				301B79F51D475B730029DBCE /* GameCoordinator.swift */,
 				301B79F71D476A270029DBCE /* MiniGameCoordinator.swift */,
@@ -787,6 +790,7 @@
 				303EA73D1C385AB300B49854 /* DotView.swift in Sources */,
 				3086FFDF1C415D2000EF7EC7 /* TapTheDotViewModel.swift in Sources */,
 				303EA7421C385AD700B49854 /* BlockBehavior.swift in Sources */,
+				309837681D90BB1E0002338A /* CoordinatorType.swift in Sources */,
 				3015014E1D49DB01002487BA /* UnrollTheToiletPaperViewModel.swift in Sources */,
 				3086FFDC1C415D0F00EF7EC7 /* TapTheDotViewController.swift in Sources */,
 				303EA7461C38679900B49854 /* CoverTheDot.swift in Sources */,
