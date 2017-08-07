@@ -1,0 +1,11 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Architecture" "$PODS_CONFIGURATION_BUILD_DIR/CoordinatorType" "$PODS_CONFIGURATION_BUILD_DIR/PeerConnectivity" "$PODS_CONFIGURATION_BUILD_DIR/PluggableApplicationDelegate"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/Architecture/Architecture.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/CoordinatorType/CoordinatorType.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PeerConnectivity/PeerConnectivity.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/PluggableApplicationDelegate/PluggableApplicationDelegate.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Architecture" -framework "CoordinatorType" -framework "PeerConnectivity" -framework "PluggableApplicationDelegate"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

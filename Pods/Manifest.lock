@@ -1,12 +1,30 @@
 PODS:
+  - Architecture (0.0.2)
+  - CoordinatorType (0.0.6)
   - PeerConnectivity (0.4.1)
+  - PluggableApplicationDelegate (0.1.2)
 
 DEPENDENCIES:
+  - Architecture (~> 0.0.2)
+  - CoordinatorType (~> 0.0.6)
   - PeerConnectivity (~> 0.4)
+  - PluggableApplicationDelegate (from `https://github.com/rchatham/PluggableApplicationDelegate.git`)
+
+EXTERNAL SOURCES:
+  PluggableApplicationDelegate:
+    :git: https://github.com/rchatham/PluggableApplicationDelegate.git
+
+CHECKOUT OPTIONS:
+  PluggableApplicationDelegate:
+    :commit: 72ceca3aa3257780d2b9f43a5f6113518b3c017d
+    :git: https://github.com/rchatham/PluggableApplicationDelegate.git
 
 SPEC CHECKSUMS:
+  Architecture: ca62fb58fec56d579e5170c86d782f9331df766c
+  CoordinatorType: 54f225a7da3b0ad7a1ac7f1f491f7a5bcdfede61
   PeerConnectivity: 22a3542a82cc848306f5a06a8b8ac3104a874321
+  PluggableApplicationDelegate: ddf1fdfa1e25158067762c77a41b544ec25a9e98
 
-PODFILE CHECKSUM: e31a4e0043aa6494f066a32388c70142fbf8880b
+PODFILE CHECKSUM: 2f8b1a526e0b03a242b5a61974638c89cc8f6fde
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.1

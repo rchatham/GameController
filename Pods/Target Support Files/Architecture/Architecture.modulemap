@@ -1,0 +1,6 @@
+framework module Architecture {
+  umbrella header "Architecture-umbrella.h"
+
+  export *
+  module * { export * }
+}

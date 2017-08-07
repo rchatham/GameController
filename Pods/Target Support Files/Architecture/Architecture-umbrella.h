@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "PeerConnectivity.h"
 
-FOUNDATION_EXPORT double PeerConnectivityVersionNumber;
-FOUNDATION_EXPORT const unsigned char PeerConnectivityVersionString[];
+FOUNDATION_EXPORT double ArchitectureVersionNumber;
+FOUNDATION_EXPORT const unsigned char ArchitectureVersionString[];
 

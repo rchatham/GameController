@@ -1,0 +1,1161 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3013A2951F37E322005ECA0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2941F37E322005ECA0C /* AppDelegate.swift */; };
+		3013A2971F37E32B005ECA0C /* PeerConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2961F37E32B005ECA0C /* PeerConnectionService.swift */; };
+		3013A2991F37E34A005ECA0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2981F37E34A005ECA0C /* Extensions.swift */; };
+		3013A29B1F37E353005ECA0C /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A29A1F37E353005ECA0C /* MotionKit.swift */; };
+		3013A29D1F37E4FF005ECA0C /* JoinMatchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A29C1F37E4FF005ECA0C /* JoinMatchCoordinator.swift */; };
+		3013A29F1F37E526005ECA0C /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A29E1F37E526005ECA0C /* GameCoordinator.swift */; };
+		3013A2C51F37E539005ECA0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2A01F37E539005ECA0C /* Assets.xcassets */; };
+		3013A2C61F37E539005ECA0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2A21F37E539005ECA0C /* LaunchScreen.storyboard */; };
+		3013A2C71F37E539005ECA0C /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2A41F37E539005ECA0C /* bird.atlas */; };
+		3013A2C81F37E539005ECA0C /* BlockBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2A51F37E539005ECA0C /* BlockBehavior.swift */; };
+		3013A2C91F37E539005ECA0C /* CoverTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2A61F37E539005ECA0C /* CoverTheDot.swift */; };
+		3013A2CA1F37E539005ECA0C /* CoverTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2A71F37E539005ECA0C /* CoverTheDotViewController.swift */; };
+		3013A2CB1F37E539005ECA0C /* CoverTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2A81F37E539005ECA0C /* CoverTheDotViewController.xib */; };
+		3013A2CC1F37E539005ECA0C /* CoverTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2A91F37E539005ECA0C /* CoverTheDotViewModel.swift */; };
+		3013A2CD1F37E539005ECA0C /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2AA1F37E539005ECA0C /* DotView.swift */; };
+		3013A2CE1F37E539005ECA0C /* FlappyBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2AB1F37E539005ECA0C /* FlappyBird.swift */; };
+		3013A2CF1F37E539005ECA0C /* FlappyBirdGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2AC1F37E539005ECA0C /* FlappyBirdGameScene.sks */; };
+		3013A2D01F37E539005ECA0C /* FlappyBirdGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2AD1F37E539005ECA0C /* FlappyBirdGameScene.swift */; };
+		3013A2D11F37E539005ECA0C /* FlappyBirdGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2AE1F37E539005ECA0C /* FlappyBirdGameViewController.swift */; };
+		3013A2D21F37E539005ECA0C /* FlappyBirdGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2AF1F37E539005ECA0C /* FlappyBirdGameViewController.xib */; };
+		3013A2D31F37E539005ECA0C /* FlappyBirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B01F37E539005ECA0C /* FlappyBirdViewModel.swift */; };
+		3013A2D41F37E539005ECA0C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B11F37E539005ECA0C /* GameViewController.swift */; };
+		3013A2D51F37E539005ECA0C /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2B21F37E539005ECA0C /* GameViewController.xib */; };
+		3013A2D61F37E539005ECA0C /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B31F37E539005ECA0C /* GameViewModel.swift */; };
+		3013A2D71F37E539005ECA0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2B41F37E539005ECA0C /* Images.xcassets */; };
+		3013A2D81F37E539005ECA0C /* JoinMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B51F37E539005ECA0C /* JoinMatchViewController.swift */; };
+		3013A2D91F37E539005ECA0C /* JoinMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2B61F37E539005ECA0C /* JoinMatchViewController.xib */; };
+		3013A2DA1F37E539005ECA0C /* JoinMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B71F37E539005ECA0C /* JoinMatchViewModel.swift */; };
+		3013A2DB1F37E539005ECA0C /* MiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B81F37E539005ECA0C /* MiniGame.swift */; };
+		3013A2DC1F37E539005ECA0C /* MiniGameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2B91F37E539005ECA0C /* MiniGameCoordinator.swift */; };
+		3013A2DD1F37E539005ECA0C /* MiniGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2BA1F37E539005ECA0C /* MiniGameRound.swift */; };
+		3013A2DE1F37E539005ECA0C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2BB1F37E539005ECA0C /* Player.swift */; };
+		3013A2DF1F37E539005ECA0C /* TapTheDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2BC1F37E539005ECA0C /* TapTheDot.swift */; };
+		3013A2E01F37E539005ECA0C /* TapTheDotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2BD1F37E539005ECA0C /* TapTheDotViewController.swift */; };
+		3013A2E11F37E539005ECA0C /* TapTheDotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2BE1F37E539005ECA0C /* TapTheDotViewController.xib */; };
+		3013A2E21F37E539005ECA0C /* TapTheDotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2BF1F37E539005ECA0C /* TapTheDotViewModel.swift */; };
+		3013A2E31F37E539005ECA0C /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2C01F37E539005ECA0C /* Timer.swift */; };
+		3013A2E41F37E539005ECA0C /* UnrollTheToiletPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2C11F37E539005ECA0C /* UnrollTheToiletPaper.swift */; };
+		3013A2E51F37E539005ECA0C /* UnrollTheToiletPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2C21F37E539005ECA0C /* UnrollTheToiletPaperViewController.swift */; };
+		3013A2E61F37E539005ECA0C /* UnrollTheToiletPaperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2C31F37E539005ECA0C /* UnrollTheToiletPaperViewController.xib */; };
+		3013A2E71F37E539005ECA0C /* UnrollTheToiletPaperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2C41F37E539005ECA0C /* UnrollTheToiletPaperViewModel.swift */; };
+		3013A2F01F37E991005ECA0C /* MunchkinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2ED1F37E7CC005ECA0C /* MunchkinsUITests.swift */; };
+		3013A2F11F37E99D005ECA0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2EC1F37E7CC005ECA0C /* Info.plist */; };
+		3013A2F21F37E9A1005ECA0C /* MunchkinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013A2E91F37E7BC005ECA0C /* MunchkinsTests.swift */; };
+		3013A2F31F37E9A5005ECA0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3013A2E81F37E7BC005ECA0C /* Info.plist */; };
+		30986B951F359E7B00074282 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30986B941F359E7A00074282 /* Assets.xcassets */; };
+		30986B971F359E9800074282 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30986B961F359E9800074282 /* Info.plist */; };
+		30986B9A1F359EC700074282 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30986B981F359EC700074282 /* LaunchScreen.storyboard */; };
+		65A8675E70B35EE4912DD93D /* Pods_MunchkinsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E0B8F1504E45DCA23542E8 /* Pods_MunchkinsTests.framework */; };
+		77AA5D78265570BC1A979964 /* Pods_MunchkinsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F5F07EF4FFE7C874BC2846 /* Pods_MunchkinsUITests.framework */; };
+		B819486D5CFDBD7A6E5E4220 /* Pods_Munchkins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54EB6C3532B4EDCBA4FD7D6 /* Pods_Munchkins.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		308F442F1BE42AFB006AC354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 308F44121BE42AFA006AC354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 308F44191BE42AFB006AC354;
+			remoteInfo = GameController;
+		};
+		308F443A1BE42AFB006AC354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 308F44121BE42AFA006AC354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 308F44191BE42AFB006AC354;
+			remoteInfo = GameController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		30B6EAC51D492D320057463A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0C31414DFB58398A126FC23C /* Pods-Munchkins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Munchkins.release.xcconfig"; path = "Pods/Target Support Files/Pods-Munchkins/Pods-Munchkins.release.xcconfig"; sourceTree = "<group>"; };
+		2091CA5AF19F568AEBC1EF20 /* Pods-MunchkinsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MunchkinsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MunchkinsUITests/Pods-MunchkinsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3013A2941F37E322005ECA0C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Munchkins/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		3013A2961F37E32B005ECA0C /* PeerConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeerConnectionService.swift; path = Munchkins/PeerConnectionService.swift; sourceTree = SOURCE_ROOT; };
+		3013A2981F37E34A005ECA0C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Munchkins/Extensions.swift; sourceTree = SOURCE_ROOT; };
+		3013A29A1F37E353005ECA0C /* MotionKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionKit.swift; path = Munchkins/MotionKit.swift; sourceTree = SOURCE_ROOT; };
+		3013A29C1F37E4FF005ECA0C /* JoinMatchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinMatchCoordinator.swift; path = Munchkins/JoinMatchCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		3013A29E1F37E526005ECA0C /* GameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCoordinator.swift; path = Munchkins/GameCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		3013A2A01F37E539005ECA0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Munchkins/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		3013A2A31F37E539005ECA0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3013A2A41F37E539005ECA0C /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = bird.atlas; path = Munchkins/bird.atlas; sourceTree = SOURCE_ROOT; };
+		3013A2A51F37E539005ECA0C /* BlockBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockBehavior.swift; path = Munchkins/BlockBehavior.swift; sourceTree = SOURCE_ROOT; };
+		3013A2A61F37E539005ECA0C /* CoverTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoverTheDot.swift; path = Munchkins/CoverTheDot.swift; sourceTree = SOURCE_ROOT; };
+		3013A2A71F37E539005ECA0C /* CoverTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoverTheDotViewController.swift; path = Munchkins/CoverTheDotViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2A81F37E539005ECA0C /* CoverTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoverTheDotViewController.xib; path = Munchkins/CoverTheDotViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2A91F37E539005ECA0C /* CoverTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoverTheDotViewModel.swift; path = Munchkins/CoverTheDotViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2AA1F37E539005ECA0C /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DotView.swift; path = Munchkins/DotView.swift; sourceTree = SOURCE_ROOT; };
+		3013A2AB1F37E539005ECA0C /* FlappyBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlappyBird.swift; path = Munchkins/FlappyBird.swift; sourceTree = SOURCE_ROOT; };
+		3013A2AC1F37E539005ECA0C /* FlappyBirdGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = FlappyBirdGameScene.sks; path = Munchkins/FlappyBirdGameScene.sks; sourceTree = SOURCE_ROOT; };
+		3013A2AD1F37E539005ECA0C /* FlappyBirdGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlappyBirdGameScene.swift; path = Munchkins/FlappyBirdGameScene.swift; sourceTree = SOURCE_ROOT; };
+		3013A2AE1F37E539005ECA0C /* FlappyBirdGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlappyBirdGameViewController.swift; path = Munchkins/FlappyBirdGameViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2AF1F37E539005ECA0C /* FlappyBirdGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FlappyBirdGameViewController.xib; path = Munchkins/FlappyBirdGameViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2B01F37E539005ECA0C /* FlappyBirdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlappyBirdViewModel.swift; path = Munchkins/FlappyBirdViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B11F37E539005ECA0C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Munchkins/GameViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B21F37E539005ECA0C /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = Munchkins/GameViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2B31F37E539005ECA0C /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewModel.swift; path = Munchkins/GameViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B41F37E539005ECA0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Munchkins/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		3013A2B51F37E539005ECA0C /* JoinMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinMatchViewController.swift; path = Munchkins/JoinMatchViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B61F37E539005ECA0C /* JoinMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JoinMatchViewController.xib; path = Munchkins/JoinMatchViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2B71F37E539005ECA0C /* JoinMatchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinMatchViewModel.swift; path = Munchkins/JoinMatchViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B81F37E539005ECA0C /* MiniGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniGame.swift; path = Munchkins/MiniGame.swift; sourceTree = SOURCE_ROOT; };
+		3013A2B91F37E539005ECA0C /* MiniGameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniGameCoordinator.swift; path = Munchkins/MiniGameCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		3013A2BA1F37E539005ECA0C /* MiniGameRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniGameRound.swift; path = Munchkins/MiniGameRound.swift; sourceTree = SOURCE_ROOT; };
+		3013A2BB1F37E539005ECA0C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Munchkins/Player.swift; sourceTree = SOURCE_ROOT; };
+		3013A2BC1F37E539005ECA0C /* TapTheDot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapTheDot.swift; path = Munchkins/TapTheDot.swift; sourceTree = SOURCE_ROOT; };
+		3013A2BD1F37E539005ECA0C /* TapTheDotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapTheDotViewController.swift; path = Munchkins/TapTheDotViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2BE1F37E539005ECA0C /* TapTheDotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TapTheDotViewController.xib; path = Munchkins/TapTheDotViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2BF1F37E539005ECA0C /* TapTheDotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapTheDotViewModel.swift; path = Munchkins/TapTheDotViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2C01F37E539005ECA0C /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = Munchkins/Timer.swift; sourceTree = SOURCE_ROOT; };
+		3013A2C11F37E539005ECA0C /* UnrollTheToiletPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnrollTheToiletPaper.swift; path = Munchkins/UnrollTheToiletPaper.swift; sourceTree = SOURCE_ROOT; };
+		3013A2C21F37E539005ECA0C /* UnrollTheToiletPaperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnrollTheToiletPaperViewController.swift; path = Munchkins/UnrollTheToiletPaperViewController.swift; sourceTree = SOURCE_ROOT; };
+		3013A2C31F37E539005ECA0C /* UnrollTheToiletPaperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UnrollTheToiletPaperViewController.xib; path = Munchkins/UnrollTheToiletPaperViewController.xib; sourceTree = SOURCE_ROOT; };
+		3013A2C41F37E539005ECA0C /* UnrollTheToiletPaperViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnrollTheToiletPaperViewModel.swift; path = Munchkins/UnrollTheToiletPaperViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3013A2E81F37E7BC005ECA0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MucnhkinsTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		3013A2E91F37E7BC005ECA0C /* MunchkinsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MunchkinsTests.swift; path = MucnhkinsTests/MunchkinsTests.swift; sourceTree = SOURCE_ROOT; };
+		3013A2EC1F37E7CC005ECA0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MunchkinsUITests/Info.plist; sourceTree = SOURCE_ROOT; };
+		3013A2ED1F37E7CC005ECA0C /* MunchkinsUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MunchkinsUITests.swift; path = MunchkinsUITests/MunchkinsUITests.swift; sourceTree = SOURCE_ROOT; };
+		308F441A1BE42AFB006AC354 /* Munchkins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Munchkins.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		308F442E1BE42AFB006AC354 /* MunchkinsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MunchkinsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		308F44391BE42AFB006AC354 /* MunchkinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MunchkinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30986B941F359E7A00074282 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Munchkins/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		30986B961F359E9800074282 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Munchkins/Info.plist; sourceTree = SOURCE_ROOT; };
+		30986B991F359EC700074282 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Munchkins/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		42F5F07EF4FFE7C874BC2846 /* Pods_MunchkinsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MunchkinsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E2F4C9BD256981FF726822 /* Pods-Munchkins.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Munchkins.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Munchkins/Pods-Munchkins.debug.xcconfig"; sourceTree = "<group>"; };
+		54DA8256923E227E61610BC2 /* Pods-MunchkinsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MunchkinsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MunchkinsTests/Pods-MunchkinsTests.release.xcconfig"; sourceTree = "<group>"; };
+		608595F8702ECF735AE44930 /* Pods-MunchkinsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MunchkinsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MunchkinsUITests/Pods-MunchkinsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		634D50BC57EBAC94A45504C0 /* Pods-MunchkinsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MunchkinsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MunchkinsTests/Pods-MunchkinsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A54EB6C3532B4EDCBA4FD7D6 /* Pods_Munchkins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Munchkins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1E0B8F1504E45DCA23542E8 /* Pods_MunchkinsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MunchkinsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		308F44171BE42AFB006AC354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B819486D5CFDBD7A6E5E4220 /* Pods_Munchkins.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F442B1BE42AFB006AC354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65A8675E70B35EE4912DD93D /* Pods_MunchkinsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F44361BE42AFB006AC354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77AA5D78265570BC1A979964 /* Pods_MunchkinsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3013A2A11F37E539005ECA0C /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2A21F37E539005ECA0C /* LaunchScreen.storyboard */,
+			);
+			name = Base.lproj;
+			path = Munchkins/Base.lproj;
+			sourceTree = SOURCE_ROOT;
+		};
+		3013A2F41F37F04A005ECA0C /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Routers;
+			sourceTree = "<group>";
+		};
+		301501461D49D9E9002487BA /* UnrollTheToiletPaper */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2C11F37E539005ECA0C /* UnrollTheToiletPaper.swift */,
+				3013A2C21F37E539005ECA0C /* UnrollTheToiletPaperViewController.swift */,
+				3013A2C31F37E539005ECA0C /* UnrollTheToiletPaperViewController.xib */,
+				3013A2C41F37E539005ECA0C /* UnrollTheToiletPaperViewModel.swift */,
+			);
+			name = UnrollTheToiletPaper;
+			sourceTree = "<group>";
+		};
+		303EA7231C2F019C00B49854 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				304723B41D65273E00AFF672 /* Coordinators */,
+				304723B51D65275900AFF672 /* ViewControllers */,
+				304723B61D65277A00AFF672 /* ViewModels */,
+				3013A2F41F37F04A005ECA0C /* Routers */,
+				304723B71D65279500AFF672 /* Models */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		303EA7341C385A8500B49854 /* CoverTheDot */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2A61F37E539005ECA0C /* CoverTheDot.swift */,
+				3013A2A71F37E539005ECA0C /* CoverTheDotViewController.swift */,
+				3013A2A81F37E539005ECA0C /* CoverTheDotViewController.xib */,
+				3013A2A91F37E539005ECA0C /* CoverTheDotViewModel.swift */,
+				3013A2AA1F37E539005ECA0C /* DotView.swift */,
+				3013A2A51F37E539005ECA0C /* BlockBehavior.swift */,
+			);
+			name = CoverTheDot;
+			sourceTree = "<group>";
+		};
+		304723B41D65273E00AFF672 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3013A29C1F37E4FF005ECA0C /* JoinMatchCoordinator.swift */,
+				3013A29E1F37E526005ECA0C /* GameCoordinator.swift */,
+				3013A2B91F37E539005ECA0C /* MiniGameCoordinator.swift */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		304723B51D65275900AFF672 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2B51F37E539005ECA0C /* JoinMatchViewController.swift */,
+				3013A2B61F37E539005ECA0C /* JoinMatchViewController.xib */,
+				3013A2B11F37E539005ECA0C /* GameViewController.swift */,
+				3013A2B21F37E539005ECA0C /* GameViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		304723B61D65277A00AFF672 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2B71F37E539005ECA0C /* JoinMatchViewModel.swift */,
+				3013A2B31F37E539005ECA0C /* GameViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		304723B71D65279500AFF672 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2BB1F37E539005ECA0C /* Player.swift */,
+				3013A2B81F37E539005ECA0C /* MiniGame.swift */,
+				3013A2BA1F37E539005ECA0C /* MiniGameRound.swift */,
+				3013A2C01F37E539005ECA0C /* Timer.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		306ABB341C4004A000982669 /* FlappyBird */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2AB1F37E539005ECA0C /* FlappyBird.swift */,
+				3013A2AC1F37E539005ECA0C /* FlappyBirdGameScene.sks */,
+				3013A2AD1F37E539005ECA0C /* FlappyBirdGameScene.swift */,
+				3013A2AE1F37E539005ECA0C /* FlappyBirdGameViewController.swift */,
+				3013A2AF1F37E539005ECA0C /* FlappyBirdGameViewController.xib */,
+				3013A2B01F37E539005ECA0C /* FlappyBirdViewModel.swift */,
+				3013A2A41F37E539005ECA0C /* bird.atlas */,
+				3013A2B41F37E539005ECA0C /* Images.xcassets */,
+			);
+			name = FlappyBird;
+			sourceTree = "<group>";
+		};
+		3086FFD71C415C6600EF7EC7 /* TapTheDot */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2BC1F37E539005ECA0C /* TapTheDot.swift */,
+				3013A2BD1F37E539005ECA0C /* TapTheDotViewController.swift */,
+				3013A2BE1F37E539005ECA0C /* TapTheDotViewController.xib */,
+				3013A2BF1F37E539005ECA0C /* TapTheDotViewModel.swift */,
+			);
+			name = TapTheDot;
+			sourceTree = "<group>";
+		};
+		308F44111BE42AFA006AC354 = {
+			isa = PBXGroup;
+			children = (
+				308F441C1BE42AFB006AC354 /* Munchkins */,
+				308F44311BE42AFB006AC354 /* MunchkinsTests */,
+				308F443C1BE42AFB006AC354 /* MunchkinsUITests */,
+				308F441B1BE42AFB006AC354 /* Products */,
+				E8EB9880F03439F343B807CA /* Pods */,
+				440AF3D615455DA08989FB29 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		308F441B1BE42AFB006AC354 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				308F441A1BE42AFB006AC354 /* Munchkins.app */,
+				308F442E1BE42AFB006AC354 /* MunchkinsTests.xctest */,
+				308F44391BE42AFB006AC354 /* MunchkinsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		308F441C1BE42AFB006AC354 /* Munchkins */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2A01F37E539005ECA0C /* Assets.xcassets */,
+				3013A2A11F37E539005ECA0C /* Base.lproj */,
+				30986B921F35983600074282 /* AppDelegate */,
+				30986B931F35988400074282 /* Helpers */,
+				303EA7231C2F019C00B49854 /* Game */,
+				306ABB341C4004A000982669 /* FlappyBird */,
+				303EA7341C385A8500B49854 /* CoverTheDot */,
+				301501461D49D9E9002487BA /* UnrollTheToiletPaper */,
+				3086FFD71C415C6600EF7EC7 /* TapTheDot */,
+				30986B941F359E7A00074282 /* Assets.xcassets */,
+				30986B981F359EC700074282 /* LaunchScreen.storyboard */,
+				30986B961F359E9800074282 /* Info.plist */,
+			);
+			name = Munchkins;
+			path = GameController;
+			sourceTree = "<group>";
+		};
+		308F44311BE42AFB006AC354 /* MunchkinsTests */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2E81F37E7BC005ECA0C /* Info.plist */,
+				3013A2E91F37E7BC005ECA0C /* MunchkinsTests.swift */,
+			);
+			name = MunchkinsTests;
+			path = GameControllerTests;
+			sourceTree = "<group>";
+		};
+		308F443C1BE42AFB006AC354 /* MunchkinsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2EC1F37E7CC005ECA0C /* Info.plist */,
+				3013A2ED1F37E7CC005ECA0C /* MunchkinsUITests.swift */,
+			);
+			name = MunchkinsUITests;
+			path = GameControllerUITests;
+			sourceTree = "<group>";
+		};
+		30986B921F35983600074282 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2941F37E322005ECA0C /* AppDelegate.swift */,
+				3013A2961F37E32B005ECA0C /* PeerConnectionService.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		30986B931F35988400074282 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3013A2981F37E34A005ECA0C /* Extensions.swift */,
+				3013A29A1F37E353005ECA0C /* MotionKit.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		440AF3D615455DA08989FB29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A54EB6C3532B4EDCBA4FD7D6 /* Pods_Munchkins.framework */,
+				B1E0B8F1504E45DCA23542E8 /* Pods_MunchkinsTests.framework */,
+				42F5F07EF4FFE7C874BC2846 /* Pods_MunchkinsUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8EB9880F03439F343B807CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44E2F4C9BD256981FF726822 /* Pods-Munchkins.debug.xcconfig */,
+				0C31414DFB58398A126FC23C /* Pods-Munchkins.release.xcconfig */,
+				634D50BC57EBAC94A45504C0 /* Pods-MunchkinsTests.debug.xcconfig */,
+				54DA8256923E227E61610BC2 /* Pods-MunchkinsTests.release.xcconfig */,
+				608595F8702ECF735AE44930 /* Pods-MunchkinsUITests.debug.xcconfig */,
+				2091CA5AF19F568AEBC1EF20 /* Pods-MunchkinsUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		308F44191BE42AFB006AC354 /* Munchkins */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 308F44421BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "Munchkins" */;
+			buildPhases = (
+				BD8E3A8A069543042E2ECFA6 /* [CP] Check Pods Manifest.lock */,
+				1B9DD06DCA494BE32D8E6041 /* [CP] Check Pods Manifest.lock */,
+				66EB822CB4A0B227B297C1BF /* [CP] Check Pods Manifest.lock */,
+				308F44161BE42AFB006AC354 /* Sources */,
+				308F44171BE42AFB006AC354 /* Frameworks */,
+				308F44181BE42AFB006AC354 /* Resources */,
+				30B6EAC51D492D320057463A /* Embed Frameworks */,
+				D7A42B3110FFE40956A4EA5F /* [CP] Embed Pods Frameworks */,
+				8269003ABD5E62E56E837AAD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Munchkins;
+			productName = GameController;
+			productReference = 308F441A1BE42AFB006AC354 /* Munchkins.app */;
+			productType = "com.apple.product-type.application";
+		};
+		308F442D1BE42AFB006AC354 /* MunchkinsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 308F44451BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "MunchkinsTests" */;
+			buildPhases = (
+				7226672B2AE148F4AF504FD6 /* [CP] Check Pods Manifest.lock */,
+				65619A504A3527057FF161E1 /* [CP] Check Pods Manifest.lock */,
+				0A83597EB7BFE44510B87888 /* [CP] Check Pods Manifest.lock */,
+				308F442A1BE42AFB006AC354 /* Sources */,
+				308F442B1BE42AFB006AC354 /* Frameworks */,
+				308F442C1BE42AFB006AC354 /* Resources */,
+				31E92D2BF80F115D77E645A3 /* [CP] Embed Pods Frameworks */,
+				6A08EE3202F2F43B3F2D3A9D /* [CP] Copy Pods Resources */,
+				C3861F4AFCA30CA3900D438A /* 📦 Embed Pods Frameworks */,
+				A61CA0C5484278BC13809AC5 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				308F44301BE42AFB006AC354 /* PBXTargetDependency */,
+			);
+			name = MunchkinsTests;
+			productName = GameControllerTests;
+			productReference = 308F442E1BE42AFB006AC354 /* MunchkinsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		308F44381BE42AFB006AC354 /* MunchkinsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 308F44481BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "MunchkinsUITests" */;
+			buildPhases = (
+				645E9A0184956D2A635522BA /* [CP] Check Pods Manifest.lock */,
+				7A488AC44F2A1A8ECACF214A /* [CP] Check Pods Manifest.lock */,
+				54A5D2DB25C36FBE07500E74 /* [CP] Check Pods Manifest.lock */,
+				308F44351BE42AFB006AC354 /* Sources */,
+				308F44361BE42AFB006AC354 /* Frameworks */,
+				308F44371BE42AFB006AC354 /* Resources */,
+				464F688D0BD955CD983F0F1B /* [CP] Copy Pods Resources */,
+				C2FB9ECBC1844380B77731B2 /* 📦 Copy Pods Resources */,
+				9F9FF19687DADED151A13B9C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				308F443B1BE42AFB006AC354 /* PBXTargetDependency */,
+			);
+			name = MunchkinsUITests;
+			productName = GameControllerUITests;
+			productReference = 308F44391BE42AFB006AC354 /* MunchkinsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		308F44121BE42AFA006AC354 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Reid Chatham";
+				TargetAttributes = {
+					308F44191BE42AFB006AC354 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NT7FFBVKUP;
+						LastSwiftMigration = 0800;
+					};
+					308F442D1BE42AFB006AC354 = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
+						TestTargetID = 308F44191BE42AFB006AC354;
+					};
+					308F44381BE42AFB006AC354 = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
+						TestTargetID = 308F44191BE42AFB006AC354;
+					};
+				};
+			};
+			buildConfigurationList = 308F44151BE42AFA006AC354 /* Build configuration list for PBXProject "Munchkins" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 308F44111BE42AFA006AC354;
+			productRefGroup = 308F441B1BE42AFB006AC354 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				308F44191BE42AFB006AC354 /* Munchkins */,
+				308F442D1BE42AFB006AC354 /* MunchkinsTests */,
+				308F44381BE42AFB006AC354 /* MunchkinsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		308F44181BE42AFB006AC354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2C61F37E539005ECA0C /* LaunchScreen.storyboard in Resources */,
+				3013A2D51F37E539005ECA0C /* GameViewController.xib in Resources */,
+				3013A2C51F37E539005ECA0C /* Assets.xcassets in Resources */,
+				3013A2D71F37E539005ECA0C /* Images.xcassets in Resources */,
+				3013A2E61F37E539005ECA0C /* UnrollTheToiletPaperViewController.xib in Resources */,
+				3013A2D91F37E539005ECA0C /* JoinMatchViewController.xib in Resources */,
+				30986B971F359E9800074282 /* Info.plist in Resources */,
+				3013A2E11F37E539005ECA0C /* TapTheDotViewController.xib in Resources */,
+				30986B9A1F359EC700074282 /* LaunchScreen.storyboard in Resources */,
+				3013A2D21F37E539005ECA0C /* FlappyBirdGameViewController.xib in Resources */,
+				30986B951F359E7B00074282 /* Assets.xcassets in Resources */,
+				3013A2CB1F37E539005ECA0C /* CoverTheDotViewController.xib in Resources */,
+				3013A2CF1F37E539005ECA0C /* FlappyBirdGameScene.sks in Resources */,
+				3013A2C71F37E539005ECA0C /* bird.atlas in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F442C1BE42AFB006AC354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2F31F37E9A5005ECA0C /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F44371BE42AFB006AC354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2F11F37E99D005ECA0C /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A83597EB7BFE44510B87888 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1B9DD06DCA494BE32D8E6041 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		31E92D2BF80F115D77E645A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MunchkinsTests/Pods-MunchkinsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		464F688D0BD955CD983F0F1B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MunchkinsUITests/Pods-MunchkinsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54A5D2DB25C36FBE07500E74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		645E9A0184956D2A635522BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		65619A504A3527057FF161E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		66EB822CB4A0B227B297C1BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A08EE3202F2F43B3F2D3A9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MunchkinsTests/Pods-MunchkinsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7226672B2AE148F4AF504FD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A488AC44F2A1A8ECACF214A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8269003ABD5E62E56E837AAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Munchkins/Pods-Munchkins-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F9FF19687DADED151A13B9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MunchkinsUITests/Pods-MunchkinsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A61CA0C5484278BC13809AC5 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD8E3A8A069543042E2ECFA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C2FB9ECBC1844380B77731B2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerUITests/Pods-GameControllerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3861F4AFCA30CA3900D438A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameControllerTests/Pods-GameControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A42B3110FFE40956A4EA5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Munchkins/Pods-Munchkins-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		308F44161BE42AFB006AC354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2CD1F37E539005ECA0C /* DotView.swift in Sources */,
+				3013A2CE1F37E539005ECA0C /* FlappyBird.swift in Sources */,
+				3013A2DE1F37E539005ECA0C /* Player.swift in Sources */,
+				3013A2DA1F37E539005ECA0C /* JoinMatchViewModel.swift in Sources */,
+				3013A2E41F37E539005ECA0C /* UnrollTheToiletPaper.swift in Sources */,
+				3013A2DB1F37E539005ECA0C /* MiniGame.swift in Sources */,
+				3013A2D31F37E539005ECA0C /* FlappyBirdViewModel.swift in Sources */,
+				3013A2D61F37E539005ECA0C /* GameViewModel.swift in Sources */,
+				3013A2971F37E32B005ECA0C /* PeerConnectionService.swift in Sources */,
+				3013A2CC1F37E539005ECA0C /* CoverTheDotViewModel.swift in Sources */,
+				3013A2E01F37E539005ECA0C /* TapTheDotViewController.swift in Sources */,
+				3013A29B1F37E353005ECA0C /* MotionKit.swift in Sources */,
+				3013A2C81F37E539005ECA0C /* BlockBehavior.swift in Sources */,
+				3013A2D01F37E539005ECA0C /* FlappyBirdGameScene.swift in Sources */,
+				3013A29D1F37E4FF005ECA0C /* JoinMatchCoordinator.swift in Sources */,
+				3013A2DC1F37E539005ECA0C /* MiniGameCoordinator.swift in Sources */,
+				3013A2E51F37E539005ECA0C /* UnrollTheToiletPaperViewController.swift in Sources */,
+				3013A2DD1F37E539005ECA0C /* MiniGameRound.swift in Sources */,
+				3013A2E21F37E539005ECA0C /* TapTheDotViewModel.swift in Sources */,
+				3013A2D81F37E539005ECA0C /* JoinMatchViewController.swift in Sources */,
+				3013A2D41F37E539005ECA0C /* GameViewController.swift in Sources */,
+				3013A2CA1F37E539005ECA0C /* CoverTheDotViewController.swift in Sources */,
+				3013A2DF1F37E539005ECA0C /* TapTheDot.swift in Sources */,
+				3013A2D11F37E539005ECA0C /* FlappyBirdGameViewController.swift in Sources */,
+				3013A2991F37E34A005ECA0C /* Extensions.swift in Sources */,
+				3013A29F1F37E526005ECA0C /* GameCoordinator.swift in Sources */,
+				3013A2E31F37E539005ECA0C /* Timer.swift in Sources */,
+				3013A2E71F37E539005ECA0C /* UnrollTheToiletPaperViewModel.swift in Sources */,
+				3013A2951F37E322005ECA0C /* AppDelegate.swift in Sources */,
+				3013A2C91F37E539005ECA0C /* CoverTheDot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F442A1BE42AFB006AC354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2F21F37E9A1005ECA0C /* MunchkinsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		308F44351BE42AFB006AC354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3013A2F01F37E991005ECA0C /* MunchkinsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		308F44301BE42AFB006AC354 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 308F44191BE42AFB006AC354 /* Munchkins */;
+			targetProxy = 308F442F1BE42AFB006AC354 /* PBXContainerItemProxy */;
+		};
+		308F443B1BE42AFB006AC354 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 308F44191BE42AFB006AC354 /* Munchkins */;
+			targetProxy = 308F443A1BE42AFB006AC354 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3013A2A21F37E539005ECA0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3013A2A31F37E539005ECA0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		30986B981F359EC700074282 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30986B991F359EC700074282 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		308F44401BE42AFC006AC354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		308F44411BE42AFC006AC354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		308F44431BE42AFC006AC354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44E2F4C9BD256981FF726822 /* Pods-Munchkins.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Munchkins/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.Munchkins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		308F44441BE42AFC006AC354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C31414DFB58398A126FC23C /* Pods-Munchkins.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Munchkins/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.Munchkins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		308F44461BE42AFC006AC354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 634D50BC57EBAC94A45504C0 /* Pods-MunchkinsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GameControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Munchkins.app/Munchkins";
+			};
+			name = Debug;
+		};
+		308F44471BE42AFC006AC354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54DA8256923E227E61610BC2 /* Pods-MunchkinsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GameControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Munchkins.app/Munchkins";
+			};
+			name = Release;
+		};
+		308F44491BE42AFC006AC354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 608595F8702ECF735AE44930 /* Pods-MunchkinsUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = GameControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GameController;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		308F444A1BE42AFC006AC354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2091CA5AF19F568AEBC1EF20 /* Pods-MunchkinsUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = GameControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rchatham.GameControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GameController;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		308F44151BE42AFA006AC354 /* Build configuration list for PBXProject "Munchkins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				308F44401BE42AFC006AC354 /* Debug */,
+				308F44411BE42AFC006AC354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		308F44421BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "Munchkins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				308F44431BE42AFC006AC354 /* Debug */,
+				308F44441BE42AFC006AC354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		308F44451BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "MunchkinsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				308F44461BE42AFC006AC354 /* Debug */,
+				308F44471BE42AFC006AC354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		308F44481BE42AFC006AC354 /* Build configuration list for PBXNativeTarget "MunchkinsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				308F44491BE42AFC006AC354 /* Debug */,
+				308F444A1BE42AFC006AC354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 308F44121BE42AFA006AC354 /* Project object */;
+}

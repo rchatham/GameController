@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "PeerConnectivity.h"
 
-FOUNDATION_EXPORT double PeerConnectivityVersionNumber;
-FOUNDATION_EXPORT const unsigned char PeerConnectivityVersionString[];
+FOUNDATION_EXPORT double Pods_MunchkinsTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MunchkinsTestsVersionString[];
 

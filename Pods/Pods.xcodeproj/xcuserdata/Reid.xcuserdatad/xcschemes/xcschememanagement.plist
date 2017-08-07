@@ -4,22 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Architecture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CoordinatorType.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PeerConnectivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-GameController.xcscheme</key>
+		<key>PluggableApplicationDelegate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-GameControllerTests.xcscheme</key>
+		<key>Pods-Munchkins.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-GameControllerUITests.xcscheme</key>
+		<key>Pods-MunchkinsTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MunchkinsUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04EF402B13F28B40ED3D809BBF35E3D9</key>
+		<key>1CE66E6BEBB38515ACA06F59D0120A55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1D6A4EF0E99434739DF74F001B090858</key>
+		<key>619414BE952459F967EFB4CF5D4073AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9B159C10A0668748B20AE4DC5972CC0</key>
+		<key>6D7CAABCCFF2039D7505213218A5DAEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7C790DC81170A80D8281790A68E90D4</key>
+		<key>7BF68B5910EDF4B2BE9881178652D6A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EAA4451D11A3BE7C373BFCE03AA6139</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A718F43AA101B84F34F25F5723E4675D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF201FAE957D4A2268EC8AF2B50FA7A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
