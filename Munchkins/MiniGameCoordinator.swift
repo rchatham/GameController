@@ -18,11 +18,14 @@ internal final class MiniGameCoordinator: NavigationCoordinatorType {
 
     let connectionManager: PeerConnectionManager
     
-    weak var delegate: CoordinatorTypeDelegate?
-
+    weak var delegate: CoordinatorTypeDelegate? {
+        return _delegate
+    }
+    fileprivate let _delegate: MiniGameCoordinatorDelegate
+    
     fileprivate var games: [MiniGame] = []
     fileprivate let miniGameRound = MiniGameRound()
-    internal weak var navigationController : UINavigationController?
+    internal weak var navigationController: UINavigationController?
     
     // Does not present any child coordinators. Constant empty array.
     var childCoordinators: [CoordinatorType] = []
@@ -30,7 +33,7 @@ internal final class MiniGameCoordinator: NavigationCoordinatorType {
     init(games: [MiniGame], connectionManager: PeerConnectionManager, delegate: MiniGameCoordinatorDelegate) {
         self.games = games
         self.connectionManager = connectionManager
-        self.delegate = delegate
+        self._delegate = delegate
         miniGameRound.setGameDelegate(self)
     }
     
@@ -38,7 +41,7 @@ internal final class MiniGameCoordinator: NavigationCoordinatorType {
         return nextViewController() ?? UIViewController()
     }
     
-    func nextViewController() -> UIViewController? {
+    fileprivate func nextViewController() -> UIViewController? {
         return getNextGame()?.gameViewController()
     }
     
@@ -66,7 +69,7 @@ extension MiniGameCoordinator : MiniGameRoundDelegate {
     func gameRoundDidResume(_ miniGameRound: MiniGameRound) {}
     
     func gameRound(_ miniGameRound: MiniGameRound, endedGameWithScore score: Int) {
-        (delegate as? MiniGameCoordinatorDelegate)?.miniGameCoordinator(self, playerDidScore: score)
+        _delegate.miniGameCoordinator(self, playerDidScore: score)
         guard let nextGame = getNextGame() else { return }
         let nextGameVC = nextGame.gameViewController()
         navigationController?.pushViewController(nextGameVC, animated: true)

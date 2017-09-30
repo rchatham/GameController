@@ -75,10 +75,10 @@ class CoverTheDotViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        NotificationCenter.default
-            .addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive,
-                object: nil, queue: OperationQueue.main) {
-                    (notification) -> Void in
+        NotificationCenter.default.addObserver(
+                forName: NSNotification.Name.UIApplicationDidBecomeActive,
+                object: nil,
+                queue: OperationQueue.main) { (notification) -> Void in
                 
                     // Motionkit starts taking accelerometer updates.
                     AppDelegate.Static.Motion.getAccelerometerValues() {
@@ -103,7 +103,10 @@ class CoverTheDotViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         if dotView == nil {
-            dotView = DotView(frame: CGRect(x: gameView.frame.size.width/2, y: gameView.frame.size.height/2, width: 40, height: 40))
+            dotView = DotView(frame: CGRect(x: gameView.frame.size.width/2,
+                                            y: gameView.frame.size.height/2,
+                                            width: 40,
+                                            height: 40))
             gameView.addSubview(dotView)
         }
     }

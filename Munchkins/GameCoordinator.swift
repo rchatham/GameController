@@ -13,9 +13,9 @@ import PeerConnectivity
 internal final class GameCoordinator: CoordinatorType {
     
     let connectionManager: PeerConnectionManager
+    fileprivate weak var gameViewController: GameViewController?
     
     weak var delegate: CoordinatorTypeDelegate?
-    fileprivate weak var gameViewController: GameViewController?
     internal var childCoordinators: [CoordinatorType] = []
     
     init(connectionManager: PeerConnectionManager, delegate: CoordinatorTypeDelegate) {
